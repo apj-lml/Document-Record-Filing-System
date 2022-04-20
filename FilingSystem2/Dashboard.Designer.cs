@@ -49,19 +49,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.tblfileBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.db_filingsystemDataSet1 = new FilingSystem2.db_filingsystemDataSet();
             this.tblfileBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dbfilingsystemDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblfileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbfilingsystemDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_fileTableAdapter1 = new FilingSystem2.db_filingsystemDataSetTableAdapters.tbl_fileTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbfilingsystemDataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource)).BeginInit();
@@ -341,12 +338,9 @@
             // tblfileBindingSource2
             // 
             this.tblfileBindingSource2.DataMember = "tbl_file";
-            this.tblfileBindingSource2.DataSource = this.db_filingsystemDataSet1;
             // 
             // db_filingsystemDataSet1
             // 
-            this.db_filingsystemDataSet1.DataSetName = "db_filingsystemDataSet";
-            this.db_filingsystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblfileBindingSource1
             // 
@@ -359,7 +353,6 @@
             // 
             // tbl_fileTableAdapter1
             // 
-            this.tbl_fileTableAdapter1.ClearBeforeFill = true;
             // 
             // dashboardForm
             // 
@@ -379,7 +372,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbfilingsystemDataSetBindingSource)).EndInit();
@@ -411,9 +403,7 @@
         private System.Windows.Forms.BindingSource tblfileBindingSource1;
         //private System.Windows.Forms.ToolStrip fillByToolStrip;
         //private System.Windows.Forms.ToolStripButton fillByToolStripButton;
-        private db_filingsystemDataSet db_filingsystemDataSet1;
         //private System.Windows.Forms.BindingSource tblfileBindingSource2;
-        private db_filingsystemDataSetTableAdapters.tbl_fileTableAdapter tbl_fileTableAdapter1;
         private System.Windows.Forms.BindingSource tblfileBindingSource2;
         private System.Windows.Forms.Button btnFileBox;
         private System.Windows.Forms.Label label2;

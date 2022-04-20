@@ -15,7 +15,8 @@ namespace FilingSystem2
     public partial class addDocumentRecordForm : Form
     {
         OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\NIA-PIMO\\source\\repos\\FilingSystem2\\FilingSystem2\\db_filingsystem.accdb");
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\NIA-PIMO\\source\\repos\\FilingSystem2\\FilingSystem2\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -109,7 +110,7 @@ namespace FilingSystem2
                 {
                     while (reader.Read())
                     {
-                        var dateNow = DateTime.Now.ToString("Mdyy-HHmmss");
+                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmss");
                         Console.WriteLine(dateNow);
                         tbCode.Text = reader.GetString(1) + dateNow;
                     }

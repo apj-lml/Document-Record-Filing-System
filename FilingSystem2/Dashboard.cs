@@ -16,7 +16,8 @@ namespace FilingSystem2
     {
 
         OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\NIA-PIMO\\source\\repos\\FilingSystem2\\FilingSystem2\\db_filingsystem.accdb");
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -27,7 +28,6 @@ namespace FilingSystem2
         public DataTable MyFiles(string filter_by = null, string filter_value = null)
         {
             string sql = null;
-            string text = "";
             if (filter_value == "ID")
             {
                 filter_value = "tfil.ID";
@@ -116,14 +116,6 @@ namespace FilingSystem2
         }
 
         public void loadDgDocumentsRecords() {
-            //dgDocumentsRecords.Columns[0].HeaderText = "ID";
-            //dgDocumentsRecords.Columns[1].HeaderText = "CODE";
-            //dgDocumentsRecords.Columns[2].HeaderText = "SUBJECT";
-            //dgDocumentsRecords.Columns[3].HeaderText = "PARTICULARS";
-            //dgDocumentsRecords.Columns[4].HeaderText = "FOLDER";
-            //dgDocumentsRecords.Columns[5].HeaderText = "DATE FILED";
-            //dgDocumentsRecords.Columns[6].HeaderText = "FILED BY";
-
             dgDocumentsRecords.DataSource = MyFiles();
             dgDocumentsRecords.Refresh();
             dgDocumentsRecords.Update();

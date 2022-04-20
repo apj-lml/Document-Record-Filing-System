@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tblfolderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.db_filingsystemDataSet = new FilingSystem2.db_filingsystemDataSet();
             this.btnFileDocument = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,18 +42,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbl_folderTableAdapter = new FilingSystem2.db_filingsystemDataSetTableAdapters.tbl_folderTableAdapter();
-            this.tbl_fileTableAdapter = new FilingSystem2.db_filingsystemDataSetTableAdapters.tbl_fileTableAdapter();
             this.cbFolder = new System.Windows.Forms.ComboBox();
-            this.db_filingsystemDataSet_test_1 = new FilingSystem2.db_filingsystemDataSet_test_1();
             this.tblfolderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_folderTableAdapter1 = new FilingSystem2.db_filingsystemDataSet_test_1TableAdapters.tbl_folderTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSet_test_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource1)).BeginInit();
+
             this.SuspendLayout();
             // 
             // panel1
@@ -99,13 +91,9 @@
             // 
             // tblfolderBindingSource
             // 
-            this.tblfolderBindingSource.DataMember = "tbl_folder";
-            this.tblfolderBindingSource.DataSource = this.db_filingsystemDataSet;
             // 
             // db_filingsystemDataSet
             // 
-            this.db_filingsystemDataSet.DataSetName = "db_filingsystemDataSet";
-            this.db_filingsystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnFileDocument
             // 
@@ -206,11 +194,9 @@
             // 
             // tbl_folderTableAdapter
             // 
-            this.tbl_folderTableAdapter.ClearBeforeFill = true;
             // 
             // tbl_fileTableAdapter
             // 
-            this.tbl_fileTableAdapter.ClearBeforeFill = true;
             // 
             // cbFolder
             // 
@@ -227,17 +213,14 @@
             // 
             // db_filingsystemDataSet_test_1
             // 
-            this.db_filingsystemDataSet_test_1.DataSetName = "db_filingsystemDataSet_test_1";
-            this.db_filingsystemDataSet_test_1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // tblfolderBindingSource1
             // 
             this.tblfolderBindingSource1.DataMember = "tbl_folder";
-            this.tblfolderBindingSource1.DataSource = this.db_filingsystemDataSet_test_1;
             // 
             // tbl_folderTableAdapter1
             // 
-            this.tbl_folderTableAdapter1.ClearBeforeFill = true;
             // 
             // addDocumentRecordForm
             // 
@@ -255,8 +238,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSet_test_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -276,13 +257,8 @@
         private System.Windows.Forms.Button btnFileDocument;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label5;
-        private db_filingsystemDataSet db_filingsystemDataSet;
         private System.Windows.Forms.BindingSource tblfolderBindingSource;
-        private db_filingsystemDataSetTableAdapters.tbl_folderTableAdapter tbl_folderTableAdapter;
-        private db_filingsystemDataSetTableAdapters.tbl_fileTableAdapter tbl_fileTableAdapter;
         private System.Windows.Forms.ComboBox cbFolder;
-        private db_filingsystemDataSet_test_1 db_filingsystemDataSet_test_1;
         private System.Windows.Forms.BindingSource tblfolderBindingSource1;
-        private db_filingsystemDataSet_test_1TableAdapters.tbl_folderTableAdapter tbl_folderTableAdapter1;
     }
 }

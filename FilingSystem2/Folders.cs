@@ -15,7 +15,7 @@ namespace FilingSystem2
     {
 
         OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\NIA-PIMO\\source\\repos\\FilingSystem2\\FilingSystem2\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -26,15 +26,94 @@ namespace FilingSystem2
         {
             InitializeComponent();
         }
+        public void CbLoadBoxes()
+        {
+            string query = "SELECT * FROM tbl_file_box ORDER BY box_name ASC";
+            da = new OleDbDataAdapter(query, con);
+            //con.Open();
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Box");
 
+            cbFileBox.DisplayMember = "box_name";
+            cbFileBox.ValueMember = "ID";
+            cbFileBox.DataSource = ds.Tables["Box"];
+
+        }
+
+        public DataTable MyFolders(string filter_by = null, string filter_value = null)
+        {
+            string sql = null;
+            //if (filter_value == "ID")
+            //{
+            //    filter_value = "tfil.ID";
+            //}
+            //else if (filter_value == "code")
+            //{
+            //    filter_value = "tfil.code";
+
+            //}
+            //else if (filter_value == "subject")
+            //{
+            //    filter_value = "tfil.subject";
+            //}
+            //else if (filter_value == "particulars")
+            //{
+            //    filter_value = "tfil.particulars";
+            //}
+            //else if (filter_value == "folder_name")
+            //{
+            //    filter_value = "tfol.folder_name";
+            //}
+            //else if (filter_value == "box_name")
+            //{
+            //    filter_value = "tfilbox.box_name";
+            //}
+            //else if (filter_value == "filed_by")
+            //{
+            //    filter_value = "usr.last_name & ', '& usr.first_name";
+            //}
+            //else
+            //{
+            //    //filter_value = "usr.last_name & ', '& usr.first_name";
+
+            //}
+
+            Console.WriteLine("filter val: " + filter_value);
+
+            if (filter_by == null)
+            {
+                sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder], tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location]
+                        FROM tbl_folder AS tfol
+                            INNER JOIN 
+                        tbl_file_box AS tfilbox
+                        ON tfol.file_box_id = tfilbox.ID
+                        ";
+
+            }
+            else
+            {
+                sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder], tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location],
+                        FROM tbl_folder AS tfol
+                            INNER JOIN 
+                        tbl_file_box AS tfilbox
+                        ON tfol.file_box_id = tfilbox.ID
+                        WHERE " + filter_value + " LIKE '%" + filter_by + "%'";
+
+            }
+            con.Open();
+            cmd = new OleDbCommand(sql, con);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            DataTable dt = new DataTable();
+
+            dt.Load(reader);
+            con.Close();
+            return dt;
+        }
         private void foldersForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'db_filingsystemDataSet_test_1.tbl_file_box' table. You can move, or remove it, as needed.
-            this.tbl_file_boxTableAdapter.Fill(this.db_filingsystemDataSet_test_1.tbl_file_box);
-
-            // TODO: This line of code loads data into the 'db_filingsystemDataSet_test_1.tbl_file_box' table. You can move, or remove it, as needed.
-            this.tbl_file_boxTableAdapter.Fill(this.db_filingsystemDataSet_test_1.tbl_file_box);
-
+            dgFolder.DataSource = MyFolders();
+            CbLoadBoxes();
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)
@@ -45,18 +124,6 @@ namespace FilingSystem2
             }
             else
             {
-                //con.Open();
-                //string folder = "SELECT * FROM tbl_folder WHERE folder_code = '" + tbFolderCode.Text + "'";
-                //cmd = new OleDbCommand(folder, con);
-                //OleDbDataReader reader = cmd.ExecuteReader();
-                //con.Close();
-
-                //if (reader.Read() == true)
-                //{
-                //    MessageBox.Show("You have already used this code prefix. Please Try Again.", "Duplicate Code Prefix!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
-                //else
-                //{
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id) values(@folder_code,@folder_name,@folder_description,@file_box_id)";
                     cmd.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
@@ -69,13 +136,7 @@ namespace FilingSystem2
                     cmd.ExecuteNonQuery();
                     con.Close();
 
-                    //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
-                    //dgv.Refresh();
-
                     MessageBox.Show("Record Inserted Successfully", "Success!");
-                //}
-
-
             }
         }
 

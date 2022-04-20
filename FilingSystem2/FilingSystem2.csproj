@@ -50,19 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="db_filingsystemDataSet.cs">
-      <DependentUpon>db_filingsystemDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="db_filingsystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_filingsystemDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="db_filingsystemDataSet_test_11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_filingsystemDataSet_test_1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Dictionary.cs" />
     <Compile Include="FileBox.cs">
       <SubType>Form</SubType>
@@ -131,28 +118,6 @@
     <EmbeddedResource Include="ViewDocument.resx">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="db_filingsystemDataSet.xsc">
-      <DependentUpon>db_filingsystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="db_filingsystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>db_filingsystemDataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="db_filingsystemDataSet.xss">
-      <DependentUpon>db_filingsystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="db_filingsystemDataSet_test_1.xsc">
-      <DependentUpon>db_filingsystemDataSet_test_1.xsd</DependentUpon>
-    </None>
-    <None Include="db_filingsystemDataSet_test_1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>db_filingsystemDataSet_test_11.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="db_filingsystemDataSet_test_1.xss">
-      <DependentUpon>db_filingsystemDataSet_test_1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -210,6 +175,9 @@
     <Content Include="db_filingsystem.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\add-product.png" />
+    <None Include="Resources\folder %282%29.png" />
+    <None Include="Resources\folder %281%29.png" />
     <None Include="Resources\diskette-white.png" />
     <None Include="Resources\archives.png" />
   </ItemGroup>
