@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFileDocument = new System.Windows.Forms.Button();
             this.tbFileBoxDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbFileBoxName = new System.Windows.Forms.TextBox();
@@ -38,10 +39,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFileDocument = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgFileBox = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tblfileboxBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFileBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileboxBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,16 +63,36 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 81);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 287);
+            this.panel2.Size = new System.Drawing.Size(600, 551);
             this.panel2.TabIndex = 3;
+            // 
+            // btnFileDocument
+            // 
+            this.btnFileDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
+            this.btnFileDocument.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFileDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFileDocument.ForeColor = System.Drawing.Color.White;
+            this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.add_product;
+            this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileDocument.Location = new System.Drawing.Point(196, 227);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFileDocument.Name = "btnFileDocument";
+            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnFileDocument.Size = new System.Drawing.Size(188, 40);
+            this.btnFileDocument.TabIndex = 9;
+            this.btnFileDocument.Text = "  Create File Box";
+            this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileDocument.UseVisualStyleBackColor = false;
+            this.btnFileDocument.Click += new System.EventHandler(this.btnFileDocument_Click);
             // 
             // tbFileBoxDescription
             // 
             this.tbFileBoxDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFileBoxDescription.Location = new System.Drawing.Point(22, 118);
-            this.tbFileBoxDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFileBoxDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxDescription.Multiline = true;
             this.tbFileBoxDescription.Name = "tbFileBoxDescription";
             this.tbFileBoxDescription.Size = new System.Drawing.Size(560, 98);
@@ -87,7 +113,7 @@
             // 
             this.tbFileBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFileBoxName.Location = new System.Drawing.Point(306, 41);
-            this.tbFileBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFileBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxName.MaxLength = 1028;
             this.tbFileBoxName.Name = "tbFileBoxName";
             this.tbFileBoxName.Size = new System.Drawing.Size(244, 29);
@@ -108,11 +134,13 @@
             // 
             this.tbFileBoxCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFileBoxCode.Location = new System.Drawing.Point(22, 41);
-            this.tbFileBoxCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFileBoxCode.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxCode.MaxLength = 3;
             this.tbFileBoxCode.Name = "tbFileBoxCode";
             this.tbFileBoxCode.Size = new System.Drawing.Size(252, 29);
             this.tbFileBoxCode.TabIndex = 1;
+            this.tbFileBoxCode.TextChanged += new System.EventHandler(this.tbFileBoxCode_TextChanged);
+            this.tbFileBoxCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFileBoxCode_KeyPress);
             // 
             // label2
             // 
@@ -131,7 +159,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 81);
             this.panel1.TabIndex = 2;
@@ -141,32 +169,60 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(139, 20);
+            this.label1.Location = new System.Drawing.Point(111, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(370, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Create File Box / Location";
             // 
-            // btnFileDocument
+            // panel3
             // 
-            this.btnFileDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
-            this.btnFileDocument.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnFileDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnFileDocument.ForeColor = System.Drawing.Color.White;
-            this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.add_product;
-            this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(199, 230);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFileDocument.Name = "btnFileDocument";
-            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnFileDocument.Size = new System.Drawing.Size(188, 40);
-            this.btnFileDocument.TabIndex = 9;
-            this.btnFileDocument.Text = "  Create File Box";
-            this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFileDocument.UseVisualStyleBackColor = false;
-            this.btnFileDocument.Click += new System.EventHandler(this.btnFileDocument_Click);
+            this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel3.Controls.Add(this.dgFileBox);
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 364);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(600, 268);
+            this.panel3.TabIndex = 20;
+            // 
+            // dgFileBox
+            // 
+            this.dgFileBox.AllowUserToAddRows = false;
+            this.dgFileBox.AllowUserToDeleteRows = false;
+            this.dgFileBox.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgFileBox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgFileBox.Location = new System.Drawing.Point(22, 56);
+            this.dgFileBox.MultiSelect = false;
+            this.dgFileBox.Name = "dgFileBox";
+            this.dgFileBox.ReadOnly = true;
+            this.dgFileBox.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgFileBox.Size = new System.Drawing.Size(560, 200);
+            this.dgFileBox.TabIndex = 15;
+            this.dgFileBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgFileBox_MouseDoubleClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(83, 17);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.MaxLength = 3;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(252, 29);
+            this.textBox1.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(20, 21);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 21);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Search";
             // 
             // tblfileboxBindingSource
             // 
@@ -176,17 +232,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 368);
+            this.ClientSize = new System.Drawing.Size(600, 632);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fileBoxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Box / Location";
+            this.Load += new System.EventHandler(this.fileBoxForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFileBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileboxBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -205,5 +266,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView dgFileBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

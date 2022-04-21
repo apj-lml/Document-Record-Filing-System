@@ -17,7 +17,7 @@ namespace FilingSystem2
 
         OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
         //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -194,6 +194,9 @@ namespace FilingSystem2
 
         }
 
-
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            new reportViewerForm().Show();  
+        }
     }
 }

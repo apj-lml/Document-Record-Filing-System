@@ -14,7 +14,7 @@ namespace FilingSystem2
     public partial class ViewDocument : Form
     {
         OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\NIA-PIMO\\source\\repos\\FilingSystem2\\FilingSystem2\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -124,6 +124,7 @@ namespace FilingSystem2
 
         private void btnSaveChangesDocument_Click(object sender, EventArgs e)
         {
+
             OleDbCommand cmd = new OleDbCommand(@"UPDATE tbl_file
                                                     SET code = @code,
                                                         subject = @subject,

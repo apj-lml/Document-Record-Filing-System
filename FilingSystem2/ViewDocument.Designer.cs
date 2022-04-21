@@ -59,7 +59,7 @@
             this.btnSaveChangesDocument.Image = global::FilingSystem2.Properties.Resources.diskette_white;
             this.btnSaveChangesDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveChangesDocument.Location = new System.Drawing.Point(298, 355);
-            this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChangesDocument.Name = "btnSaveChangesDocument";
             this.btnSaveChangesDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnSaveChangesDocument.Size = new System.Drawing.Size(175, 40);
@@ -85,7 +85,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(371, 15);
+            this.label5.Location = new System.Drawing.Point(371, 16);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 21);
@@ -96,7 +96,7 @@
             // 
             this.tbParticulars.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbParticulars.Location = new System.Drawing.Point(63, 211);
-            this.tbParticulars.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbParticulars.Margin = new System.Windows.Forms.Padding(2);
             this.tbParticulars.Multiline = true;
             this.tbParticulars.Name = "tbParticulars";
             this.tbParticulars.Size = new System.Drawing.Size(608, 127);
@@ -127,8 +127,8 @@
             // tbCode
             // 
             this.tbCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbCode.Location = new System.Drawing.Point(63, 40);
-            this.tbCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCode.Location = new System.Drawing.Point(63, 38);
+            this.tbCode.Margin = new System.Windows.Forms.Padding(2);
             this.tbCode.Name = "tbCode";
             this.tbCode.ReadOnly = true;
             this.tbCode.Size = new System.Drawing.Size(283, 29);
@@ -160,7 +160,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 115);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(741, 412);
             this.panel2.TabIndex = 3;
@@ -171,8 +171,8 @@
             this.cbFolder.DisplayMember = "folder_name";
             this.cbFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbFolder.FormattingEnabled = true;
-            this.cbFolder.Location = new System.Drawing.Point(375, 37);
-            this.cbFolder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFolder.Location = new System.Drawing.Point(375, 38);
+            this.cbFolder.Margin = new System.Windows.Forms.Padding(2);
             this.cbFolder.Name = "cbFolder";
             this.cbFolder.Size = new System.Drawing.Size(296, 29);
             this.cbFolder.TabIndex = 14;
@@ -184,7 +184,7 @@
             // 
             this.tbSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbSubject.Location = new System.Drawing.Point(63, 103);
-            this.tbSubject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSubject.Margin = new System.Windows.Forms.Padding(2);
             this.tbSubject.Multiline = true;
             this.tbSubject.Name = "tbSubject";
             this.tbSubject.Size = new System.Drawing.Size(608, 75);
@@ -209,7 +209,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(741, 115);
             this.panel1.TabIndex = 2;
@@ -217,10 +217,11 @@
             // tbID
             // 
             this.tbID.Location = new System.Drawing.Point(28, 80);
-            this.tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(117, 20);
             this.tbID.TabIndex = 15;
+            this.tbID.Visible = false;
             // 
             // ViewDocument
             // 
@@ -229,7 +230,7 @@
             this.ClientSize = new System.Drawing.Size(741, 527);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewDocument";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewDocument";

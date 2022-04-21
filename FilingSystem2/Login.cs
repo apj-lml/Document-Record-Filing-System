@@ -14,9 +14,8 @@ namespace FilingSystem2
     public partial class loginForm : Form
     {
         //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
-        OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
+        //OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
 
 
         OleDbCommand cmd = new OleDbCommand();
@@ -48,7 +47,6 @@ namespace FilingSystem2
 
             if (reader.Read() == true)
             {
-               
 
                 LoginInfo.UserID = int.Parse(reader["ID"].ToString());
                 LoginInfo.EmpID = reader["emp_id"].ToString();

@@ -14,8 +14,7 @@ namespace FilingSystem2
     public partial class foldersForm : Form
     {
 
-        OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -82,22 +81,31 @@ namespace FilingSystem2
 
             if (filter_by == null)
             {
-                sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder], tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location]
-                        FROM tbl_folder AS tfol
+                sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder],
+                               tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
+                        FROM ((tbl_folder AS tfol
                             INNER JOIN 
                         tbl_file_box AS tfilbox
-                        ON tfol.file_box_id = tfilbox.ID
+                        ON tfol.file_box_id = tfilbox.ID)
+                            INNER JOIN
+                        tbl_user AS usr
+                        ON usr.ID = tfol.created_by)
                         ";
 
             }
             else
             {
-                sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder], tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location],
-                        FROM tbl_folder AS tfol
+                sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder],
+                               tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
+                        FROM ((tbl_folder AS tfol
                             INNER JOIN 
                         tbl_file_box AS tfilbox
-                        ON tfol.file_box_id = tfilbox.ID
-                        WHERE " + filter_value + " LIKE '%" + filter_by + "%'";
+                        ON tfol.file_box_id = tfilbox.ID)
+                            INNER JOIN
+                        tbl_user AS usr
+                        ON usr.ID = tfol.created_by)
+                        WHERE tfol.ID LIKE '%" + filter_by + "%' OR tfol.folder_code LIKE '%" + filter_by + "%' OR tfol.folder_name LIKE '%" + filter_by + "%' OR tfol.folder_description LIKE '%" + filter_by + "%' " +
+                        "OR tfilbox.box_name LIKE '%" + filter_by + "%' OR usr.last_name LIKE '%" + filter_by + "%' OR usr.first_name LIKE '%" + filter_by + "%'";
 
             }
             con.Open();
@@ -110,9 +118,16 @@ namespace FilingSystem2
             con.Close();
             return dt;
         }
-        private void foldersForm_Load(object sender, EventArgs e)
+
+        public void loadFolders()
         {
             dgFolder.DataSource = MyFolders();
+            dgFolder.Refresh();
+            dgFolder.Update();
+        }
+        private void foldersForm_Load(object sender, EventArgs e)
+        {
+            loadFolders();
             CbLoadBoxes();
         }
 
@@ -124,6 +139,22 @@ namespace FilingSystem2
             }
             else
             {
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_code = @folder_code", con);
+                cmd2.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
+                con.Open();
+                OleDbDataReader reader = cmd2.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+
+                    MessageBox.Show("Code prefix has already been used. Please choose another.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    con.Close();
+
+                }
+                else
+                {
+                    con.Close();
+
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id) values(@folder_code,@folder_name,@folder_description,@file_box_id)";
                     cmd.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
@@ -136,7 +167,10 @@ namespace FilingSystem2
                     cmd.ExecuteNonQuery();
                     con.Close();
 
+                    //loadFolders();
                     MessageBox.Show("Record Inserted Successfully", "Success!");
+
+                }
             }
         }
 
@@ -146,14 +180,25 @@ namespace FilingSystem2
             new fileBoxForm().Show();
         }
 
-        private void tbFolderCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbFolderCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void dgFolder_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            new EditFolderForm(this).Show();
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgFolder.DataSource = MyFolders(tbSearch.Text);
+
+        }
+
+        private void tbFolderCode_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

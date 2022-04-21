@@ -37,7 +37,27 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,7 +70,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db_filingsystemDataSetForReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_filingsystemDataSetForReports.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary.cs" />
+    <Compile Include="EditFileBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFileBox.Designer.cs">
+      <DependentUpon>EditFileBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditFolderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFolderForm.Designer.cs">
+      <DependentUpon>EditFolderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,20 +113,33 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FIleDocument.cs">
+    <Compile Include="FileDocument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FIleDocument.Designer.cs">
-      <DependentUpon>FIleDocument.cs</DependentUpon>
+    <Compile Include="FileDocument.Designer.cs">
+      <DependentUpon>FileDocument.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerForm.Designer.cs">
+      <DependentUpon>ReportViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewDocument.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewDocument.Designer.cs">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditFileBox.resx">
+      <DependentUpon>EditFileBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditFolderForm.resx">
+      <DependentUpon>EditFolderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileBox.resx">
       <DependentUpon>FileBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,8 +152,8 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FIleDocument.resx">
-      <DependentUpon>FIleDocument.cs</DependentUpon>
+    <EmbeddedResource Include="FileDocument.resx">
+      <DependentUpon>FileDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,9 +165,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="ReportViewerForm.resx">
+      <DependentUpon>ReportViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewDocument.resx">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="db_filingsystemDataSetForReports.xsc">
+      <DependentUpon>db_filingsystemDataSetForReports.xsd</DependentUpon>
+    </None>
+    <None Include="db_filingsystemDataSetForReports.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_filingsystemDataSetForReports.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_filingsystemDataSetForReports.xss">
+      <DependentUpon>db_filingsystemDataSetForReports.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,8 +239,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="db_filingsystem.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\edit.png" />
     <None Include="Resources\add-product.png" />
     <None Include="Resources\folder %282%29.png" />
     <None Include="Resources\folder %281%29.png" />
