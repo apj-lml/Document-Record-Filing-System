@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace FilingSystem2
     public partial class foldersForm : Form
     {
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -155,15 +156,17 @@ namespace FilingSystem2
                 {
                     con.Close();
 
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id) values(@folder_code,@folder_name,@folder_description,@file_box_id)";
+                    //cmd.CommandType = CommandType.Text;
+                    string sql = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id) values(@folder_code,@folder_name,@folder_description,@file_box_id)";
+                    
+
+                    //cmd.Connection = con;
+                    con.Open();
+                    cmd = new OleDbCommand(sql, con);
                     cmd.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
                     cmd.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
                     cmd.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
                     cmd.Parameters.AddWithValue("@file_box_id", int.Parse(cbFileBox.SelectedValue.ToString()));
-
-                    cmd.Connection = con;
-                    con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
 

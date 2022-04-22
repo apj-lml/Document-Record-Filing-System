@@ -70,6 +70,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db_filingsystemDataSetForReports.cs">
+      <DependentUpon>db_filingsystemDataSetForReports.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_filingsystemDataSetForReports.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -238,9 +241,7 @@
     <None Include="Resources\plus-symbol-button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db_filingsystem.accdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="db_filingsystem.accdb" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -262,4 +263,12 @@
     <None Include="Resources\archives.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
