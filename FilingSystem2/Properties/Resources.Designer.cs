@@ -233,9 +233,29 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tacking_login_2 {
+            get {
+                object obj = ResourceManager.GetObject("tacking-login 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tacking_login_3 {
             get {
                 object obj = ResourceManager.GetObject("tacking-login 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tacking_login_bg_111 {
+            get {
+                object obj = ResourceManager.GetObject("tacking-login bg 111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

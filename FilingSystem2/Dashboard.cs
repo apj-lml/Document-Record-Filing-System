@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +16,11 @@ namespace FilingSystem2
     public partial class dashboardForm : Form
     {
 
-        OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
+        //OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
         //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -70,13 +73,13 @@ namespace FilingSystem2
                     tfilbox.box_name AS [FILE BOX / LOCATION], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
                     
                     FROM (((tbl_file AS tfil 
-                        INNER JOIN 
+                        LEFT JOIN 
                     tbl_folder AS tfol
                     ON tfil.folder_id = tfol.ID)
-                        INNER JOIN
+                        LEFT JOIN
                     tbl_file_box AS tfilbox
                     ON tfilbox.ID = tfol.file_box_id)
-                        INNER JOIN
+                        LEFT JOIN
                     tbl_user AS usr
                     ON tfil.filed_by = usr.ID
                     )
@@ -122,7 +125,20 @@ namespace FilingSystem2
         }
         private void dashboardForm_Load(object sender, EventArgs e)
         {
+            var role = loginForm.LoginInfo.Role;
+            var last_name = loginForm.LoginInfo.LastName;
+            var first_name = loginForm.LoginInfo.FirstName;
 
+            //MessageBox.Show("Welcome,"+first_name, "Hi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            if (role == "user")
+            {
+                btnUsers.Visible = false;
+            }
+            else {
+                btnUsers.Visible = true;
+
+            }
             //this.tbl_fileTableAdapter1.Fill(this.db_filingsystemDataSet1.tbl_file);
             loadDgDocumentsRecords();
 
@@ -152,8 +168,9 @@ namespace FilingSystem2
             var first_name = loginForm.LoginInfo.FirstName;
             var section = loginForm.LoginInfo.Section;
             var unit = loginForm.LoginInfo.Unit;
+            var role = loginForm.LoginInfo.Role;
 
- 
+
             new addDocumentRecordForm(this).Show();
 
             //MessageBox.Show("Hi, "+last_name, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);

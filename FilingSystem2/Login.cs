@@ -38,6 +38,7 @@ namespace FilingSystem2
             public static string NameExtension;
             public static string Section;
             public static string Unit;
+            public static string Role;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace FilingSystem2
                 LoginInfo.NameExtension = reader["name_extension"].ToString();
                 LoginInfo.Section = reader["section"].ToString();
                 LoginInfo.Unit = reader["unit"].ToString();
+                LoginInfo.Role = reader["role"].ToString();
 
                 //LoginInfo.UserInfo = reader.GetString(0);
                 new dashboardForm().Show();

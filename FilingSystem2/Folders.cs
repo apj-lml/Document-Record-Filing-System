@@ -85,13 +85,15 @@ namespace FilingSystem2
                 sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder],
                                tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
                         FROM ((tbl_folder AS tfol
-                            INNER JOIN 
+                            LEFT JOIN
                         tbl_file_box AS tfilbox
                         ON tfol.file_box_id = tfilbox.ID)
-                            INNER JOIN
+                            LEFT JOIN
                         tbl_user AS usr
                         ON usr.ID = tfol.created_by)
                         ";
+
+                //sql = @"SELECT * FROM tbl_folder";
 
             }
             else
@@ -99,10 +101,10 @@ namespace FilingSystem2
                 sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder],
                                tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
                         FROM ((tbl_folder AS tfol
-                            INNER JOIN 
+                            LEFT JOIN
                         tbl_file_box AS tfilbox
                         ON tfol.file_box_id = tfilbox.ID)
-                            INNER JOIN
+                            LEFT JOIN
                         tbl_user AS usr
                         ON usr.ID = tfol.created_by)
                         WHERE tfol.ID LIKE '%" + filter_by + "%' OR tfol.folder_code LIKE '%" + filter_by + "%' OR tfol.folder_name LIKE '%" + filter_by + "%' OR tfol.folder_description LIKE '%" + filter_by + "%' " +
@@ -110,8 +112,8 @@ namespace FilingSystem2
 
             }
             con.Open();
-            cmd = new OleDbCommand(sql, con);
-            OleDbDataReader reader = cmd.ExecuteReader();
+            OleDbCommand cmd_select_folders = new OleDbCommand(sql, con);
+            OleDbDataReader reader = cmd_select_folders.ExecuteReader();
 
             DataTable dt = new DataTable();
 
@@ -170,7 +172,7 @@ namespace FilingSystem2
                     cmd.ExecuteNonQuery();
                     con.Close();
 
-                    //loadFolders();
+                    loadFolders();
                     MessageBox.Show("Record Inserted Successfully", "Success!");
 
                 }
