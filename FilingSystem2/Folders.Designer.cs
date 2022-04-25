@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgFolder = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.test1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsViewSelectedFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsDeleteFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -221,7 +221,7 @@
             this.dgFolder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFolder.ContextMenuStrip = this.contextMenuStrip1;
             this.dgFolder.Location = new System.Drawing.Point(29, 69);
-            this.dgFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgFolder.Margin = new System.Windows.Forms.Padding(4);
             this.dgFolder.MultiSelect = false;
             this.dgFolder.Name = "dgFolder";
             this.dgFolder.ReadOnly = true;
@@ -235,22 +235,24 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.test1ToolStripMenuItem,
-            this.test2ToolStripMenuItem});
+            this.tsViewSelectedFolder,
+            this.tsDeleteFolder});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(250, 80);
             // 
-            // test1ToolStripMenuItem
+            // tsViewSelectedFolder
             // 
-            this.test1ToolStripMenuItem.Name = "test1ToolStripMenuItem";
-            this.test1ToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.test1ToolStripMenuItem.Text = "test1";
+            this.tsViewSelectedFolder.Name = "tsViewSelectedFolder";
+            this.tsViewSelectedFolder.Size = new System.Drawing.Size(249, 24);
+            this.tsViewSelectedFolder.Text = "View/Edit Selected Folder";
+            this.tsViewSelectedFolder.Click += new System.EventHandler(this.tsViewSelectedFolder_Click);
             // 
-            // test2ToolStripMenuItem
+            // tsDeleteFolder
             // 
-            this.test2ToolStripMenuItem.Name = "test2ToolStripMenuItem";
-            this.test2ToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.test2ToolStripMenuItem.Text = "test2";
+            this.tsDeleteFolder.Name = "tsDeleteFolder";
+            this.tsDeleteFolder.Size = new System.Drawing.Size(229, 24);
+            this.tsDeleteFolder.Text = "Delete Selected Folder";
+            this.tsDeleteFolder.Click += new System.EventHandler(this.tsDeleteFolder_Click);
             // 
             // label6
             // 
@@ -279,9 +281,8 @@
             this.panel3.Controls.Add(this.dgFolder);
             this.panel3.Controls.Add(this.tbSearch);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 502);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 340);
             this.panel3.TabIndex = 19;
@@ -335,8 +336,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem test1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem test2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsViewSelectedFolder;
+        private System.Windows.Forms.ToolStripMenuItem tsDeleteFolder;
         private db_filingsystemDataSetForReportsTableAdapters.tbl_userTableAdapter tbl_userTableAdapter1;
     }
 }

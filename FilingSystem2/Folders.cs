@@ -182,7 +182,7 @@ namespace FilingSystem2
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            new fileBoxForm().Show();
+            new fileBoxForm().ShowDialog();
         }
 
         private void tbFolderCode_KeyPress(object sender, KeyPressEventArgs e)
@@ -192,7 +192,7 @@ namespace FilingSystem2
 
         private void dgFolder_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            new EditFolderForm(this).Show();
+            new EditFolderForm(this).ShowDialog();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -203,6 +203,51 @@ namespace FilingSystem2
 
         private void tbFolderCode_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void tsViewSelectedFolder_Click(object sender, EventArgs e)
+        {
+            new EditFolderForm(this).ShowDialog();
+        }
+
+        private void tsDeleteFolder_Click(object sender, EventArgs e)
+        {
+            var folder_id = dgFolder.CurrentRow.Cells[0].Value;
+                
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this folder?", "Delete Folder?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_file WHERE folder_id = @folder_id", con);
+                cmd2.Parameters.AddWithValue("@folder_id", folder_id);
+                con.Open();
+                OleDbDataReader reader = cmd2.ExecuteReader();
+                if (reader.Read() == true)
+                {
+                    con.Close();
+
+                    MessageBox.Show("Please transfer the files in this folder first before deleting!", "Deleting Folder Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    con.Close();
+
+                    OleDbCommand cmd_delete_folder = new OleDbCommand(@"DELETE FROM tbl_folder
+                                            WHERE ID = @folder_id", con);
+
+                    cmd_delete_folder.Parameters.AddWithValue("@folder_id", folder_id);
+                    con.Open();
+                    cmd_delete_folder.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show("Folder deleted succesfully!", "Folder Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    loadFolders();
+
+                }
+            }
+            
 
         }
     }

@@ -189,12 +189,12 @@ namespace FilingSystem2
 
         private void btnFolders_Click(object sender, EventArgs e)
         {
-            new foldersForm().Show();
+            new foldersForm().ShowDialog();
         }
 
         private void btnFileBox_Click(object sender, EventArgs e)
         {
-            new fileBoxForm().Show();
+            new fileBoxForm().ShowDialog();
 
         }
 
@@ -206,14 +206,49 @@ namespace FilingSystem2
 
         private void btnViewDocument_Click(object sender, EventArgs e)
         {
-            new ViewDocument(this).Show();
+            new ViewDocument().ShowDialog();
             //Console.WriteLine(dgDocumentsRecords.CurrentRow.Cells[0].Value);
 
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            new reportViewerForm().Show();  
+            new reportViewerForm().ShowDialog();  
+        }
+
+        private void btnTransferDocuments_Click(object sender, EventArgs e)
+        {
+            new transferDocumentRecordForm(this).ShowDialog(); 
+        }
+
+        private void tsViewDocument_Click(object sender, EventArgs e)
+        {
+            new EditDocument(this).ShowDialog();
+        }
+
+        private void tsDeleteDocument_Click(object sender, EventArgs e)
+        {
+            var id = dgDocumentsRecords.CurrentRow.Cells[0].Value;
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Document / Record?", "Delete Document / Record?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            { 
+
+                OleDbCommand cmd_delete_document = new OleDbCommand(@"DELETE FROM tbl_file
+                                        WHERE ID = @id", con);
+
+                cmd_delete_document.Parameters.AddWithValue("@id", id);
+                con.Open();
+                cmd_delete_document.ExecuteNonQuery();
+                con.Close();
+
+                loadDgDocumentsRecords();
+
+                MessageBox.Show("Document / Record deleted succesfully!", "Document / Record Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                
+            }
         }
     }
 }

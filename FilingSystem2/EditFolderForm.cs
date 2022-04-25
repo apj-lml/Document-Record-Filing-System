@@ -68,24 +68,44 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd_update_folder = new OleDbCommand(@"UPDATE tbl_folder
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_code = @folder_code AND ID <> @id", con);
+                cmd2.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
+                cmd2.Parameters.AddWithValue("@id", tbID.Text);
+                con.Open();
+                OleDbDataReader reader = cmd2.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+
+                    MessageBox.Show("Code prefix has already been used. Please choose another.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    con.Close();
+
+                }
+                else {
+                    con.Close();
+
+                    OleDbCommand cmd_update_folder = new OleDbCommand(@"UPDATE tbl_folder
                                                 SET folder_code = @folder_code,
                                                     folder_name = @folder_name,
                                                     folder_description = @folder_description,
                                                     file_box_id = @file_box_id
                                                 WHERE ID = @id", con);
 
-                cmd_update_folder.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
-                cmd_update_folder.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
-                cmd_update_folder.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
-                cmd_update_folder.Parameters.AddWithValue("@file_box_id", cbFileBox.SelectedValue);
-                cmd_update_folder.Parameters.AddWithValue("@id", tbID.Text);
-                //cmd.Parameters.AddWithValue("@id", tbID.Text);
-                con.Open();
-                cmd_update_folder.ExecuteNonQuery();
-                con.Close();
+                    cmd_update_folder.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
+                    cmd_update_folder.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
+                    cmd_update_folder.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
+                    cmd_update_folder.Parameters.AddWithValue("@file_box_id", cbFileBox.SelectedValue);
+                    cmd_update_folder.Parameters.AddWithValue("@id", tbID.Text);
+                    //cmd.Parameters.AddWithValue("@id", tbID.Text);
+                    con.Open();
+                    cmd_update_folder.ExecuteNonQuery();
+                    con.Close();
+
                     _foldersForm.loadFolders();
-                MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
 
             }
 

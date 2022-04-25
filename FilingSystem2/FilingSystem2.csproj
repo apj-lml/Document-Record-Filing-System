@@ -131,6 +131,18 @@
       <DependentUpon>ReportViewerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="transferDocumentRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transferDocumentRecordForm.Designer.cs">
+      <DependentUpon>transferDocumentRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDocument.Designer.cs">
+      <DependentUpon>EditDocument.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewDocument.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +183,12 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReportViewerForm.resx">
       <DependentUpon>ReportViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transferDocumentRecordForm.resx">
+      <DependentUpon>transferDocumentRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDocument.resx">
+      <DependentUpon>EditDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewDocument.resx">
       <DependentUpon>ViewDocument.cs</DependentUpon>
@@ -244,6 +262,8 @@
     <Content Include="db_filingsystem.accdb" />
     <None Include="Resources\tacking-login 21.png" />
     <None Include="Resources\tacking-login bg 111.png" />
+    <None Include="Resources\transfer-folder.png" />
+    <None Include="Resources\data-transfer.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

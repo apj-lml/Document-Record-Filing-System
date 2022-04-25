@@ -103,6 +103,16 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap data_transfer {
+            get {
+                object obj = ResourceManager.GetObject("data-transfer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap diskette_white {
             get {
                 object obj = ResourceManager.GetObject("diskette-white", resourceCulture);
@@ -256,6 +266,16 @@ namespace FilingSystem2.Properties {
         internal static System.Drawing.Bitmap tacking_login_bg_111 {
             get {
                 object obj = ResourceManager.GetObject("tacking-login bg 111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transfer_folder {
+            get {
+                object obj = ResourceManager.GetObject("transfer-folder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
