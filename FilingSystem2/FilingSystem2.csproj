@@ -259,11 +259,13 @@
     <None Include="Resources\plus-symbol-button.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db_filingsystem.accdb" />
     <None Include="Resources\tacking-login 21.png" />
     <None Include="Resources\tacking-login bg 111.png" />
     <None Include="Resources\transfer-folder.png" />
     <None Include="Resources\data-transfer.png" />
+    <Content Include="db_filingsystem.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

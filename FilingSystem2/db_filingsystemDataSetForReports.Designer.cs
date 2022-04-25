@@ -32,12 +32,6 @@ namespace FilingSystem2 {
         
         private tbl_userDataTable tabletbl_user;
         
-        private global::System.Data.DataRelation relationtbl_foldertbl_file;
-        
-        private global::System.Data.DataRelation relationtbl_usertbl_file;
-        
-        private global::System.Data.DataRelation relationtbl_file_boxtbl_folder;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -272,9 +266,6 @@ namespace FilingSystem2 {
                     this.tabletbl_user.InitVars();
                 }
             }
-            this.relationtbl_foldertbl_file = this.Relations["tbl_foldertbl_file"];
-            this.relationtbl_usertbl_file = this.Relations["tbl_usertbl_file"];
-            this.relationtbl_file_boxtbl_folder = this.Relations["tbl_file_boxtbl_folder"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -293,18 +284,6 @@ namespace FilingSystem2 {
             base.Tables.Add(this.tabletbl_folder);
             this.tabletbl_user = new tbl_userDataTable();
             base.Tables.Add(this.tabletbl_user);
-            this.relationtbl_foldertbl_file = new global::System.Data.DataRelation("tbl_foldertbl_file", new global::System.Data.DataColumn[] {
-                        this.tabletbl_folder.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletbl_file.folder_idColumn}, false);
-            this.Relations.Add(this.relationtbl_foldertbl_file);
-            this.relationtbl_usertbl_file = new global::System.Data.DataRelation("tbl_usertbl_file", new global::System.Data.DataColumn[] {
-                        this.tabletbl_user.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletbl_file.filed_byColumn}, false);
-            this.Relations.Add(this.relationtbl_usertbl_file);
-            this.relationtbl_file_boxtbl_folder = new global::System.Data.DataRelation("tbl_file_boxtbl_folder", new global::System.Data.DataColumn[] {
-                        this.tabletbl_file_box.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletbl_folder.file_box_idColumn}, false);
-            this.Relations.Add(this.relationtbl_file_boxtbl_folder);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -413,9 +392,9 @@ namespace FilingSystem2 {
             
             private global::System.Data.DataColumn columnparticulars;
             
-            private global::System.Data.DataColumn columnfolder_id;
-            
             private global::System.Data.DataColumn columndate_filed;
+            
+            private global::System.Data.DataColumn columnfolder_name;
             
             private global::System.Data.DataColumn columnfiled_by;
             
@@ -486,17 +465,17 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn folder_idColumn {
+            public global::System.Data.DataColumn date_filedColumn {
                 get {
-                    return this.columnfolder_id;
+                    return this.columndate_filed;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn date_filedColumn {
+            public global::System.Data.DataColumn folder_nameColumn {
                 get {
-                    return this.columndate_filed;
+                    return this.columnfolder_name;
                 }
             }
             
@@ -545,22 +524,16 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_fileRow Addtbl_fileRow(string code, string subject, string particulars, tbl_folderRow parenttbl_folderRowBytbl_foldertbl_file, System.DateTime date_filed, tbl_userRow parenttbl_userRowBytbl_usertbl_file) {
+            public tbl_fileRow Addtbl_fileRow(string code, string subject, string particulars, System.DateTime date_filed, string folder_name, string filed_by) {
                 tbl_fileRow rowtbl_fileRow = ((tbl_fileRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         code,
                         subject,
                         particulars,
-                        null,
                         date_filed,
-                        null};
-                if ((parenttbl_folderRowBytbl_foldertbl_file != null)) {
-                    columnValuesArray[4] = parenttbl_folderRowBytbl_foldertbl_file[0];
-                }
-                if ((parenttbl_userRowBytbl_usertbl_file != null)) {
-                    columnValuesArray[6] = parenttbl_userRowBytbl_usertbl_file[0];
-                }
+                        folder_name,
+                        filed_by};
                 rowtbl_fileRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_fileRow);
                 return rowtbl_fileRow;
@@ -594,8 +567,8 @@ namespace FilingSystem2 {
                 this.columncode = base.Columns["code"];
                 this.columnsubject = base.Columns["subject"];
                 this.columnparticulars = base.Columns["particulars"];
-                this.columnfolder_id = base.Columns["folder_id"];
                 this.columndate_filed = base.Columns["date_filed"];
+                this.columnfolder_name = base.Columns["folder_name"];
                 this.columnfiled_by = base.Columns["filed_by"];
             }
             
@@ -610,11 +583,11 @@ namespace FilingSystem2 {
                 base.Columns.Add(this.columnsubject);
                 this.columnparticulars = new global::System.Data.DataColumn("particulars", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnparticulars);
-                this.columnfolder_id = new global::System.Data.DataColumn("folder_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfolder_id);
                 this.columndate_filed = new global::System.Data.DataColumn("date_filed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_filed);
-                this.columnfiled_by = new global::System.Data.DataColumn("filed_by", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnfolder_name = new global::System.Data.DataColumn("folder_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfolder_name);
+                this.columnfiled_by = new global::System.Data.DataColumn("filed_by", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfiled_by);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
@@ -626,6 +599,9 @@ namespace FilingSystem2 {
                 this.columncode.MaxLength = 255;
                 this.columnsubject.MaxLength = 536870910;
                 this.columnparticulars.MaxLength = 536870910;
+                this.columnfolder_name.MaxLength = 255;
+                this.columnfiled_by.ReadOnly = true;
+                this.columnfiled_by.MaxLength = 536870910;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1101,11 +1077,11 @@ namespace FilingSystem2 {
             
             private global::System.Data.DataColumn columnfolder_description;
             
-            private global::System.Data.DataColumn columnfile_box_id;
-            
             private global::System.Data.DataColumn columncreated_by;
             
             private global::System.Data.DataColumn columndate_created;
+            
+            private global::System.Data.DataColumn columnbox_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1174,14 +1150,6 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn file_box_idColumn {
-                get {
-                    return this.columnfile_box_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn created_byColumn {
                 get {
                     return this.columncreated_by;
@@ -1193,6 +1161,14 @@ namespace FilingSystem2 {
             public global::System.Data.DataColumn date_createdColumn {
                 get {
                     return this.columndate_created;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn box_nameColumn {
+                get {
+                    return this.columnbox_name;
                 }
             }
             
@@ -1233,19 +1209,16 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_folderRow Addtbl_folderRow(string folder_code, string folder_name, string folder_description, tbl_file_boxRow parenttbl_file_boxRowBytbl_file_boxtbl_folder, int created_by, System.DateTime date_created) {
+            public tbl_folderRow Addtbl_folderRow(string folder_code, string folder_name, string folder_description, int created_by, System.DateTime date_created, string box_name) {
                 tbl_folderRow rowtbl_folderRow = ((tbl_folderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         folder_code,
                         folder_name,
                         folder_description,
-                        null,
                         created_by,
-                        date_created};
-                if ((parenttbl_file_boxRowBytbl_file_boxtbl_folder != null)) {
-                    columnValuesArray[4] = parenttbl_file_boxRowBytbl_file_boxtbl_folder[0];
-                }
+                        date_created,
+                        box_name};
                 rowtbl_folderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_folderRow);
                 return rowtbl_folderRow;
@@ -1279,9 +1252,9 @@ namespace FilingSystem2 {
                 this.columnfolder_code = base.Columns["folder_code"];
                 this.columnfolder_name = base.Columns["folder_name"];
                 this.columnfolder_description = base.Columns["folder_description"];
-                this.columnfile_box_id = base.Columns["file_box_id"];
                 this.columncreated_by = base.Columns["created_by"];
                 this.columndate_created = base.Columns["date_created"];
+                this.columnbox_name = base.Columns["box_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1295,12 +1268,12 @@ namespace FilingSystem2 {
                 base.Columns.Add(this.columnfolder_name);
                 this.columnfolder_description = new global::System.Data.DataColumn("folder_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfolder_description);
-                this.columnfile_box_id = new global::System.Data.DataColumn("file_box_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfile_box_id);
                 this.columncreated_by = new global::System.Data.DataColumn("created_by", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreated_by);
                 this.columndate_created = new global::System.Data.DataColumn("date_created", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_created);
+                this.columnbox_name = new global::System.Data.DataColumn("box_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbox_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1311,6 +1284,7 @@ namespace FilingSystem2 {
                 this.columnfolder_code.MaxLength = 255;
                 this.columnfolder_name.MaxLength = 255;
                 this.columnfolder_description.MaxLength = 255;
+                this.columnbox_name.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1908,22 +1882,6 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int folder_id {
-                get {
-                    try {
-                        return ((int)(this[this.tabletbl_file.folder_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'folder_id\' in table \'tbl_file\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletbl_file.folder_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime date_filed {
                 get {
                     try {
@@ -1940,10 +1898,26 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int filed_by {
+            public string folder_name {
                 get {
                     try {
-                        return ((int)(this[this.tabletbl_file.filed_byColumn]));
+                        return ((string)(this[this.tabletbl_file.folder_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'folder_name\' in table \'tbl_file\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_file.folder_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string filed_by {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_file.filed_byColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'filed_by\' in table \'tbl_file\' is DBNull.", e);
@@ -1951,28 +1925,6 @@ namespace FilingSystem2 {
                 }
                 set {
                     this[this.tabletbl_file.filed_byColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_folderRow tbl_folderRow {
-                get {
-                    return ((tbl_folderRow)(this.GetParentRow(this.Table.ParentRelations["tbl_foldertbl_file"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["tbl_foldertbl_file"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_userRow tbl_userRow {
-                get {
-                    return ((tbl_userRow)(this.GetParentRow(this.Table.ParentRelations["tbl_usertbl_file"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["tbl_usertbl_file"]);
                 }
             }
             
@@ -2014,18 +1966,6 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isfolder_idNull() {
-                return this.IsNull(this.tabletbl_file.folder_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setfolder_idNull() {
-                this[this.tabletbl_file.folder_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isdate_filedNull() {
                 return this.IsNull(this.tabletbl_file.date_filedColumn);
             }
@@ -2034,6 +1974,18 @@ namespace FilingSystem2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setdate_filedNull() {
                 this[this.tabletbl_file.date_filedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isfolder_nameNull() {
+                return this.IsNull(this.tabletbl_file.folder_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setfolder_nameNull() {
+                this[this.tabletbl_file.folder_nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2213,17 +2165,6 @@ namespace FilingSystem2 {
             public void Setdate_createdNull() {
                 this[this.tabletbl_file_box.date_createdColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_folderRow[] Gettbl_folderRows() {
-                if ((this.Table.ChildRelations["tbl_file_boxtbl_folder"] == null)) {
-                    return new tbl_folderRow[0];
-                }
-                else {
-                    return ((tbl_folderRow[])(base.GetChildRows(this.Table.ChildRelations["tbl_file_boxtbl_folder"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2301,22 +2242,6 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int file_box_id {
-                get {
-                    try {
-                        return ((int)(this[this.tabletbl_folder.file_box_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'file_box_id\' in table \'tbl_folder\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletbl_folder.file_box_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int created_by {
                 get {
                     try {
@@ -2349,12 +2274,17 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_file_boxRow tbl_file_boxRow {
+            public string box_name {
                 get {
-                    return ((tbl_file_boxRow)(this.GetParentRow(this.Table.ParentRelations["tbl_file_boxtbl_folder"])));
+                    try {
+                        return ((string)(this[this.tabletbl_folder.box_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'box_name\' in table \'tbl_folder\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["tbl_file_boxtbl_folder"]);
+                    this[this.tabletbl_folder.box_nameColumn] = value;
                 }
             }
             
@@ -2396,18 +2326,6 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isfile_box_idNull() {
-                return this.IsNull(this.tabletbl_folder.file_box_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setfile_box_idNull() {
-                this[this.tabletbl_folder.file_box_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Iscreated_byNull() {
                 return this.IsNull(this.tabletbl_folder.created_byColumn);
             }
@@ -2432,13 +2350,14 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_fileRow[] Gettbl_fileRows() {
-                if ((this.Table.ChildRelations["tbl_foldertbl_file"] == null)) {
-                    return new tbl_fileRow[0];
-                }
-                else {
-                    return ((tbl_fileRow[])(base.GetChildRows(this.Table.ChildRelations["tbl_foldertbl_file"])));
-                }
+            public bool Isbox_nameNull() {
+                return this.IsNull(this.tabletbl_folder.box_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbox_nameNull() {
+                this[this.tabletbl_folder.box_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2718,17 +2637,6 @@ namespace FilingSystem2 {
             public void SetroleNull() {
                 this[this.tabletbl_user.roleColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_fileRow[] Gettbl_fileRows() {
-                if ((this.Table.ChildRelations["tbl_usertbl_file"] == null)) {
-                    return new tbl_fileRow[0];
-                }
-                else {
-                    return ((tbl_fileRow[])(base.GetChildRows(this.Table.ChildRelations["tbl_usertbl_file"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2996,53 +2904,10 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             tableMapping.ColumnMappings.Add("code", "code");
             tableMapping.ColumnMappings.Add("subject", "subject");
             tableMapping.ColumnMappings.Add("particulars", "particulars");
-            tableMapping.ColumnMappings.Add("folder_id", "folder_id");
             tableMapping.ColumnMappings.Add("date_filed", "date_filed");
+            tableMapping.ColumnMappings.Add("folder_name", "folder_name");
             tableMapping.ColumnMappings.Add("filed_by", "filed_by");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tbl_file` WHERE ((`ID` = ?) AND ((? = 1 AND `code` IS NULL) OR (`code` = ?)) AND ((? = 1 AND `folder_id` IS NULL) OR (`folder_id` = ?)) AND ((? = 1 AND `date_filed` IS NULL) OR (`date_filed` = ?)) AND ((? = 1 AND `filed_by` IS NULL) OR (`filed_by` = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_code", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "code", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "code", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_date_filed", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_filed", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_date_filed", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_filed", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_filed_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "filed_by", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_filed_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "filed_by", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `tbl_file` (`code`, `subject`, `particulars`, `folder_id`, `date_file" +
-                "d`, `filed_by`) VALUES (?, ?, ?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "code", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("subject", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subject", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("particulars", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "particulars", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_filed", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_filed", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("filed_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "filed_by", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `tbl_file` SET `code` = ?, `subject` = ?, `particulars` = ?, `folder_id` = ?, `date_filed` = ?, `filed_by` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `code` IS NULL) OR (`code` = ?)) AND ((? = 1 AND `folder_id` IS NULL) OR (`folder_id` = ?)) AND ((? = 1 AND `date_filed` IS NULL) OR (`date_filed` = ?)) AND ((? = 1 AND `filed_by` IS NULL) OR (`filed_by` = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "code", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("subject", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "subject", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("particulars", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "particulars", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_filed", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_filed", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("filed_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "filed_by", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_code", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "code", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "code", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_date_filed", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_filed", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_date_filed", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_filed", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_filed_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "filed_by", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_filed_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "filed_by", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3058,8 +2923,11 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, code, subject, particulars, folder_id, date_filed, filed_by FROM tbl_f" +
-                "ile";
+            this._commandCollection[0].CommandText = @"SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, usr.first_name & "" "" & usr.last_name AS [filed_by]
+FROM            ((tbl_file tfil LEFT OUTER JOIN
+                         tbl_folder tfol ON tfil.folder_id = tfol.ID) LEFT OUTER JOIN
+                         tbl_user usr ON tfil.filed_by = usr.ID)
+ORDER BY tfol.folder_name ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3085,214 +2953,6 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             db_filingsystemDataSetForReports.tbl_fileDataTable dataTable = new db_filingsystemDataSetForReports.tbl_fileDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_filingsystemDataSetForReports.tbl_fileDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_filingsystemDataSetForReports dataSet) {
-            return this.Adapter.Update(dataSet, "tbl_file");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_code, int Original_folder_id, global::System.Nullable<global::System.DateTime> Original_date_filed, global::System.Nullable<int> Original_filed_by) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_code == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_code));
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_folder_id));
-            if ((Original_date_filed.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_date_filed.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_filed_by.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_filed_by.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string code, string subject, string particulars, int folder_id, global::System.Nullable<global::System.DateTime> date_filed, global::System.Nullable<int> filed_by) {
-            if ((code == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(code));
-            }
-            if ((subject == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(subject));
-            }
-            if ((particulars == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(particulars));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(folder_id));
-            if ((date_filed.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(date_filed.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((filed_by.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(filed_by.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string code, string subject, string particulars, int folder_id, global::System.Nullable<global::System.DateTime> date_filed, global::System.Nullable<int> filed_by, int Original_ID, string Original_code, int Original_folder_id, global::System.Nullable<global::System.DateTime> Original_date_filed, global::System.Nullable<int> Original_filed_by) {
-            if ((code == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(code));
-            }
-            if ((subject == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(subject));
-            }
-            if ((particulars == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(particulars));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(folder_id));
-            if ((date_filed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(date_filed.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((filed_by.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(filed_by.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID));
-            if ((Original_code == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_code));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_folder_id));
-            if ((Original_date_filed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_date_filed.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_filed_by.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_filed_by.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -3873,61 +3533,10 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             tableMapping.ColumnMappings.Add("folder_code", "folder_code");
             tableMapping.ColumnMappings.Add("folder_name", "folder_name");
             tableMapping.ColumnMappings.Add("folder_description", "folder_description");
-            tableMapping.ColumnMappings.Add("file_box_id", "file_box_id");
             tableMapping.ColumnMappings.Add("created_by", "created_by");
             tableMapping.ColumnMappings.Add("date_created", "date_created");
+            tableMapping.ColumnMappings.Add("box_name", "box_name");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tbl_folder` WHERE ((`ID` = ?) AND ((? = 1 AND `folder_code` IS NULL) OR (`folder_code` = ?)) AND ((? = 1 AND `folder_name` IS NULL) OR (`folder_name` = ?)) AND ((? = 1 AND `folder_description` IS NULL) OR (`folder_description` = ?)) AND ((? = 1 AND `file_box_id` IS NULL) OR (`file_box_id` = ?)) AND ((? = 1 AND `created_by` IS NULL) OR (`created_by` = ?)) AND ((? = 1 AND `date_created` IS NULL) OR (`date_created` = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_code", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_code", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_code", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_name", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_description", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_description", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_description", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_file_box_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "file_box_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_file_box_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "file_box_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_created_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "created_by", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_created_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "created_by", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_date_created", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_created", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_date_created", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_created", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `tbl_folder` (`folder_code`, `folder_name`, `folder_description`, `fi" +
-                "le_box_id`, `created_by`, `date_created`) VALUES (?, ?, ?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_code", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_description", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("file_box_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "file_box_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("created_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "created_by", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_created", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_created", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `tbl_folder` SET `folder_code` = ?, `folder_name` = ?, `folder_description` = ?, `file_box_id` = ?, `created_by` = ?, `date_created` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `folder_code` IS NULL) OR (`folder_code` = ?)) AND ((? = 1 AND `folder_name` IS NULL) OR (`folder_name` = ?)) AND ((? = 1 AND `folder_description` IS NULL) OR (`folder_description` = ?)) AND ((? = 1 AND `file_box_id` IS NULL) OR (`file_box_id` = ?)) AND ((? = 1 AND `created_by` IS NULL) OR (`created_by` = ?)) AND ((? = 1 AND `date_created` IS NULL) OR (`date_created` = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_code", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("folder_description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_description", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("file_box_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "file_box_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("created_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "created_by", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_created", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_created", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_code", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_code", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_code", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_code", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_name", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_folder_description", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_description", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_folder_description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "folder_description", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_file_box_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "file_box_id", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_file_box_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "file_box_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_created_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "created_by", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_created_by", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "created_by", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_date_created", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_created", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_date_created", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_created", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3943,8 +3552,9 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, folder_code, folder_name, folder_description, file_box_id, created_by," +
-                " date_created FROM tbl_folder";
+            this._commandCollection[0].CommandText = @"SELECT        tfol.ID, tfol.folder_code, tfol.folder_name, tfol.folder_description, tfol.created_by, tfol.date_created, tfilbox.box_name
+FROM            (tbl_folder tfol LEFT OUTER JOIN
+                         tbl_file_box tfilbox ON tfol.file_box_id = tfilbox.ID)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3970,244 +3580,6 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             db_filingsystemDataSetForReports.tbl_folderDataTable dataTable = new db_filingsystemDataSetForReports.tbl_folderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_filingsystemDataSetForReports.tbl_folderDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_filingsystemDataSetForReports dataSet) {
-            return this.Adapter.Update(dataSet, "tbl_folder");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_folder_code, string Original_folder_name, string Original_folder_description, int Original_file_box_id, global::System.Nullable<int> Original_created_by, global::System.Nullable<global::System.DateTime> Original_date_created) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_folder_code == null)) {
-                throw new global::System.ArgumentNullException("Original_folder_code");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_folder_code));
-            }
-            if ((Original_folder_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_folder_name));
-            }
-            if ((Original_folder_description == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_folder_description));
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_file_box_id));
-            if ((Original_created_by.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_created_by.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_date_created.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_date_created.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string folder_code, string folder_name, string folder_description, int file_box_id, global::System.Nullable<int> created_by, global::System.Nullable<global::System.DateTime> date_created) {
-            if ((folder_code == null)) {
-                throw new global::System.ArgumentNullException("folder_code");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(folder_code));
-            }
-            if ((folder_name == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(folder_name));
-            }
-            if ((folder_description == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(folder_description));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(file_box_id));
-            if ((created_by.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(created_by.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((date_created.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(date_created.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string folder_code, string folder_name, string folder_description, int file_box_id, global::System.Nullable<int> created_by, global::System.Nullable<global::System.DateTime> date_created, int Original_ID, string Original_folder_code, string Original_folder_name, string Original_folder_description, int Original_file_box_id, global::System.Nullable<int> Original_created_by, global::System.Nullable<global::System.DateTime> Original_date_created) {
-            if ((folder_code == null)) {
-                throw new global::System.ArgumentNullException("folder_code");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(folder_code));
-            }
-            if ((folder_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(folder_name));
-            }
-            if ((folder_description == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(folder_description));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(file_box_id));
-            if ((created_by.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(created_by.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((date_created.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(date_created.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID));
-            if ((Original_folder_code == null)) {
-                throw new global::System.ArgumentNullException("Original_folder_code");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_folder_code));
-            }
-            if ((Original_folder_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_folder_name));
-            }
-            if ((Original_folder_description == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_folder_description));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_file_box_id));
-            if ((Original_created_by.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_created_by.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_date_created.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_date_created.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -4835,11 +4207,7 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private tbl_fileTableAdapter _tbl_fileTableAdapter;
-        
         private tbl_file_boxTableAdapter _tbl_file_boxTableAdapter;
-        
-        private tbl_folderTableAdapter _tbl_folderTableAdapter;
         
         private tbl_userTableAdapter _tbl_userTableAdapter;
         
@@ -4863,40 +4231,12 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public tbl_fileTableAdapter tbl_fileTableAdapter {
-            get {
-                return this._tbl_fileTableAdapter;
-            }
-            set {
-                this._tbl_fileTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public tbl_file_boxTableAdapter tbl_file_boxTableAdapter {
             get {
                 return this._tbl_file_boxTableAdapter;
             }
             set {
                 this._tbl_file_boxTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public tbl_folderTableAdapter tbl_folderTableAdapter {
-            get {
-                return this._tbl_folderTableAdapter;
-            }
-            set {
-                this._tbl_folderTableAdapter = value;
             }
         }
         
@@ -4933,17 +4273,9 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tbl_fileTableAdapter != null) 
-                            && (this._tbl_fileTableAdapter.Connection != null))) {
-                    return this._tbl_fileTableAdapter.Connection;
-                }
                 if (((this._tbl_file_boxTableAdapter != null) 
                             && (this._tbl_file_boxTableAdapter.Connection != null))) {
                     return this._tbl_file_boxTableAdapter.Connection;
-                }
-                if (((this._tbl_folderTableAdapter != null) 
-                            && (this._tbl_folderTableAdapter.Connection != null))) {
-                    return this._tbl_folderTableAdapter.Connection;
                 }
                 if (((this._tbl_userTableAdapter != null) 
                             && (this._tbl_userTableAdapter.Connection != null))) {
@@ -4962,13 +4294,7 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tbl_fileTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._tbl_file_boxTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._tbl_folderTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._tbl_userTableAdapter != null)) {
@@ -4994,30 +4320,12 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_folderTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_folder.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_folderTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tbl_userTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tbl_user.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tbl_userTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tbl_fileTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_file.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_fileTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5039,27 +4347,11 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_folderTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_folder.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_folderTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tbl_userTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tbl_user.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tbl_userTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tbl_fileTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_file.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_fileTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5073,27 +4365,11 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(db_filingsystemDataSetForReports dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tbl_fileTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_file.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_fileTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tbl_userTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tbl_user.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tbl_userTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tbl_folderTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_folder.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_folderTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5144,18 +4420,8 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._tbl_fileTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tbl_fileTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._tbl_file_boxTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tbl_file_boxTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._tbl_folderTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tbl_folderTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5196,15 +4462,6 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tbl_fileTableAdapter != null)) {
-                    revertConnections.Add(this._tbl_fileTableAdapter, this._tbl_fileTableAdapter.Connection);
-                    this._tbl_fileTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._tbl_fileTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._tbl_fileTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tbl_fileTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_fileTableAdapter.Adapter);
-                    }
-                }
                 if ((this._tbl_file_boxTableAdapter != null)) {
                     revertConnections.Add(this._tbl_file_boxTableAdapter, this._tbl_file_boxTableAdapter.Connection);
                     this._tbl_file_boxTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
@@ -5212,15 +4469,6 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
                     if (this._tbl_file_boxTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._tbl_file_boxTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_file_boxTableAdapter.Adapter);
-                    }
-                }
-                if ((this._tbl_folderTableAdapter != null)) {
-                    revertConnections.Add(this._tbl_folderTableAdapter, this._tbl_folderTableAdapter.Connection);
-                    this._tbl_folderTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._tbl_folderTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._tbl_folderTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tbl_folderTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_folderTableAdapter.Adapter);
                     }
                 }
                 if ((this._tbl_userTableAdapter != null)) {
@@ -5290,17 +4538,9 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._tbl_fileTableAdapter != null)) {
-                    this._tbl_fileTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tbl_fileTableAdapter]));
-                    this._tbl_fileTableAdapter.Transaction = null;
-                }
                 if ((this._tbl_file_boxTableAdapter != null)) {
                     this._tbl_file_boxTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tbl_file_boxTableAdapter]));
                     this._tbl_file_boxTableAdapter.Transaction = null;
-                }
-                if ((this._tbl_folderTableAdapter != null)) {
-                    this._tbl_folderTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tbl_folderTableAdapter]));
-                    this._tbl_folderTableAdapter.Transaction = null;
                 }
                 if ((this._tbl_userTableAdapter != null)) {
                     this._tbl_userTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tbl_userTableAdapter]));

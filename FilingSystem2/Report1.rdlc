@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.04681cm</Width>
+              <Width>3.27271cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.37514cm</Width>
+              <Width>5.21639cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.37514cm</Width>
+              <Width>4.34388cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.84396cm</Width>
+              <Width>2.60583cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.84396cm</Width>
+              <Width>1.94438cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -87,21 +87,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
+                    <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>folder id</Value>
+                              <Value>folder name</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -117,7 +117,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox11">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -131,7 +131,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -242,21 +242,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="folder_id">
+                    <Textbox Name="folder_name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!folder_id.Value</Value>
+                              <Value>=Fields!folder_name.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>folder_id</rd:DefaultName>
+                      <rd:DefaultName>folder_name</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -272,7 +272,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="filed_by1">
+                    <Textbox Name="filed_by">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -286,7 +286,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>filed_by1</rd:DefaultName>
+                      <rd:DefaultName>filed_by</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -357,7 +357,7 @@
         <Top>0.7225cm</Top>
         <Left>0.7112cm</Left>
         <Height>1.46458cm</Height>
-        <Width>19.48501cm</Width>
+        <Width>17.38319cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -365,10 +365,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>1.98958in</Height>
     <Style />
   </Body>
-  <Width>8.25843in</Width>
+  <Width>7.36336in</Width>
   <Page>
     <PageHeader>
       <Height>3.29599cm</Height>
@@ -379,8 +379,8 @@
           <Source>Embedded</Source>
           <Value>logo125x125</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.3937cm</Top>
-          <Left>1.63724cm</Left>
+          <Top>0.73766cm</Top>
+          <Left>1.3462cm</Left>
           <Height>2.38194cm</Height>
           <Width>2.63771cm</Width>
           <Style>
@@ -396,7 +396,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>LIST OF FILES</Value>
+                  <Value>SUMMARY OF FILES</Value>
                   <Style>
                     <FontFamily>impact</FontFamily>
                     <FontSize>20pt</FontSize>
@@ -410,9 +410,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>1.26682cm</Top>
-          <Left>7.82849cm</Left>
+          <Left>6.37328cm</Left>
           <Height>1.04979cm</Height>
-          <Width>5.01354cm</Width>
+          <Width>6.70687cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -454,7 +454,7 @@
           <Top>1.09292cm</Top>
           <Left>0.7112cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.56375cm</Width>
+          <Width>7.47958cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -514,17 +514,17 @@
           <DataField>particulars</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="folder_id">
-          <DataField>folder_id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="date_filed">
           <DataField>date_filed</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="folder_name">
+          <DataField>folder_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="filed_by">
           <DataField>filed_by</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

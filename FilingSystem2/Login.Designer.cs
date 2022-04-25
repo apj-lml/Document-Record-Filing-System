@@ -68,10 +68,10 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.flowLayoutPanel1);
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(8, 54);
+            this.panel3.Location = new System.Drawing.Point(10, 11);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(287, 325);
+            this.panel3.Size = new System.Drawing.Size(287, 448);
             this.panel3.TabIndex = 0;
             // 
             // label1
@@ -91,7 +91,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
-            this.btnLogin.Location = new System.Drawing.Point(100, 267);
+            this.btnLogin.Location = new System.Drawing.Point(100, 280);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(94, 40);

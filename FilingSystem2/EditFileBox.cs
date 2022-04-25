@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,7 @@ namespace FilingSystem2
 {
     public partial class EditFileBox : Form
     {
-        OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -32,13 +32,12 @@ namespace FilingSystem2
         {
             DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("fileBoxForm"), "dgFileBox"));
             var id = dgv.CurrentRow.Cells[0].Value;
-            var box_code = dgv.CurrentRow.Cells[1].Value;
-            var box_name = dgv.CurrentRow.Cells[2].Value;
-            var box_description = dgv.CurrentRow.Cells[3].Value;
-            var created_by = dgv.CurrentRow.Cells[4].Value;
+            var box_name = dgv.CurrentRow.Cells[1].Value;
+            var box_description = dgv.CurrentRow.Cells[2].Value;
+            var created_by = dgv.CurrentRow.Cells[3].Value;
 
             tbID.Text = id.ToString();
-            tbFileBoxCode.Text = box_code.ToString();
+            //tbFileBoxCode.Text = box_code.ToString();
             tbFileBoxName.Text = box_name.ToString();
             tbFileBoxDescription.Text = box_description.ToString();
             //cbFileBox.Text = file_box.ToString();
@@ -46,24 +45,20 @@ namespace FilingSystem2
 
         private void btnSaveChangesFileBox_Click(object sender, EventArgs e)
         {
-            if (tbFileBoxCode.Text == "" || tbFileBoxName.Text == "" || tbFileBoxDescription.Text == "")
+            if (tbFileBoxName.Text == "" || tbFileBoxDescription.Text == "")
             {
                 MessageBox.Show("Please fill out all fields.", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 OleDbCommand cmd_update_box = new OleDbCommand(@"UPDATE tbl_file_box
-                                                SET box_code = @box_code,
-                                                    box_name = @box_name,
+                                                SET box_name = @box_name,
                                                     box_description = @box_description
                                                 WHERE ID = @id", con);
 
-                cmd_update_box.Parameters.AddWithValue("@box_code", tbFileBoxCode.Text);
                 cmd_update_box.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
                 cmd_update_box.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
-                //cmd_update_folder.Parameters.AddWithValue("@created_by", );
                 cmd_update_box.Parameters.AddWithValue("@id", tbID.Text);
-                //cmd.Parameters.AddWithValue("@id", tbID.Text);
                 con.Open();
                 cmd_update_box.ExecuteNonQuery();
                 con.Close();
@@ -74,11 +69,5 @@ namespace FilingSystem2
             }
         }
 
-
-
-        private void tbFileBoxCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
-        }
     }
 }

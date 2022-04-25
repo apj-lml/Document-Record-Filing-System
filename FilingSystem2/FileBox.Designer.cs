@@ -35,8 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbFileBoxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbFileBoxCode = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -59,8 +57,6 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.tbFileBoxName);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.tbFileBoxCode);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 81);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -112,46 +108,23 @@
             // tbFileBoxName
             // 
             this.tbFileBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFileBoxName.Location = new System.Drawing.Point(306, 41);
+            this.tbFileBoxName.Location = new System.Drawing.Point(22, 41);
             this.tbFileBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxName.MaxLength = 1028;
             this.tbFileBoxName.Name = "tbFileBoxName";
-            this.tbFileBoxName.Size = new System.Drawing.Size(244, 29);
+            this.tbFileBoxName.Size = new System.Drawing.Size(279, 29);
             this.tbFileBoxName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(302, 16);
+            this.label3.Location = new System.Drawing.Point(20, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(201, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "File Box / Location Name";
-            // 
-            // tbFileBoxCode
-            // 
-            this.tbFileBoxCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFileBoxCode.Location = new System.Drawing.Point(22, 41);
-            this.tbFileBoxCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbFileBoxCode.MaxLength = 3;
-            this.tbFileBoxCode.Name = "tbFileBoxCode";
-            this.tbFileBoxCode.Size = new System.Drawing.Size(252, 29);
-            this.tbFileBoxCode.TabIndex = 1;
-            this.tbFileBoxCode.TextChanged += new System.EventHandler(this.tbFileBoxCode_TextChanged);
-            this.tbFileBoxCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFileBoxCode_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(18, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Code Prefix";
             // 
             // panel1
             // 
@@ -212,6 +185,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(252, 29);
             this.textBox1.TabIndex = 18;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label6
             // 
@@ -262,8 +236,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbFileBoxName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbFileBoxCode;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;

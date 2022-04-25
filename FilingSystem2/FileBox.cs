@@ -14,10 +14,7 @@ namespace FilingSystem2
 {
     public partial class fileBoxForm : Form
     {
-
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -28,63 +25,30 @@ namespace FilingSystem2
             InitializeComponent();
         }
 
-        public DataTable MyFileBoxes(string filter_by = null, string filter_value = null)
+        public DataTable MyFileBoxes(string filter_value = null)
         {
             string sql = null;
-            //if (filter_value == "ID")
-            //{
-            //    filter_value = "tfil.ID";
-            //}
-            //else if (filter_value == "code")
-            //{
-            //    filter_value = "tfil.code";
-
-            //}
-            //else if (filter_value == "subject")
-            //{
-            //    filter_value = "tfil.subject";
-            //}
-            //else if (filter_value == "particulars")
-            //{
-            //    filter_value = "tfil.particulars";
-            //}
-            //else if (filter_value == "folder_name")
-            //{
-            //    filter_value = "tfol.folder_name";
-            //}
-            //else if (filter_value == "box_name")
-            //{
-            //    filter_value = "tfilbox.box_name";
-            //}
-            //else if (filter_value == "filed_by")
-            //{
-            //    filter_value = "usr.last_name & ', '& usr.first_name";
-            //}
-            //else
-            //{
-            //    //filter_value = "usr.last_name & ', '& usr.first_name";
-
-            //}
 
             Console.WriteLine("filter val: " + filter_value);
 
-            if (filter_by == null)
+            if (filter_value == null)
             {
-                sql = @"SELECT tfilbox.ID AS [ID], tfilbox.box_code AS [Code Prefix], tfilbox.box_name AS [Box Name], tfilbox.box_description AS [Box Description], usr.last_name &', '& usr.first_name AS [Created By]
+                sql = @"SELECT tfilbox.ID AS [ID], tfilbox.box_name AS [Box Name], tfilbox.box_description AS [Box Description], usr.last_name &', '& usr.first_name AS [Created By]
                         FROM tbl_file_box AS tfilbox
-                        INNER JOIN
+                        LEFT JOIN
                         tbl_user AS usr
                         ON tfilbox.created_by = usr.ID
+                        ORDER BY tfilbox.ID ASC
                         ";
             }
             else
             {
-                sql = @"SELECT tfilbox.box_code AS [Code Prefix], tfilbox.box_name AS [Box Name], tfilbox.box_description AS [Box Description], usr.last_name &', '& usr.first_name AS [Created By]
+                sql = @"SELECT tfilbox.ID AS [ID], tfilbox.box_name AS [Box Name], tfilbox.box_description AS [Box Description], usr.last_name &', '& usr.first_name AS [Created By]
                         FROM tbl_file_box AS tfilbox
-                        INNER JOIN
+                        LEFT JOIN
                         tbl_user AS usr
                         ON tfilbox.created_by = usr.ID
-                        WHERE " + filter_value + " LIKE '%" + filter_by + "%'";
+                        WHERE tfilbox.ID LIKE '%" + filter_value + "%' OR tfilbox.box_name LIKE '%" + filter_value + "%' OR tfilbox.box_description LIKE '%" + filter_value + "%' OR usr.last_name &', '& usr.first_name LIKE '%" + filter_value + "%' ";
 
             }
             con.Open();
@@ -107,48 +71,28 @@ namespace FilingSystem2
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
-            if (tbFileBoxCode.Text == "" || tbFileBoxName.Text == "" || tbFileBoxDescription.Text == "")
+            if (tbFileBoxName.Text == "" || tbFileBoxDescription.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_file_box WHERE box_code = @box_code", con);
-                cmd2.Parameters.AddWithValue("@box_code", tbFileBoxCode.Text);
-                con.Open();
-                OleDbDataReader reader = cmd2.ExecuteReader();
 
-                if (reader.Read() == true)
-                {
-
-                    MessageBox.Show("Code Prefix has already been used. Please choose another Code Prefix.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    con.Close();
-
-                }
-                else
-                {
-                    //con.Close();
-
-                    var emp_id = loginForm.LoginInfo.EmpID;
+                    var user_id = loginForm.LoginInfo.UserID;
 
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO tbl_file_box(box_code, box_name, box_description, created_by) values(@box_code,@box_name,@box_description, @created_by)";
-                    cmd.Parameters.AddWithValue("@box_code", tbFileBoxCode.Text);
+                    cmd.CommandText = "INSERT INTO tbl_file_box (box_name, box_description, created_by) values(@box_name,@box_description, @created_by)";
                     cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
                     cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
-                    cmd.Parameters.AddWithValue("@created_by", emp_id);
+                    cmd.Parameters.AddWithValue("@created_by", user_id);
 
                     cmd.Connection = con;
-                    //con.Open();
+                    con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
 
                     loadFileBoxes();
                     MessageBox.Show("File Box / Location Added Successfully", "Success!");
-
-                }
-
-
 
             }
         }
@@ -168,9 +112,10 @@ namespace FilingSystem2
 
         }
 
-        private void tbFileBoxCode_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+
+            dgFileBox.DataSource = MyFileBoxes(textBox1.Text);
         }
     }
 }
