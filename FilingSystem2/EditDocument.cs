@@ -56,9 +56,10 @@ namespace FilingSystem2
             var code = dgv.CurrentRow.Cells[1].Value;
             var subject = dgv.CurrentRow.Cells[2].Value;
             var particulars = dgv.CurrentRow.Cells[3].Value;
-            var folder = dgv.CurrentRow.Cells[4].Value;
-            var file_box = dgv.CurrentRow.Cells[5].Value;
-            var filed_by = dgv.CurrentRow.Cells[6].Value;
+            var remarks = dgv.CurrentRow.Cells[4].Value;
+            var folder = dgv.CurrentRow.Cells[5].Value;
+            var file_box = dgv.CurrentRow.Cells[6].Value;
+            var filed_by = dgv.CurrentRow.Cells[7].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -71,6 +72,7 @@ namespace FilingSystem2
 
             tbSubject.Text = subject.ToString();
             tbParticulars.Text = particulars.ToString();
+            tbRemarks.Text = remarks.ToString();
             //tbSubject.Text = subject;
 
         }
@@ -81,7 +83,6 @@ namespace FilingSystem2
         {
             if (cbFolder.SelectedIndex != -1)
             {
-                Console.WriteLine("SELECTED ID: "+cbFolder.SelectedValue.ToString());
                 string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC" ;
                 con.Open();
 
@@ -132,12 +133,14 @@ namespace FilingSystem2
                                                     SET code = @code,
                                                         subject = @subject,
                                                         particulars = @particulars,
+                                                        remarks = @remarks,
                                                         folder_id = @folder_id
                                                     WHERE ID = @id", con);
 
             cmd.Parameters.AddWithValue("@code", tbCode.Text);
             cmd.Parameters.AddWithValue("@subject", tbSubject.Text);
             cmd.Parameters.AddWithValue("@particulars", tbParticulars.Text);
+            cmd.Parameters.AddWithValue("@remarks", tbRemarks.Text);
             cmd.Parameters.AddWithValue("@folder_id", cbFolder.SelectedValue);
             cmd.Parameters.AddWithValue("@id", tbID.Text);
             con.Open();

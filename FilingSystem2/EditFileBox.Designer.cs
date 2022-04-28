@@ -65,6 +65,7 @@
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(72, 29);
             this.tbID.TabIndex = 10;
+            this.tbID.Visible = false;
             // 
             // label1
             // 

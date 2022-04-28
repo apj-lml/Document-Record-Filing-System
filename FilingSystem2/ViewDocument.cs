@@ -14,10 +14,11 @@ namespace FilingSystem2
     {
 
         FindControl fc = new FindControl();
-
-        public ViewDocument()
+        private readonly dashboardForm _dashboardForm;
+        public ViewDocument(dashboardForm dashboardform)
         {
             InitializeComponent();
+            _dashboardForm = dashboardform;
         }
 
         private void ViewDocument_Load(object sender, EventArgs e)
@@ -27,9 +28,10 @@ namespace FilingSystem2
             var code = dgv.CurrentRow.Cells[1].Value;
             var subject = dgv.CurrentRow.Cells[2].Value;
             var particulars = dgv.CurrentRow.Cells[3].Value;
-            var folder = dgv.CurrentRow.Cells[4].Value;
-            var file_box = dgv.CurrentRow.Cells[5].Value;
-            var filed_by = dgv.CurrentRow.Cells[6].Value;
+            var remarks = dgv.CurrentRow.Cells[4].Value;
+            var folder = dgv.CurrentRow.Cells[5].Value;
+            var file_box = dgv.CurrentRow.Cells[6].Value;
+            var filed_by = dgv.CurrentRow.Cells[7].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -41,6 +43,13 @@ namespace FilingSystem2
 
             tbSubject.Text = subject.ToString();
             tbParticulars.Text = particulars.ToString();
+            tbRemarks.Text = remarks.ToString();  
+        }
+
+        private void btnEditDocument_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new EditDocument(_dashboardForm).ShowDialog();
         }
     }
 }

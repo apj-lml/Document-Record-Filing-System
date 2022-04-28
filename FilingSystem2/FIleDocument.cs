@@ -75,10 +75,11 @@ namespace FilingSystem2
             else 
             { 
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO tbl_file(code,subject, particulars, folder_id, filed_by) values(@code,@subject,@particulars,@folder_id,@filed_by)";
+                cmd.CommandText = "INSERT INTO tbl_file(code,subject, particulars, remarks, folder_id, filed_by) values(@code,@subject,@particulars, @remarks, @folder_id,@filed_by)";
                 cmd.Parameters.AddWithValue("@code", tbCode.Text);
                 cmd.Parameters.AddWithValue("@subject", tbSubject.Text);
                 cmd.Parameters.AddWithValue("@particulars", tbParticulars.Text);
+                cmd.Parameters.AddWithValue("@remarks", tbRemarks.Text);
                 cmd.Parameters.AddWithValue("@folder_id", int.Parse(cbFolder.SelectedValue.ToString()));
                 cmd.Parameters.AddWithValue("@filed_by", user_id);
                 cmd.Connection = con;
@@ -109,7 +110,7 @@ namespace FilingSystem2
                 {
                     while (reader.Read())
                     {
-                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmss");
+                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssFF");
                         Console.WriteLine(dateNow);
                         tbCode.Text = reader.GetString(1) + dateNow;
                     }
@@ -131,5 +132,6 @@ namespace FilingSystem2
         {
             new foldersForm().Show();
         }
+
     }
 }

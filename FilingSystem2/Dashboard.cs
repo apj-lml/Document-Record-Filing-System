@@ -69,7 +69,7 @@ namespace FilingSystem2
 
             if (filter_by == null)
             {
-                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfol.folder_name AS [FOLDER],
+                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER],
                     tfilbox.box_name AS [FILE BOX / LOCATION], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
                     
                     FROM (((tbl_file AS tfil 
@@ -88,7 +88,7 @@ namespace FilingSystem2
             }
             else
             {
-                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfol.folder_name AS [FOLDER],
+                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER],
                     tfilbox.box_name AS [FILE BOX / LOCATION], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
                     
                     FROM (((tbl_file AS tfil 
@@ -103,7 +103,7 @@ namespace FilingSystem2
                     tbl_user AS usr
                     ON tfil.filed_by = usr.ID
                     )
-                    WHERE "+ filter_value + " LIKE '%"+ filter_by +"%'";
+                    WHERE " + filter_value + " LIKE '%"+ filter_by +"%'";
                 //sql = $"SELECT * FROM tbl_file WHERE {test} ID LIKE '%{ filter_by }%'";
 
             }
@@ -206,7 +206,7 @@ namespace FilingSystem2
 
         private void btnViewDocument_Click(object sender, EventArgs e)
         {
-            new ViewDocument().ShowDialog();
+            new ViewDocument(this).ShowDialog();
             //Console.WriteLine(dgDocumentsRecords.CurrentRow.Cells[0].Value);
 
         }
