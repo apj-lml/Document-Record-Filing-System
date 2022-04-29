@@ -129,6 +129,8 @@ namespace FilingSystem2
             var last_name = loginForm.LoginInfo.LastName;
             var first_name = loginForm.LoginInfo.FirstName;
 
+            ll_user.Text = first_name.ToString();
+
             //MessageBox.Show("Welcome,"+first_name, "Hi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             if (role == "user")
@@ -249,6 +251,11 @@ namespace FilingSystem2
 
                 
             }
+        }
+
+        private void ll_user_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -69,7 +69,6 @@ namespace FilingSystem2
             //cbFolder.SelectedText = folder.ToString();
             cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
 
-
             tbSubject.Text = subject.ToString();
             tbParticulars.Text = particulars.ToString();
             tbRemarks.Text = remarks.ToString();
@@ -93,7 +92,8 @@ namespace FilingSystem2
                 {
                     while (reader.Read())
                     {
-                        var dateNow = DateTime.Now.ToString("Mdyy-HHmmss");
+                        Random rnd = new Random();
+                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssff-") + rnd.Next(10);
                         tbCode.Text = reader.GetString(1) + dateNow;
          
 

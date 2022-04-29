@@ -81,7 +81,7 @@ namespace FilingSystem2
             else
             {
 
-                string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolderTo.SelectedValue.ToString() + " ORDER BY folder_name ASC";
+                string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolderTo.SelectedValue.ToString() + "; ";
                 con.Open();
 
 
@@ -92,41 +92,38 @@ namespace FilingSystem2
                 {
                     while (reader.Read())
                     {
-                                    Console.WriteLine(Int32.Parse(reader.GetString(0)));
-                                    string sql_get_files = "SELECT ID, code, folder_id FROM tbl_file WHERE folder_id = " + reader.GetString(0).ToString() + " ";
+                        Random rnd = new Random();
+                        string sql_get_files = "SELECT * FROM tbl_file WHERE folder_id = " + cbFolderFrom.SelectedValue.ToString() + " ";
                                    // con.Open();
 
                                     OleDbCommand cmd_get_files = new OleDbCommand(sql_get_files, con);
                                     OleDbDataReader reader2 = cmd_get_files.ExecuteReader();
-
+                                    
                                     if (reader2.HasRows)
                                     {
                                         while (reader2.Read())
                                         {
                                             dateNow = DateTime.Now.ToString("Mdyy-HHmmssFF");
                                             new_code = reader.GetString(1);
-                                            string id = reader.GetString(0);
+                                            int folder_id = reader.GetInt32(0);
+                                            int id = reader2.GetInt32(0);
+                                //Console.WriteLine(new_code + DateTime.Now.ToString("Mdyy-HHmmssff-")+rnd.Next(10));
 
-                                            OleDbCommand cmd_update_files_folder = new OleDbCommand(@"UPDATE tbl_file
+                                OleDbCommand cmd_update_files_folder = new OleDbCommand(@"UPDATE tbl_file
                                                         SET code = @code, folder_id = @folder_id
                                                         WHERE ID = @id", con);
 
-                                            cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + DateTime.Now.ToString("Mdyy-HHmmssFF"));
-                                            cmd_update_files_folder.Parameters.AddWithValue("@folder_id", cbFolderTo.SelectedValue);
+                                            cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + DateTime.Now.ToString("Mdyy-HHmmssff-")+rnd.Next(10));
+                                            cmd_update_files_folder.Parameters.AddWithValue("@folder_id", folder_id);
                                             cmd_update_files_folder.Parameters.AddWithValue("@id", id);
-                                            con.Open();
+                                            //con.Open();
                                             cmd_update_files_folder.ExecuteNonQuery();
-                                            con.Close();
-
-
-                                            _dashboardForm.loadDgDocumentsRecords();
-
 
                             }
                                     }
                                     else
                                     {
-                                        Console.WriteLine("No rows found.");
+                                        Console.WriteLine("No rows found in tbl_file.");
                                     }
 
                                  //   reader.Close();
@@ -137,15 +134,17 @@ namespace FilingSystem2
                 }
                 else
                 {
-                    Console.WriteLine("No rows found.");
+                    Console.WriteLine("No rows found in tbl_folder.");
+                    //MessageBox.Show("No files to transfer in this folder!", "Transfer Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 reader.Close();
                 con.Close();
 
+                _dashboardForm.loadDgDocumentsRecords();
 
 
-                MessageBox.Show("Documents / Records transferred successfully!", "Transfer Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  MessageBox.Show("Documents / Records transferred successfully!", "Transfer Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }

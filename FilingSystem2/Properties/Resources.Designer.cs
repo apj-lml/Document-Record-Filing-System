@@ -293,6 +293,16 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user__22_ {
+            get {
+                object obj = ResourceManager.GetObject("user (22)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap users_32x32 {
             get {
                 object obj = ResourceManager.GetObject("users 32x32", resourceCulture);

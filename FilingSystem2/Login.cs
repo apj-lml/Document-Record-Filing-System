@@ -32,6 +32,7 @@ namespace FilingSystem2
         {
             public static int UserID;
             public static string EmpID;
+            public static string Password;
             public static string LastName;
             public static string FirstName;
             public static string Middlename;
@@ -53,6 +54,7 @@ namespace FilingSystem2
 
                 LoginInfo.UserID = int.Parse(reader["ID"].ToString());
                 LoginInfo.EmpID = reader["emp_id"].ToString();
+                LoginInfo.Password = reader["password"].ToString();
                 LoginInfo.LastName = reader["last_name"].ToString();
                 LoginInfo.FirstName = reader["first_name"].ToString();
                 LoginInfo.Middlename = reader["middle_name"].ToString();

@@ -89,7 +89,7 @@ namespace FilingSystem2
 
                 _dashboardForm.loadDgDocumentsRecords();
 
-                MessageBox.Show("Record Inserted Successfully", "Success!");
+                MessageBox.Show("Document / Record Added Successfully", "Success!");
 
 
 
@@ -110,7 +110,8 @@ namespace FilingSystem2
                 {
                     while (reader.Read())
                     {
-                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssFF");
+                        Random rnd = new Random();
+                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssff-") + rnd.Next(10);
                         Console.WriteLine(dateNow);
                         tbCode.Text = reader.GetString(1) + dateNow;
                     }

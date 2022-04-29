@@ -136,6 +136,7 @@ namespace FilingSystem2
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
+
             if (tbFolderCode.Text == "" || tbFolderName.Text == "" || tbFolderDescription.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -156,10 +157,12 @@ namespace FilingSystem2
                 }
                 else
                 {
+                    var user_id = loginForm.LoginInfo.UserID;
+
                     con.Close();
 
                     //cmd.CommandType = CommandType.Text;
-                    string sql = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id) values(@folder_code,@folder_name,@folder_description,@file_box_id)";
+                    string sql = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id, created_by) values(@folder_code,@folder_name,@folder_description,@file_box_id,@created_by)";
                     
 
                     //cmd.Connection = con;
@@ -169,6 +172,7 @@ namespace FilingSystem2
                     cmd.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
                     cmd.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
                     cmd.Parameters.AddWithValue("@file_box_id", int.Parse(cbFileBox.SelectedValue.ToString()));
+                    cmd.Parameters.AddWithValue("@created_by", user_id);
                     cmd.ExecuteNonQuery();
                     con.Close();
 

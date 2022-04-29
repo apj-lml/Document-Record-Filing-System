@@ -104,6 +104,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="db_filingsystemDataSetForReports.cs">
       <DependentUpon>db_filingsystemDataSetForReports.xsd</DependentUpon>
     </Compile>
@@ -183,6 +189,9 @@
     <Compile Include="ViewDocument.Designer.cs">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditFileBox.resx">
       <DependentUpon>EditFileBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +309,7 @@
     <None Include="Resources\transfer-folder.png" />
     <None Include="Resources\data-transfer.png" />
     <Content Include="db_filingsystem.accdb" />
+    <None Include="Resources\user %2822%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
