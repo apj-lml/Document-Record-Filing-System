@@ -37,6 +37,9 @@ namespace FilingSystem2
             tbCode.Text = code.ToString();
             tbFolder.Text = folder.ToString();
 
+            tbFileBox.Text = file_box.ToString();
+            tbFiledBy.Text = filed_by.ToString();
+
             //cbFolder.SelectedText = folder.ToString();
             //cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
 

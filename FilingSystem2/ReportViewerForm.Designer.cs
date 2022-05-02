@@ -30,15 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.tblfileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbfilingsystemDataSetForReports1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.db_filingsystemDataSetForReports1 = new FilingSystem2.db_filingsystemDataSetForReports();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dbfilingsystemDataSetForReports1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblfileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_fileTableAdapter = new FilingSystem2.db_filingsystemDataSetForReportsTableAdapters.tbl_fileTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSetForReports1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbfilingsystemDataSetForReports1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbfilingsystemDataSetForReports1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSetForReports1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tblfileBindingSource
+            // 
+            this.tblfileBindingSource.DataMember = "tbl_file";
+            this.tblfileBindingSource.DataSource = this.dbfilingsystemDataSetForReports1BindingSource;
+            // 
+            // dbfilingsystemDataSetForReports1BindingSource
+            // 
+            this.dbfilingsystemDataSetForReports1BindingSource.DataSource = this.db_filingsystemDataSetForReports1;
+            this.dbfilingsystemDataSetForReports1BindingSource.Position = 0;
             // 
             // db_filingsystemDataSetForReports1
             // 
@@ -53,20 +63,11 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FilingSystem2.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.Size = new System.Drawing.Size(1067, 554);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // dbfilingsystemDataSetForReports1BindingSource
-            // 
-            this.dbfilingsystemDataSetForReports1BindingSource.DataSource = this.db_filingsystemDataSetForReports1;
-            this.dbfilingsystemDataSetForReports1BindingSource.Position = 0;
-            // 
-            // tblfileBindingSource
-            // 
-            this.tblfileBindingSource.DataMember = "tbl_file";
-            this.tblfileBindingSource.DataSource = this.dbfilingsystemDataSetForReports1BindingSource;
             // 
             // tbl_fileTableAdapter
             // 
@@ -74,16 +75,17 @@
             // 
             // reportViewerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.reportViewer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "reportViewerForm";
             this.Text = "Report Viewer";
             this.Load += new System.EventHandler(this.reportViewerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSetForReports1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbfilingsystemDataSetForReports1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbfilingsystemDataSetForReports1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_filingsystemDataSetForReports1)).EndInit();
             this.ResumeLayout(false);
 
         }

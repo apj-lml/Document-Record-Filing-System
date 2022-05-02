@@ -50,6 +50,8 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tbl_userTableAdapter1 = new FilingSystem2.db_filingsystemDataSetForReportsTableAdapters.tbl_userTableAdapter();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbTagColor = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFolder)).BeginInit();
@@ -83,6 +85,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.cbTagColor);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.btnFileDocument);
             this.panel2.Controls.Add(this.linkLabel2);
             this.panel2.Controls.Add(this.label5);
@@ -109,7 +113,7 @@
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.folder__2_;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(317, 346);
+            this.btnFileDocument.Location = new System.Drawing.Point(317, 345);
             this.btnFileDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -174,7 +178,7 @@
             // tbFolderName
             // 
             this.tbFolderName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFolderName.Location = new System.Drawing.Point(432, 43);
+            this.tbFolderName.Location = new System.Drawing.Point(410, 41);
             this.tbFolderName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFolderName.MaxLength = 1028;
             this.tbFolderName.Name = "tbFolderName";
@@ -185,7 +189,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(427, 15);
+            this.label3.Location = new System.Drawing.Point(405, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 28);
             this.label3.TabIndex = 4;
@@ -238,7 +242,7 @@
             this.tsViewSelectedFolder,
             this.tsDeleteFolder});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(250, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(250, 52);
             // 
             // tsViewSelectedFolder
             // 
@@ -250,7 +254,7 @@
             // tsDeleteFolder
             // 
             this.tsDeleteFolder.Name = "tsDeleteFolder";
-            this.tsDeleteFolder.Size = new System.Drawing.Size(229, 24);
+            this.tsDeleteFolder.Size = new System.Drawing.Size(249, 24);
             this.tsDeleteFolder.Text = "Delete Selected Folder";
             this.tsDeleteFolder.Click += new System.EventHandler(this.tsDeleteFolder_Click);
             // 
@@ -290,6 +294,26 @@
             // tbl_userTableAdapter1
             // 
             this.tbl_userTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(404, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 28);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Tag Color";
+            // 
+            // cbTagColor
+            // 
+            this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbTagColor.FormattingEnabled = true;
+            this.cbTagColor.Location = new System.Drawing.Point(409, 134);
+            this.cbTagColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTagColor.Name = "cbTagColor";
+            this.cbTagColor.Size = new System.Drawing.Size(335, 36);
+            this.cbTagColor.TabIndex = 17;
             // 
             // foldersForm
             // 
@@ -339,5 +363,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsViewSelectedFolder;
         private System.Windows.Forms.ToolStripMenuItem tsDeleteFolder;
         private db_filingsystemDataSetForReportsTableAdapters.tbl_userTableAdapter tbl_userTableAdapter1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbTagColor;
     }
 }

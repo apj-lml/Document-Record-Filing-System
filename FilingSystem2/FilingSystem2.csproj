@@ -65,10 +65,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>20EDF5E1140327EA1C52D192178D45C953EC667F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B59BC08FE17D2810AF48168B075A5D7477D057CA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>FilingSystem2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>FilingSystem2_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -104,6 +104,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUserControl.Designer.cs">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,12 +189,21 @@
     <Compile Include="EditDocument.Designer.cs">
       <DependentUpon>EditDocument.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewDocument.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewDocument.Designer.cs">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminUserControl.resx">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +248,9 @@
     <EmbeddedResource Include="EditDocument.resx">
       <DependentUpon>EditDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewDocument.resx">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +265,7 @@
     <None Include="db_filingsystemDataSetForReports.xss">
       <DependentUpon>db_filingsystemDataSetForReports.xsd</DependentUpon>
     </None>
+    <None Include="FilingSystem2_1_TemporaryKey.pfx" />
     <None Include="FilingSystem2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

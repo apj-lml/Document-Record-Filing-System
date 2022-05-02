@@ -111,7 +111,7 @@ namespace FilingSystem2
                     while (reader.Read())
                     {
                         Random rnd = new Random();
-                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssff-") + rnd.Next(10);
+                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssff-") + rnd.Next(250);
                         Console.WriteLine(dateNow);
                         tbCode.Text = reader.GetString(1) + dateNow;
                     }

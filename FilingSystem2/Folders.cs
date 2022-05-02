@@ -40,6 +40,20 @@ namespace FilingSystem2
 
         }
 
+        public void CbloadColors()
+        {
+            string query = "SELECT * FROM tbl_color ORDER BY color ASC";
+            da = new OleDbDataAdapter(query, con);
+            //con.Open();
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Colors");
+
+            cbTagColor.DisplayMember = "color";
+            cbTagColor.ValueMember = "ID";
+            cbTagColor.DataSource = ds.Tables["Colors"];
+
+        }
+
         public DataTable MyFolders(string filter_by = null, string filter_value = null)
         {
             string sql = null;
@@ -132,6 +146,7 @@ namespace FilingSystem2
         {
             loadFolders();
             CbLoadBoxes();
+            CbloadColors();
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)

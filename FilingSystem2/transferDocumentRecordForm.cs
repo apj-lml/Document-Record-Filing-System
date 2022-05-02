@@ -113,7 +113,7 @@ namespace FilingSystem2
                                                         SET code = @code, folder_id = @folder_id
                                                         WHERE ID = @id", con);
 
-                                            cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + DateTime.Now.ToString("Mdyy-HHmmssff-")+rnd.Next(10));
+                                            cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + DateTime.Now.ToString("Mdyy-HHmmssff-")+rnd.Next(250));
                                             cmd_update_files_folder.Parameters.AddWithValue("@folder_id", folder_id);
                                             cmd_update_files_folder.Parameters.AddWithValue("@id", id);
                                             //con.Open();
@@ -144,7 +144,7 @@ namespace FilingSystem2
                 _dashboardForm.loadDgDocumentsRecords();
 
 
-                //  MessageBox.Show("Documents / Records transferred successfully!", "Transfer Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Documents / Records transferred successfully!", "Transfer Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }

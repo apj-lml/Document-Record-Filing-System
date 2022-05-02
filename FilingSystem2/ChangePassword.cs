@@ -33,7 +33,34 @@ namespace FilingSystem2
         private void btnSaveChangesDocument_Click(object sender, EventArgs e)
         {
             var password = loginForm.LoginInfo.Password;
-            
+            var user_id = loginForm.LoginInfo.UserID;
+
+            if (tbCurrentPassword.Text == password)
+            {
+                if(tbNewPassword.Text == tbConfirmPassword.Text)
+                {
+
+                    OleDbCommand cmd = new OleDbCommand(@"UPDATE tbl_user SET [password] = @password WHERE ID = @id", con);
+
+                    cmd.Parameters.AddWithValue("@password", tbNewPassword.Text);
+                    cmd.Parameters.AddWithValue("@id", user_id);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Successfully changed password! ", "Password Changed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Confirm password new password does not match! ", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            else
+            {
+                    MessageBox.Show("Current password does not match! ", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
     }

@@ -40,6 +40,7 @@ namespace FilingSystem2
             public static string Section;
             public static string Unit;
             public static string Role;
+            public static string Status;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -62,6 +63,7 @@ namespace FilingSystem2
                 LoginInfo.Section = reader["section"].ToString();
                 LoginInfo.Unit = reader["unit"].ToString();
                 LoginInfo.Role = reader["role"].ToString();
+                LoginInfo.Status = reader["active_status"].ToString();
 
                 //LoginInfo.UserInfo = reader.GetString(0);
                 new dashboardForm().Show();

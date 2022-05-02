@@ -255,7 +255,12 @@ namespace FilingSystem2
 
         private void ll_user_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            new UserProfile().ShowDialog();
+        }
 
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            new AdminUserControl().ShowDialog();
         }
     }
 }
