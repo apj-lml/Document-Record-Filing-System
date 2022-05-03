@@ -60,8 +60,8 @@ namespace FilingSystem2
                 LoginInfo.FirstName = reader["first_name"].ToString();
                 LoginInfo.Middlename = reader["middle_name"].ToString();
                 LoginInfo.NameExtension = reader["name_extension"].ToString();
-                LoginInfo.Section = reader["section"].ToString();
-                LoginInfo.Unit = reader["unit"].ToString();
+                LoginInfo.Section = reader["user_section"].ToString();
+                LoginInfo.Unit = reader["user_unit"].ToString();
                 LoginInfo.Role = reader["role"].ToString();
                 LoginInfo.Status = reader["active_status"].ToString();
 

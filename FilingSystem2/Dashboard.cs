@@ -133,7 +133,7 @@ namespace FilingSystem2
 
             //MessageBox.Show("Welcome,"+first_name, "Hi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            if (role == "user")
+            if (role == "User")
             {
                 btnUsers.Visible = false;
             }
@@ -255,12 +255,12 @@ namespace FilingSystem2
 
         private void ll_user_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new UserProfile().ShowDialog();
+            new UserProfile(this).ShowDialog();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            new AdminUserControl().ShowDialog();
+            new AdminUserControl(this).ShowDialog();
         }
     }
 }
