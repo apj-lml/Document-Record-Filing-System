@@ -335,5 +335,10 @@ namespace FilingSystem2
         {
             new AdminUserControl(this).ShowDialog();
         }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadDgDocumentsRecords();
+        }
     }
 }

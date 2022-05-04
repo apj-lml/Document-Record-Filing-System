@@ -90,6 +90,12 @@ namespace FilingSystem2
                 con.Close();
 
                 _dashboardForm.loadDgDocumentsRecords();
+                tbCode.Text = "";
+                tbSubject.Text = string.Empty;
+                tbParticulars.Text = string.Empty;
+                tbRemarks.Text = string.Empty;
+                cbFolder.SelectedIndex = 0;
+
 
                 MessageBox.Show("Document / Record Added Successfully", "Success!");
 
