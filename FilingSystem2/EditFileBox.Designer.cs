@@ -39,6 +39,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSaveChangesFileBox = new System.Windows.Forms.Button();
             this.tblfileboxBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.llColor = new System.Windows.Forms.LinkLabel();
+            this.cbTagColor = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileboxBindingSource)).BeginInit();
@@ -82,7 +85,7 @@
             // tbFileBoxDescription
             // 
             this.tbFileBoxDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFileBoxDescription.Location = new System.Drawing.Point(19, 201);
+            this.tbFileBoxDescription.Location = new System.Drawing.Point(19, 254);
             this.tbFileBoxDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxDescription.Multiline = true;
             this.tbFileBoxDescription.Name = "tbFileBoxDescription";
@@ -93,7 +96,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(15, 178);
+            this.label4.Location = new System.Drawing.Point(15, 231);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(243, 21);
@@ -107,7 +110,7 @@
             this.tbFileBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxName.MaxLength = 1028;
             this.tbFileBoxName.Name = "tbFileBoxName";
-            this.tbFileBoxName.Size = new System.Drawing.Size(276, 29);
+            this.tbFileBoxName.Size = new System.Drawing.Size(560, 29);
             this.tbFileBoxName.TabIndex = 2;
             // 
             // label3
@@ -124,6 +127,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.llColor);
+            this.panel2.Controls.Add(this.cbTagColor);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.btnSaveChangesFileBox);
             this.panel2.Controls.Add(this.tbFileBoxDescription);
             this.panel2.Controls.Add(this.label4);
@@ -133,7 +139,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(597, 380);
+            this.panel2.Size = new System.Drawing.Size(597, 432);
             this.panel2.TabIndex = 22;
             // 
             // btnSaveChangesFileBox
@@ -145,7 +151,7 @@
             this.btnSaveChangesFileBox.ForeColor = System.Drawing.Color.White;
             this.btnSaveChangesFileBox.Image = global::FilingSystem2.Properties.Resources.edit;
             this.btnSaveChangesFileBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChangesFileBox.Location = new System.Drawing.Point(198, 318);
+            this.btnSaveChangesFileBox.Location = new System.Drawing.Point(198, 371);
             this.btnSaveChangesFileBox.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChangesFileBox.Name = "btnSaveChangesFileBox";
             this.btnSaveChangesFileBox.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -160,11 +166,43 @@
             // 
             this.tblfileboxBindingSource.DataMember = "tbl_file_box";
             // 
+            // llColor
+            // 
+            this.llColor.AutoSize = true;
+            this.llColor.Location = new System.Drawing.Point(93, 170);
+            this.llColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.llColor.Name = "llColor";
+            this.llColor.Size = new System.Drawing.Size(53, 13);
+            this.llColor.TabIndex = 24;
+            this.llColor.TabStop = true;
+            this.llColor.Text = "Add Color";
+            // 
+            // cbTagColor
+            // 
+            this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbTagColor.FormattingEnabled = true;
+            this.cbTagColor.Location = new System.Drawing.Point(19, 189);
+            this.cbTagColor.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTagColor.Name = "cbTagColor";
+            this.cbTagColor.Size = new System.Drawing.Size(275, 29);
+            this.cbTagColor.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(15, 164);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 21);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Tag Color";
+            // 
             // EditFileBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 380);
+            this.ClientSize = new System.Drawing.Size(597, 432);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "EditFileBox";
@@ -191,5 +229,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource tblfileboxBindingSource;
         private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.LinkLabel llColor;
+        private System.Windows.Forms.ComboBox cbTagColor;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -15,18 +15,16 @@ namespace FilingSystem2
 {
     public partial class dashboardForm : Form
     {
-
-        //OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
         public dashboardForm()
         {
             InitializeComponent();
+            con = myConnectionString.MyConnection();
         }
         public DataTable MyFiles(string filter_by = null, string filter_value = null)
         {
@@ -38,7 +36,6 @@ namespace FilingSystem2
             else if (filter_value == "code")
             {
                 filter_value = "tfil.code";
-
             }
             else if (filter_value == "subject")
             {
@@ -48,17 +45,33 @@ namespace FilingSystem2
             {
                 filter_value = "tfil.particulars";
             }
+            else if (filter_value == "remarks")
+            {
+                filter_value = "tfil.remarks";
+            }
             else if (filter_value == "folder_name")
             {
                 filter_value = "tfol.folder_name";
+            }
+            else if (filter_value == "folder_tag_color")
+            {
+                filter_value = "foltagclr.tag_color";
             }
             else if (filter_value == "box_name")
             {
                 filter_value = "tfilbox.box_name";
             }
+            else if (filter_value == "box_tag_color")
+            {
+                filter_value = "boxtagclr.tag_color";
+            }
             else if (filter_value == "filed_by")
             {
                 filter_value = "usr.last_name & ', '& usr.first_name";
+            }
+            else if (filter_value == "date_filed")
+            {
+                filter_value = "tfil.date_filed";
             }
             else {
                 //filter_value = "usr.last_name & ', '& usr.first_name";
@@ -69,30 +82,48 @@ namespace FilingSystem2
 
             if (filter_by == null)
             {
-                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER],
-                    tfilbox.box_name AS [FILE BOX / LOCATION], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
+                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS],
+                    tfol.folder_name AS [FOLDER],
+                    foltagclr.tag_color AS [FOLDER TAG COLOR],
+                    tfilbox.box_name AS [FILE BOX / LOCATION],
+                    boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR],
+                    usr.last_name & ', '& usr.first_name as [FILED BY],
+                    tfil.date_filed as [DATE FILED]
                     
-                    FROM (((tbl_file AS tfil 
+                    FROM (((((tbl_file AS tfil 
                         LEFT JOIN 
                     tbl_folder AS tfol
-                    ON tfil.folder_id = tfol.ID)
+                    ON tfil.folder_id = tfol.ID
+                    )
                         LEFT JOIN
                     tbl_file_box AS tfilbox
-                    ON tfilbox.ID = tfol.file_box_id)
+                    ON tfilbox.ID = tfol.file_box_id
+                    )
                         LEFT JOIN
                     tbl_user AS usr
                     ON tfil.filed_by = usr.ID
                     )
+                        LEFT JOIN
+                    tbl_color AS foltagclr
+                    ON tfol.folder_tag_color = foltagclr.ID
+                    )
+                        LEFT JOIN
+                    tbl_color AS boxtagclr
+                    ON tfilbox.box_tag_color = boxtagclr.ID
+                    )
+
                     ORDER BY tfil.ID DESC
                         ";
 
             }
             else
             {
-                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER],
-                    tfilbox.box_name AS [FILE BOX / LOCATION], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
+                if (filter_value != "all")
+                {
+                    sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER], foltagclr.tag_color AS [FOLDER TAG COLOR],
+                    tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
                     
-                    FROM (((tbl_file AS tfil 
+                    FROM (((((tbl_file AS tfil 
                         INNER JOIN 
                     tbl_folder AS tfol
                     ON tfil.folder_id = tfol.ID)
@@ -104,7 +135,44 @@ namespace FilingSystem2
                     tbl_user AS usr
                     ON tfil.filed_by = usr.ID
                     )
-                    WHERE " + filter_value + " LIKE '%"+ filter_by +"%'";
+                        LEFT JOIN
+                    tbl_color AS foltagclr
+                    ON tfol.folder_tag_color = foltagclr.ID
+                    )
+                        LEFT JOIN
+                    tbl_color AS boxtagclr
+                    ON tfilbox.box_tag_color = boxtagclr.ID
+                    )
+                    WHERE " + filter_value + " LIKE '%" + filter_by + "%'";
+                }
+                else
+                {
+                    sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER], foltagclr.tag_color AS [FOLDER TAG COLOR],
+                    tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
+                    
+                    FROM (((((tbl_file AS tfil 
+                        INNER JOIN 
+                    tbl_folder AS tfol
+                    ON tfil.folder_id = tfol.ID)
+                        INNER JOIN
+                    tbl_file_box AS tfilbox
+                    ON tfilbox.ID = tfol.file_box_id
+                    )
+                        INNER JOIN
+                    tbl_user AS usr
+                    ON tfil.filed_by = usr.ID
+                    )
+                        LEFT JOIN
+                    tbl_color AS foltagclr
+                    ON tfol.folder_tag_color = foltagclr.ID
+                    )
+                        LEFT JOIN
+                    tbl_color AS boxtagclr
+                    ON tfilbox.box_tag_color = boxtagclr.ID
+                    )
+                    WHERE tfil.ID LIKE '%" + filter_by + "%' OR tfil.code LIKE '%" + filter_by + "%' OR tfil.subject LIKE '%" + filter_by + "%'  OR tfil.particulars LIKE '%" + filter_by + "%' OR tfil.remarks LIKE '%" + filter_by + "%' OR tfol.folder_name LIKE '%" + filter_by + "%' OR foltagclr.tag_color LIKE '%" + filter_by + "%' OR tfilbox.box_name LIKE '%" + filter_by + "%' OR boxtagclr.tag_color LIKE '%" + filter_by + "%' OR usr.last_name & ', '& usr.first_name LIKE '%" + filter_by + "%' OR tfil.date_filed LIKE '%" + filter_by + "%' ";
+                }
+
                 //sql = $"SELECT * FROM tbl_file WHERE {test} ID LIKE '%{ filter_by }%'";
 
             }
@@ -149,12 +217,16 @@ namespace FilingSystem2
             cbFilter.ValueMember = "Value";
 
             List<Object> items = new List<Object>();
-            items.Add (new { Text = "ID", Value = "ID" });
+            items.Add(new { Text = "All", Value = "all" });
+            items.Add(new { Text = "ID", Value = "ID" });
             items.Add(new { Text = "Code", Value = "code" });
             items.Add(new { Text = "Subject", Value = "subject" });
             items.Add(new { Text = "Particulars", Value = "particulars" });
+            items.Add(new { Text = "Remarks", Value = "remarks" });
             items.Add(new { Text = "Folder", Value = "folder" });
-            items.Add(new { Text = "File Box", Value = "box_id" });
+            items.Add(new { Text = "Folder Tag Color", Value = "folder_tag_color" });
+            items.Add(new { Text = "File Box / Location", Value = "box_id" });
+            items.Add(new { Text = "File Box / Location Tag Color", Value = "box_tag_color" });
             items.Add(new { Text = "Filed By", Value = "filed_by" });
             items.Add(new { Text = "Date Filed", Value = "date_filed" });
 
@@ -221,7 +293,7 @@ namespace FilingSystem2
 
         private void btnTransferDocuments_Click(object sender, EventArgs e)
         {
-            new transferDocumentRecordForm(this).ShowDialog(); 
+            new BulkTransferDocumentRecordForm(this).ShowDialog(); 
         }
 
         private void tsViewDocument_Click(object sender, EventArgs e)

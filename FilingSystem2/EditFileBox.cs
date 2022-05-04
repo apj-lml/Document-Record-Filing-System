@@ -14,7 +14,9 @@ namespace FilingSystem2
 {
     public partial class EditFileBox : Form
     {
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -26,20 +28,36 @@ namespace FilingSystem2
         {
             InitializeComponent();
             _fileBoxForm = fileboxform;
+            con = myConnectionString.MyConnection();
+        }
+
+        public void CbloadColors()
+        {
+            string query = "SELECT * FROM tbl_color ORDER BY tag_color ASC";
+            da = new OleDbDataAdapter(query, con);
+            //con.Open();
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Colors");
+
+            cbTagColor.DisplayMember = "tag_color";
+            cbTagColor.ValueMember = "ID";
+            cbTagColor.DataSource = ds.Tables["Colors"];
         }
 
         private void EditFileBox_Load(object sender, EventArgs e)
         {
+            CbloadColors();
             DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("fileBoxForm"), "dgFileBox"));
             var id = dgv.CurrentRow.Cells[0].Value;
             var box_name = dgv.CurrentRow.Cells[1].Value;
             var box_description = dgv.CurrentRow.Cells[2].Value;
-            var created_by = dgv.CurrentRow.Cells[3].Value;
+            var tag_color = dgv.CurrentRow.Cells[3].Value;
 
             tbID.Text = id.ToString();
             //tbFileBoxCode.Text = box_code.ToString();
             tbFileBoxName.Text = box_name.ToString();
             tbFileBoxDescription.Text = box_description.ToString();
+            cbTagColor.Text = tag_color.ToString();
             //cbFileBox.Text = file_box.ToString();
         }
 
@@ -53,17 +71,24 @@ namespace FilingSystem2
             {
                 OleDbCommand cmd_update_box = new OleDbCommand(@"UPDATE tbl_file_box
                                                 SET box_name = @box_name,
-                                                    box_description = @box_description
+                                                    box_description = @box_description,
+                                                    box_tag_color = @box_tag_color
                                                 WHERE ID = @id", con);
 
                 cmd_update_box.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
                 cmd_update_box.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
+                cmd_update_box.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
                 cmd_update_box.Parameters.AddWithValue("@id", tbID.Text);
                 con.Open();
                 cmd_update_box.ExecuteNonQuery();
                 con.Close();
 
                 _fileBoxForm.loadFileBoxes();
+                //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
+                dashboardForm dashboardform;
+                dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
+                dashboardform.loadDgDocumentsRecords();
+
                 MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }

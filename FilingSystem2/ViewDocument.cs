@@ -30,8 +30,11 @@ namespace FilingSystem2
             var particulars = dgv.CurrentRow.Cells[3].Value;
             var remarks = dgv.CurrentRow.Cells[4].Value;
             var folder = dgv.CurrentRow.Cells[5].Value;
-            var file_box = dgv.CurrentRow.Cells[6].Value;
-            var filed_by = dgv.CurrentRow.Cells[7].Value;
+            var folder_tag_color = dgv.CurrentRow.Cells[6].Value;
+            var file_box = dgv.CurrentRow.Cells[7].Value;
+            var file_box_tag_color = dgv.CurrentRow.Cells[8].Value;
+            var filed_by = dgv.CurrentRow.Cells[9].Value;
+            var date_filed = dgv.CurrentRow.Cells[10].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -40,13 +43,14 @@ namespace FilingSystem2
             tbFileBox.Text = file_box.ToString();
             tbFiledBy.Text = filed_by.ToString();
 
-            //cbFolder.SelectedText = folder.ToString();
-            //cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
-
-
             tbSubject.Text = subject.ToString();
             tbParticulars.Text = particulars.ToString();
-            tbRemarks.Text = remarks.ToString();  
+            tbRemarks.Text = remarks.ToString();
+
+            tbFolderTagColor.Text = folder_tag_color.ToString();
+            tbFileBoxTagColor.Text = file_box_tag_color.ToString();
+
+            tbDateFiled.Text = date_filed.ToString();
         }
 
         private void btnEditDocument_Click(object sender, EventArgs e)

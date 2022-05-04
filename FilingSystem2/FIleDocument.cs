@@ -14,8 +14,9 @@ namespace FilingSystem2
 {
     public partial class addDocumentRecordForm : Form
     {
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -29,6 +30,7 @@ namespace FilingSystem2
         {
             _dashboardForm = dashboardform;
             InitializeComponent();
+            con = myConnectionString.MyConnection();
         }
 
         public void CbLoadFolders()

@@ -15,7 +15,10 @@ namespace FilingSystem2
     public partial class ColorsForm : Form
     {
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -24,6 +27,7 @@ namespace FilingSystem2
         public ColorsForm()
         {
             InitializeComponent();
+            myConnectionString.MyConnection();
         }
 
         public DataTable MyColors(string filter_by = null, string filter_value = null)
@@ -69,7 +73,7 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd_update_folder = new OleDbCommand(@"INSERT INTO tbl_color (color) VALUES (@color)", con);
+                OleDbCommand cmd_update_folder = new OleDbCommand(@"INSERT INTO tbl_color (tag_color) VALUES (@color)", con);
 
                 cmd_update_folder.Parameters.AddWithValue("@color", tbColor.Text);
 
@@ -93,6 +97,7 @@ namespace FilingSystem2
             tbColor.Text = color.ToString();
             btnAddColor.Visible = false;
             btnSave.Visible = true;
+            llAdd.Visible = true;
 
         }
 
@@ -122,10 +127,13 @@ namespace FilingSystem2
                 tbColor.Text = "";
                 loadColors();
 
-                MessageBox.Show("Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 btnAddColor.Visible = true;
                 btnSave.Visible = false;
+                llAdd.Visible = false;
+
+                MessageBox.Show("Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
 
             }
         }
@@ -191,6 +199,14 @@ namespace FilingSystem2
 
 
             }
+        }
+
+        private void llAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            tbColor.Text = "";
+            btnAddColor.Visible = true;
+            btnSave.Visible = false;
+            llAdd.Visible = false;
         }
     }
 }

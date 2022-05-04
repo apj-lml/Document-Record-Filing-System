@@ -1,6 +1,6 @@
 ﻿namespace FilingSystem2
 {
-    partial class transferDocumentRecordForm
+    partial class BulkTransferDocumentRecordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -47,9 +47,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(771, 100);
+            this.panel1.Size = new System.Drawing.Size(578, 81);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -58,9 +58,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(54, 31);
+            this.label1.Location = new System.Drawing.Point(28, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(641, 42);
+            this.label1.Size = new System.Drawing.Size(524, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "Bulk Transfer Documents / Records Folder";
             // 
@@ -74,19 +75,20 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.cbFolderFrom);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 100);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 81);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(771, 199);
+            this.panel2.Size = new System.Drawing.Size(578, 162);
             this.panel2.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(405, 26);
+            this.label2.Location = new System.Drawing.Point(304, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 28);
+            this.label2.Size = new System.Drawing.Size(80, 21);
             this.label2.TabIndex = 16;
             this.label2.Text = "To Folder";
             // 
@@ -94,10 +96,10 @@
             // 
             this.cbFolderTo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbFolderTo.FormattingEnabled = true;
-            this.cbFolderTo.Location = new System.Drawing.Point(406, 55);
-            this.cbFolderTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbFolderTo.Location = new System.Drawing.Point(304, 45);
+            this.cbFolderTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbFolderTo.Name = "cbFolderTo";
-            this.cbFolderTo.Size = new System.Drawing.Size(335, 36);
+            this.cbFolderTo.Size = new System.Drawing.Size(252, 29);
             this.cbFolderTo.TabIndex = 15;
             // 
             // btnFileDocument
@@ -109,11 +111,11 @@
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.edit;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(303, 128);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFileDocument.Location = new System.Drawing.Point(227, 104);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFileDocument.Name = "btnFileDocument";
-            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnFileDocument.Size = new System.Drawing.Size(152, 49);
+            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnFileDocument.Size = new System.Drawing.Size(114, 40);
             this.btnFileDocument.TabIndex = 9;
             this.btnFileDocument.Text = "Transfer";
             this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,9 +125,10 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(510, 34);
+            this.linkLabel2.Location = new System.Drawing.Point(382, 28);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(144, 16);
+            this.linkLabel2.Size = new System.Drawing.Size(118, 13);
             this.linkLabel2.TabIndex = 14;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Add File Box / Location";
@@ -135,9 +138,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(29, 24);
+            this.label5.Location = new System.Drawing.Point(22, 20);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 28);
+            this.label5.Size = new System.Drawing.Size(101, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "From Folder";
             // 
@@ -145,20 +149,21 @@
             // 
             this.cbFolderFrom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbFolderFrom.FormattingEnabled = true;
-            this.cbFolderFrom.Location = new System.Drawing.Point(34, 55);
-            this.cbFolderFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbFolderFrom.Location = new System.Drawing.Point(26, 45);
+            this.cbFolderFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbFolderFrom.Name = "cbFolderFrom";
-            this.cbFolderFrom.Size = new System.Drawing.Size(335, 36);
+            this.cbFolderFrom.Size = new System.Drawing.Size(252, 29);
             this.cbFolderFrom.TabIndex = 10;
             // 
-            // transferDocumentRecordForm
+            // BulkTransferDocumentRecordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 299);
+            this.ClientSize = new System.Drawing.Size(578, 243);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "transferDocumentRecordForm";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "BulkTransferDocumentRecordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Documents / Records Form";
             this.Load += new System.EventHandler(this.transferDocumentRecordForm_Load);

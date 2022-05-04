@@ -21,7 +21,6 @@ namespace FilingSystem2
         FindControl fc = new FindControl();
 
         private readonly foldersForm _foldersForm;
-        private readonly dashboardForm _dashboardForm;
         public EditFolderForm(foldersForm foldersform)
         {
             InitializeComponent();
@@ -133,12 +132,13 @@ namespace FilingSystem2
                     cmd_update_folder.ExecuteNonQuery();
                     con.Close();
 
-                    clearFields();
+                    //clearFields();
                     _foldersForm.loadFolders();
 
                     //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
                     //dgv.Refresh();
                     //dgv.Update();
+
                     dashboardForm dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
                     
                     dashboardform.loadDgDocumentsRecords();
@@ -155,6 +155,11 @@ namespace FilingSystem2
         private void llColor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new ColorsForm().ShowDialog();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new fileBoxForm().ShowDialog();
         }
     }
 }

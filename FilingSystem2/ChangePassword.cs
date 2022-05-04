@@ -14,8 +14,9 @@ namespace FilingSystem2
 {
     public partial class ChangePassword : Form
     {
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -23,6 +24,7 @@ namespace FilingSystem2
         public ChangePassword()
         {
             InitializeComponent();
+            myConnectionString.MyConnection();
         }
 
         private void ChangePassword_Load(object sender, EventArgs e)
@@ -63,5 +65,6 @@ namespace FilingSystem2
             }
 
         }
+
     }
 }

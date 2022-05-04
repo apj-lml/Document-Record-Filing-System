@@ -20,19 +20,23 @@ namespace FilingSystem2
         {
             InitializeComponent();
             _dashboardForm = dashboardform;
+
+            con = myConnectionString.MyConnection();
         }
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
         FindControl fc = new FindControl();
+        
 
         public DataTable MyFiles(string filter_by = null, string filter_value = null)
         {
             string sql = null;
-
+            
             if (filter_by == null)
             {
                 sql = @"SELECT * FROM tbl_user";
@@ -77,6 +81,7 @@ namespace FilingSystem2
             cbSection.SelectedItem = dgListOfUsers.CurrentRow.Cells[7].Value.ToString();
             cbUnit.SelectedItem = dgListOfUsers.CurrentRow.Cells[8].Value.ToString();
             cbStatus.SelectedItem = dgListOfUsers.CurrentRow.Cells[9].Value.ToString();
+            cbRole.SelectedItem = dgListOfUsers.CurrentRow.Cells[10].Value.ToString();
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -85,13 +90,15 @@ namespace FilingSystem2
             {
                 OleDbCommand cmd_update_user = new OleDbCommand(@"UPDATE tbl_user
                                                     SET emp_id = @emp_id,
-                                                        last_name = @last_name,
                                                         [password] = @password,
+                                                        last_name = @last_name,
                                                         first_name = @first_name,
                                                         middle_name = @middle_name,
                                                         name_extension = @name_extension,
                                                         user_section = @user_section,
-                                                        user_unit = @user_unit
+                                                        user_unit = @user_unit,
+                                                        active_status = @active_status,
+                                                        role = @role
                                                     WHERE ID = @id", con);
 
                 cmd_update_user.Parameters.AddWithValue("@emp_id", tbEmpId.Text);
@@ -102,6 +109,8 @@ namespace FilingSystem2
                 cmd_update_user.Parameters.AddWithValue("@name_extension", tbNameExtn.Text);
                 cmd_update_user.Parameters.AddWithValue("@user_section", cbSection.SelectedItem.ToString());
                 cmd_update_user.Parameters.AddWithValue("@user_unit", cbUnit.SelectedItem.ToString());
+                cmd_update_user.Parameters.AddWithValue("@active_status", cbStatus.SelectedItem.ToString());
+                cmd_update_user.Parameters.AddWithValue("@role", cbRole.SelectedItem.ToString());
                 cmd_update_user.Parameters.AddWithValue("@id", tbId.Text);
 
                 con.Open();

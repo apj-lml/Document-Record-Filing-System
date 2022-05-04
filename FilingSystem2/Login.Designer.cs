@@ -40,6 +40,8 @@
             this.tbUser = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -63,6 +65,8 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.btnLogin);
             this.panel3.Controls.Add(this.panel4);
@@ -77,13 +81,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
-            this.label1.Location = new System.Drawing.Point(85, 87);
+            this.label1.Location = new System.Drawing.Point(49, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 18);
+            this.label1.Size = new System.Drawing.Size(192, 25);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Login Account";
+            this.label1.Text = "LOGIN ACCOUNT";
             // 
             // btnLogin
             // 
@@ -91,7 +95,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
-            this.btnLogin.Location = new System.Drawing.Point(100, 280);
+            this.btnLogin.Location = new System.Drawing.Point(99, 271);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(94, 40);
@@ -175,7 +179,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FilingSystem2.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(107, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(108, 19);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(71, 66);
@@ -194,6 +198,30 @@
             this.panel1.Size = new System.Drawing.Size(573, 470);
             this.panel1.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Trajan Pro", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
+            this.label2.Location = new System.Drawing.Point(10, 384);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(264, 36);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Pangasinan\r\nIrrigation Management Office";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
+            this.label3.Location = new System.Drawing.Point(112, 422);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "© 2022";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +230,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(896, 509);
+            this.MinimumSize = new System.Drawing.Size(896, 509);
             this.Name = "loginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -234,6 +265,8 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

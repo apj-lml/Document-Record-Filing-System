@@ -14,10 +14,10 @@ namespace FilingSystem2
 {
     public partial class EditDocument : Form
     {
-        //OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
 
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -28,6 +28,7 @@ namespace FilingSystem2
         {
             InitializeComponent();
             _dashboardForm = dashboardform;
+            con = myConnectionString.MyConnection();
         }
 
         public void CbLoadFolders()
@@ -58,21 +59,29 @@ namespace FilingSystem2
             var particulars = dgv.CurrentRow.Cells[3].Value;
             var remarks = dgv.CurrentRow.Cells[4].Value;
             var folder = dgv.CurrentRow.Cells[5].Value;
-            var file_box = dgv.CurrentRow.Cells[6].Value;
-            var filed_by = dgv.CurrentRow.Cells[7].Value;
+            var folder_tag_color = dgv.CurrentRow.Cells[6].Value;
+            var file_box = dgv.CurrentRow.Cells[7].Value;
+            var file_box_tag_color = dgv.CurrentRow.Cells[8].Value;
+            var filed_by = dgv.CurrentRow.Cells[9].Value;
+            var date_filed = dgv.CurrentRow.Cells[10].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
+            cbFolder.Text = folder.ToString();
 
-            CbLoadFolders();
-
-            //cbFolder.SelectedText = folder.ToString();
-            cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
+            tbFileBox.Text = file_box.ToString();
+            tbFiledBy.Text = filed_by.ToString();
 
             tbSubject.Text = subject.ToString();
             tbParticulars.Text = particulars.ToString();
             tbRemarks.Text = remarks.ToString();
-            //tbSubject.Text = subject;
+
+            tbFolderTagColor.Text = folder_tag_color.ToString();
+            tbFileBoxTagColor.Text = file_box_tag_color.ToString();
+
+            tbDateFiled.Text = date_filed.ToString();
+
+            CbLoadFolders();
 
         }
 
@@ -118,10 +127,10 @@ namespace FilingSystem2
 
         private void cbFolder_Click(object sender, EventArgs e)
         {
-            CbLoadFolders();
-            DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
-            var folder = dgv.CurrentRow.Cells[4].Value;
-            cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
+            //CbLoadFolders();
+            //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
+            //var folder = dgv.CurrentRow.Cells[4].Value;
+            //cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
 
 
         }

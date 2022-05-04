@@ -12,11 +12,12 @@ using System.Windows.Forms;
 
 namespace FilingSystem2
 {
-    public partial class transferDocumentRecordForm : Form
+    public partial class BulkTransferDocumentRecordForm : Form
     {
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -25,10 +26,11 @@ namespace FilingSystem2
 
         private readonly dashboardForm _dashboardForm;
 
-        public transferDocumentRecordForm(dashboardForm dashboardform)
+        public BulkTransferDocumentRecordForm(dashboardForm dashboardform)
         {
             InitializeComponent();
             _dashboardForm = dashboardform;
+            con = myConnectionString.MyConnection();
         }
 
         public void CbLoadFoldersFrom()

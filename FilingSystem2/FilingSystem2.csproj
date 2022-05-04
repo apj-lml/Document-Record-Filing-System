@@ -175,6 +175,7 @@
     <Compile Include="FileDocument.Designer.cs">
       <DependentUpon>FileDocument.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyConnectionString.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportViewerForm.cs">
@@ -184,11 +185,11 @@
       <DependentUpon>ReportViewerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="transferDocumentRecordForm.cs">
+    <Compile Include="BulkTransferDocumentRecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="transferDocumentRecordForm.Designer.cs">
-      <DependentUpon>transferDocumentRecordForm.cs</DependentUpon>
+    <Compile Include="BulkTransferDocumentRecordForm.Designer.cs">
+      <DependentUpon>BulkTransferDocumentRecordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EditDocument.cs">
       <SubType>Form</SubType>
@@ -252,8 +253,8 @@
     <EmbeddedResource Include="ReportViewerForm.resx">
       <DependentUpon>ReportViewerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="transferDocumentRecordForm.resx">
-      <DependentUpon>transferDocumentRecordForm.cs</DependentUpon>
+    <EmbeddedResource Include="BulkTransferDocumentRecordForm.resx">
+      <DependentUpon>BulkTransferDocumentRecordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditDocument.resx">
       <DependentUpon>EditDocument.cs</DependentUpon>

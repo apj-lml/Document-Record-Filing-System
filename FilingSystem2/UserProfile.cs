@@ -15,8 +15,10 @@ namespace FilingSystem2
     public partial class UserProfile : Form
     {
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
 
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -28,6 +30,7 @@ namespace FilingSystem2
         {
             InitializeComponent();
             _dashboardForm = dashboardform;
+            con = myConnectionString.MyConnection();
         }
 
         private void llChangePassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

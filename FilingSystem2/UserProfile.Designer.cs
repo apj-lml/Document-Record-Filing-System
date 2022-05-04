@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.llChangePassword = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.tbStatus = new System.Windows.Forms.TextBox();
-            this.tbId = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,10 +59,23 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(976, 78);
             this.panel1.TabIndex = 1;
+            // 
+            // tbId
+            // 
+            this.tbId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbId.HideSelection = false;
+            this.tbId.Location = new System.Drawing.Point(25, 36);
+            this.tbId.Margin = new System.Windows.Forms.Padding(2);
+            this.tbId.MaxLength = 1028;
+            this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
+            this.tbId.Size = new System.Drawing.Size(269, 29);
+            this.tbId.TabIndex = 15;
+            this.tbId.Visible = false;
             // 
             // label1
             // 
@@ -80,7 +93,7 @@
             // 
             this.tbLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbLastName.Location = new System.Drawing.Point(25, 174);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastName.MaxLength = 1028;
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(269, 29);
@@ -112,7 +125,7 @@
             // 
             this.tbFirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFirstName.Location = new System.Drawing.Point(297, 174);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstName.MaxLength = 1028;
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(260, 29);
@@ -133,7 +146,7 @@
             // 
             this.tbMiddleName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbMiddleName.Location = new System.Drawing.Point(561, 174);
-            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2);
             this.tbMiddleName.MaxLength = 1028;
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(261, 29);
@@ -154,7 +167,7 @@
             // 
             this.tbEmpId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbEmpId.Location = new System.Drawing.Point(25, 110);
-            this.tbEmpId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmpId.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmpId.MaxLength = 1028;
             this.tbEmpId.Name = "tbEmpId";
             this.tbEmpId.ReadOnly = true;
@@ -176,7 +189,7 @@
             // 
             this.tbNameExtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbNameExtn.Location = new System.Drawing.Point(826, 174);
-            this.tbNameExtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNameExtn.Margin = new System.Windows.Forms.Padding(2);
             this.tbNameExtn.MaxLength = 1028;
             this.tbNameExtn.Name = "tbNameExtn";
             this.tbNameExtn.Size = new System.Drawing.Size(126, 29);
@@ -198,13 +211,13 @@
             this.cbSection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbSection.FormattingEnabled = true;
             this.cbSection.Items.AddRange(new object[] {
-            "Administrative and Finance Section",
+            "Administrative & Finance Section",
             "Engineering Section",
             "Operations & Maintenance",
             "Office of the Irrigation Manager",
             "N/A"});
             this.cbSection.Location = new System.Drawing.Point(25, 237);
-            this.cbSection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSection.Margin = new System.Windows.Forms.Padding(2);
             this.cbSection.Name = "cbSection";
             this.cbSection.Size = new System.Drawing.Size(269, 29);
             this.cbSection.TabIndex = 19;
@@ -234,7 +247,7 @@
             "Institutional Development Unit",
             "N/A"});
             this.cbUnit.Location = new System.Drawing.Point(297, 237);
-            this.cbUnit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbUnit.Margin = new System.Windows.Forms.Padding(2);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(260, 29);
             this.cbUnit.TabIndex = 21;
@@ -249,7 +262,7 @@
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.diskette_white;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileDocument.Location = new System.Drawing.Point(398, 310);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnFileDocument.Size = new System.Drawing.Size(180, 41);
@@ -287,25 +300,12 @@
             // 
             this.tbStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbStatus.Location = new System.Drawing.Point(297, 110);
-            this.tbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.tbStatus.MaxLength = 1028;
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.ReadOnly = true;
             this.tbStatus.Size = new System.Drawing.Size(260, 29);
             this.tbStatus.TabIndex = 24;
-            // 
-            // tbId
-            // 
-            this.tbId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbId.HideSelection = false;
-            this.tbId.Location = new System.Drawing.Point(25, 36);
-            this.tbId.Margin = new System.Windows.Forms.Padding(2);
-            this.tbId.MaxLength = 1028;
-            this.tbId.Name = "tbId";
-            this.tbId.ReadOnly = true;
-            this.tbId.Size = new System.Drawing.Size(269, 29);
-            this.tbId.TabIndex = 15;
-            this.tbId.Visible = false;
             // 
             // UserProfile
             // 
@@ -332,7 +332,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserProfile";
             this.Text = "UserProfile";
             this.Load += new System.EventHandler(this.UserProfile_Load);

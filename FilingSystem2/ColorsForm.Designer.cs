@@ -40,6 +40,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editSelectedColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.llAdd = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgColors)).BeginInit();
@@ -50,9 +51,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(12, 13);
+            this.label7.Location = new System.Drawing.Point(9, 11);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 28);
+            this.label7.Size = new System.Drawing.Size(82, 21);
             this.label7.TabIndex = 21;
             this.label7.Text = "Tag Color";
             // 
@@ -62,9 +64,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(99, 22);
+            this.label1.Location = new System.Drawing.Point(74, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 48);
+            this.label1.Size = new System.Drawing.Size(164, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tag Colors";
             // 
@@ -74,19 +77,19 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(396, 100);
+            this.panel1.Size = new System.Drawing.Size(297, 81);
             this.panel1.TabIndex = 23;
             // 
             // tbColor
             // 
             this.tbColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbColor.Location = new System.Drawing.Point(12, 47);
-            this.tbColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbColor.Location = new System.Drawing.Point(9, 38);
+            this.tbColor.Margin = new System.Windows.Forms.Padding(2);
             this.tbColor.MaxLength = 1028;
             this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(372, 34);
+            this.tbColor.Size = new System.Drawing.Size(280, 29);
             this.tbColor.TabIndex = 15;
             // 
             // btnAddColor
@@ -97,11 +100,11 @@
             this.btnAddColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddColor.ForeColor = System.Drawing.Color.White;
             this.btnAddColor.Image = global::FilingSystem2.Properties.Resources.plus_symbol_button__1_;
-            this.btnAddColor.Location = new System.Drawing.Point(17, 102);
-            this.btnAddColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddColor.Location = new System.Drawing.Point(8, 77);
+            this.btnAddColor.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddColor.Name = "btnAddColor";
-            this.btnAddColor.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
-            this.btnAddColor.Size = new System.Drawing.Size(367, 49);
+            this.btnAddColor.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnAddColor.Size = new System.Drawing.Size(280, 40);
             this.btnAddColor.TabIndex = 24;
             this.btnAddColor.Text = " Add Color";
             this.btnAddColor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,15 +113,17 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.llAdd);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.dgColors);
             this.panel2.Controls.Add(this.btnAddColor);
             this.panel2.Controls.Add(this.tbColor);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Location = new System.Drawing.Point(0, 81);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(396, 390);
+            this.panel2.Size = new System.Drawing.Size(297, 317);
             this.panel2.TabIndex = 25;
             // 
             // btnSave
@@ -129,11 +134,11 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::FilingSystem2.Properties.Resources.diskette_white;
-            this.btnSave.Location = new System.Drawing.Point(18, 102);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Location = new System.Drawing.Point(8, 76);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Padding = new System.Windows.Forms.Padding(95, 0, 0, 0);
-            this.btnSave.Size = new System.Drawing.Size(367, 49);
+            this.btnSave.Padding = new System.Windows.Forms.Padding(71, 0, 0, 0);
+            this.btnSave.Size = new System.Drawing.Size(280, 40);
             this.btnSave.TabIndex = 26;
             this.btnSave.Text = " Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,15 +153,15 @@
             this.dgColors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgColors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgColors.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgColors.Location = new System.Drawing.Point(13, 180);
-            this.dgColors.Margin = new System.Windows.Forms.Padding(4);
+            this.dgColors.Location = new System.Drawing.Point(9, 128);
             this.dgColors.MultiSelect = false;
             this.dgColors.Name = "dgColors";
             this.dgColors.ReadOnly = true;
             this.dgColors.RowHeadersWidth = 51;
             this.dgColors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgColors.Size = new System.Drawing.Size(372, 199);
+            this.dgColors.Size = new System.Drawing.Size(279, 176);
             this.dgColors.TabIndex = 25;
+            this.dgColors.DoubleClick += new System.EventHandler(this.editSelectedColorToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -165,29 +170,42 @@
             this.editSelectedColorToolStripMenuItem,
             this.deleteSelectedColorToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(224, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 48);
             // 
             // editSelectedColorToolStripMenuItem
             // 
             this.editSelectedColorToolStripMenuItem.Name = "editSelectedColorToolStripMenuItem";
-            this.editSelectedColorToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.editSelectedColorToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.editSelectedColorToolStripMenuItem.Text = "Edit Selected Color";
             this.editSelectedColorToolStripMenuItem.Click += new System.EventHandler(this.editSelectedColorToolStripMenuItem_Click);
             // 
             // deleteSelectedColorToolStripMenuItem
             // 
             this.deleteSelectedColorToolStripMenuItem.Name = "deleteSelectedColorToolStripMenuItem";
-            this.deleteSelectedColorToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.deleteSelectedColorToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.deleteSelectedColorToolStripMenuItem.Text = "Delete Selected Color";
             this.deleteSelectedColorToolStripMenuItem.Click += new System.EventHandler(this.deleteSelectedColorToolStripMenuItem_Click);
             // 
+            // llAdd
+            // 
+            this.llAdd.AutoSize = true;
+            this.llAdd.Location = new System.Drawing.Point(91, 16);
+            this.llAdd.Name = "llAdd";
+            this.llAdd.Size = new System.Drawing.Size(26, 13);
+            this.llAdd.TabIndex = 27;
+            this.llAdd.TabStop = true;
+            this.llAdd.Text = "Add";
+            this.llAdd.Visible = false;
+            this.llAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llAdd_LinkClicked);
+            // 
             // ColorsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 490);
+            this.ClientSize = new System.Drawing.Size(297, 398);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ColorsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Colors Form";
@@ -214,5 +232,6 @@
         private System.Windows.Forms.ToolStripMenuItem editSelectedColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteSelectedColorToolStripMenuItem;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.LinkLabel llAdd;
     }
 }

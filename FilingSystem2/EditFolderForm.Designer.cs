@@ -32,6 +32,10 @@
             this.tbID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.llColor = new System.Windows.Forms.LinkLabel();
+            this.cbTagColor = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnFileDocument = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,10 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbFolderCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.llColor = new System.Windows.Forms.LinkLabel();
-            this.cbTagColor = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnFileDocument = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,19 +56,19 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 100);
+            this.panel1.Size = new System.Drawing.Size(602, 81);
             this.panel1.TabIndex = 1;
             // 
             // tbID
             // 
             this.tbID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbID.Location = new System.Drawing.Point(41, 38);
-            this.tbID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbID.Location = new System.Drawing.Point(31, 31);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbID.MaxLength = 3;
             this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(183, 34);
+            this.tbID.Size = new System.Drawing.Size(138, 29);
             this.tbID.TabIndex = 15;
             this.tbID.Visible = false;
             // 
@@ -78,9 +78,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(291, 24);
+            this.label1.Location = new System.Drawing.Point(218, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 48);
+            this.label1.Size = new System.Drawing.Size(163, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Edit Folder";
             // 
@@ -101,108 +102,19 @@
             this.panel2.Controls.Add(this.tbFolderCode);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 100);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 81);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(803, 411);
+            this.panel2.Size = new System.Drawing.Size(602, 334);
             this.panel2.TabIndex = 2;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(220, 111);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(144, 16);
-            this.linkLabel2.TabIndex = 14;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Add File Box / Location";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(24, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(189, 28);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "File Box / Location";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(24, 187);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 28);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Folder Description";
-            // 
-            // cbFileBox
-            // 
-            this.cbFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbFileBox.FormattingEnabled = true;
-            this.cbFileBox.Location = new System.Drawing.Point(29, 134);
-            this.cbFileBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbFileBox.Name = "cbFileBox";
-            this.cbFileBox.Size = new System.Drawing.Size(356, 36);
-            this.cbFileBox.TabIndex = 10;
-            // 
-            // tbFolderDescription
-            // 
-            this.tbFolderDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFolderDescription.Location = new System.Drawing.Point(29, 218);
-            this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbFolderDescription.Multiline = true;
-            this.tbFolderDescription.Name = "tbFolderDescription";
-            this.tbFolderDescription.Size = new System.Drawing.Size(745, 120);
-            this.tbFolderDescription.TabIndex = 5;
-            // 
-            // tbFolderName
-            // 
-            this.tbFolderName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFolderName.Location = new System.Drawing.Point(178, 43);
-            this.tbFolderName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbFolderName.MaxLength = 1028;
-            this.tbFolderName.Name = "tbFolderName";
-            this.tbFolderName.Size = new System.Drawing.Size(596, 34);
-            this.tbFolderName.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(173, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 28);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Folder Name";
-            // 
-            // tbFolderCode
-            // 
-            this.tbFolderCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFolderCode.Location = new System.Drawing.Point(29, 43);
-            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbFolderCode.MaxLength = 3;
-            this.tbFolderCode.Name = "tbFolderCode";
-            this.tbFolderCode.Size = new System.Drawing.Size(116, 34);
-            this.tbFolderCode.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(24, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 28);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Code Prefix";
             // 
             // llColor
             // 
             this.llColor.AutoSize = true;
-            this.llColor.Location = new System.Drawing.Point(506, 111);
+            this.llColor.Location = new System.Drawing.Point(380, 90);
+            this.llColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llColor.Name = "llColor";
-            this.llColor.Size = new System.Drawing.Size(67, 16);
+            this.llColor.Size = new System.Drawing.Size(53, 13);
             this.llColor.TabIndex = 21;
             this.llColor.TabStop = true;
             this.llColor.Text = "Add Color";
@@ -212,19 +124,20 @@
             // 
             this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbTagColor.FormattingEnabled = true;
-            this.cbTagColor.Location = new System.Drawing.Point(409, 134);
-            this.cbTagColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTagColor.Location = new System.Drawing.Point(307, 109);
+            this.cbTagColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbTagColor.Name = "cbTagColor";
-            this.cbTagColor.Size = new System.Drawing.Size(365, 36);
+            this.cbTagColor.Size = new System.Drawing.Size(275, 29);
             this.cbTagColor.TabIndex = 20;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(404, 104);
+            this.label7.Location = new System.Drawing.Point(303, 84);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 28);
+            this.label7.Size = new System.Drawing.Size(82, 21);
             this.label7.TabIndex = 19;
             this.label7.Text = "Tag Color";
             // 
@@ -237,25 +150,120 @@
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.edit;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(321, 351);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFileDocument.Location = new System.Drawing.Point(241, 285);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFileDocument.Name = "btnFileDocument";
-            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnFileDocument.Size = new System.Drawing.Size(152, 49);
+            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnFileDocument.Size = new System.Drawing.Size(114, 40);
             this.btnFileDocument.TabIndex = 9;
             this.btnFileDocument.Text = "Update";
             this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileDocument.UseVisualStyleBackColor = false;
             this.btnFileDocument.Click += new System.EventHandler(this.btnFileDocument_Click);
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(165, 90);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(118, 13);
+            this.linkLabel2.TabIndex = 14;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Add File Box / Location";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(18, 84);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(151, 21);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "File Box / Location";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(18, 152);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Folder Description";
+            // 
+            // cbFileBox
+            // 
+            this.cbFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFileBox.FormattingEnabled = true;
+            this.cbFileBox.Location = new System.Drawing.Point(22, 109);
+            this.cbFileBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFileBox.Name = "cbFileBox";
+            this.cbFileBox.Size = new System.Drawing.Size(268, 29);
+            this.cbFileBox.TabIndex = 10;
+            // 
+            // tbFolderDescription
+            // 
+            this.tbFolderDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFolderDescription.Location = new System.Drawing.Point(22, 177);
+            this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFolderDescription.Multiline = true;
+            this.tbFolderDescription.Name = "tbFolderDescription";
+            this.tbFolderDescription.Size = new System.Drawing.Size(560, 98);
+            this.tbFolderDescription.TabIndex = 5;
+            // 
+            // tbFolderName
+            // 
+            this.tbFolderName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFolderName.Location = new System.Drawing.Point(134, 35);
+            this.tbFolderName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFolderName.MaxLength = 1028;
+            this.tbFolderName.Name = "tbFolderName";
+            this.tbFolderName.Size = new System.Drawing.Size(448, 29);
+            this.tbFolderName.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(130, 13);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 21);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Folder Name";
+            // 
+            // tbFolderCode
+            // 
+            this.tbFolderCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFolderCode.Location = new System.Drawing.Point(22, 35);
+            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFolderCode.MaxLength = 3;
+            this.tbFolderCode.Name = "tbFolderCode";
+            this.tbFolderCode.Size = new System.Drawing.Size(88, 29);
+            this.tbFolderCode.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(18, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Code Prefix";
+            // 
             // EditFolderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 511);
+            this.ClientSize = new System.Drawing.Size(602, 415);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditFolderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Folder";

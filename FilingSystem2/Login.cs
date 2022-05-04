@@ -14,10 +14,10 @@ namespace FilingSystem2
 {
     public partial class loginForm : Form
     {
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\MSI\\source\\repos\\Document-Record-Filing-System\\FilingSystem2\\db_filingsystem.accdb");
-        //OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\\..\\db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+
+        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
 
         OleDbCommand cmd = new OleDbCommand();
@@ -26,9 +26,10 @@ namespace FilingSystem2
         public loginForm()
         {
             InitializeComponent();
+            con = myConnectionString.MyConnection();
         }
 
-        public static class LoginInfo
+            public static class LoginInfo
         {
             public static int UserID;
             public static string EmpID;
@@ -46,7 +47,9 @@ namespace FilingSystem2
         private void btnLogin_Click(object sender, EventArgs e)
         {
             con.Open();
-            string login = "SELECT * FROM tbl_user WHERE emp_id = '" + tbUser.Text + "' AND password = '" + tbPassword.Text + "';";
+            Console.WriteLine(tbUser.Text);
+            Console.WriteLine(tbPassword.Text);
+            string login = "SELECT * FROM tbl_user WHERE emp_id = '" + tbUser.Text + "' AND [password] = '" + tbPassword.Text + "' AND active_status = 'Active';";
             cmd = new OleDbCommand(login, con);
             OleDbDataReader reader = cmd.ExecuteReader();
 
@@ -74,7 +77,7 @@ namespace FilingSystem2
             else
             {
                 con.Close();
-                MessageBox.Show("Invalid Username or Password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Username/Password or Account Deactivated", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
