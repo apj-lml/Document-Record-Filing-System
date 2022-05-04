@@ -22,6 +22,7 @@ namespace FilingSystem2
 
         FindControl fc = new FindControl();
 
+
         public foldersForm()
         {
             InitializeComponent();
@@ -42,13 +43,13 @@ namespace FilingSystem2
 
         public void CbloadColors()
         {
-            string query = "SELECT * FROM tbl_color ORDER BY color ASC";
+            string query = "SELECT * FROM tbl_color ORDER BY tag_color ASC";
             da = new OleDbDataAdapter(query, con);
             //con.Open();
             DataSet ds = new DataSet();
             da.Fill(ds, "Colors");
 
-            cbTagColor.DisplayMember = "color";
+            cbTagColor.DisplayMember = "tag_color";
             cbTagColor.ValueMember = "ID";
             cbTagColor.DataSource = ds.Tables["Colors"];
 
@@ -97,14 +98,18 @@ namespace FilingSystem2
             if (filter_by == null)
             {
                 sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder],
-                               tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
-                        FROM ((tbl_folder AS tfol
+                               tfol.folder_description AS [Folder Description], clr.tag_color AS [Folder Tag Color], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
+                        FROM (((tbl_folder AS tfol
                             LEFT JOIN
                         tbl_file_box AS tfilbox
                         ON tfol.file_box_id = tfilbox.ID)
                             LEFT JOIN
                         tbl_user AS usr
                         ON usr.ID = tfol.created_by)
+                            LEFT JOIN
+                        tbl_color AS clr
+                        ON tfol.folder_tag_color = clr.ID)
+                        ORDER BY tfol.ID DESC
                         ";
 
                 //sql = @"SELECT * FROM tbl_folder";
@@ -113,16 +118,20 @@ namespace FilingSystem2
             else
             {
                 sql = @"SELECT tfol.ID AS [ID], tfol.folder_code AS [Code], tfol.folder_name AS [Folder],
-                               tfol.folder_description AS [Folder Description], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
-                        FROM ((tbl_folder AS tfol
+                               tfol.folder_description AS [Folder Description], clr.tag_color AS [Folder Tag Color], tfilbox.box_name AS [File Box / Location], usr.last_name & ', ' & usr.first_name AS [Created By]
+                        FROM (((tbl_folder AS tfol
                             LEFT JOIN
                         tbl_file_box AS tfilbox
                         ON tfol.file_box_id = tfilbox.ID)
                             LEFT JOIN
                         tbl_user AS usr
                         ON usr.ID = tfol.created_by)
+                            LEFT JOIN
+                        tbl_color AS clr
+                        ON tfol.folder_tag_color = clr.ID)
+
                         WHERE tfol.ID LIKE '%" + filter_by + "%' OR tfol.folder_code LIKE '%" + filter_by + "%' OR tfol.folder_name LIKE '%" + filter_by + "%' OR tfol.folder_description LIKE '%" + filter_by + "%' " +
-                        "OR tfilbox.box_name LIKE '%" + filter_by + "%' OR usr.last_name LIKE '%" + filter_by + "%' OR usr.first_name LIKE '%" + filter_by + "%'";
+                        "OR tfilbox.box_name LIKE '%" + filter_by + "%' OR usr.last_name LIKE '%" + filter_by + "%' OR usr.first_name LIKE '%" + filter_by + "%' OR clr.color LIKE '%" + filter_by + "%' ";
 
             }
             con.Open();
@@ -177,7 +186,8 @@ namespace FilingSystem2
                     con.Close();
 
                     //cmd.CommandType = CommandType.Text;
-                    string sql = "INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id, created_by) values(@folder_code,@folder_name,@folder_description,@file_box_id,@created_by)";
+                    string sql = @"INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id, folder_tag_color, created_by)
+                                                    VALUES (@folder_code,@folder_name,@folder_description,@file_box_id,@folder_tag_color,@created_by)";
                     
 
                     //cmd.Connection = con;
@@ -187,15 +197,27 @@ namespace FilingSystem2
                     cmd.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
                     cmd.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
                     cmd.Parameters.AddWithValue("@file_box_id", int.Parse(cbFileBox.SelectedValue.ToString()));
+                    cmd.Parameters.AddWithValue("@folder_tag_color", int.Parse(cbTagColor.SelectedValue.ToString()));
                     cmd.Parameters.AddWithValue("@created_by", user_id);
                     cmd.ExecuteNonQuery();
                     con.Close();
 
                     loadFolders();
+                    clearFields();
                     MessageBox.Show("Record Inserted Successfully", "Success!");
 
                 }
             }
+
+        }
+
+        private void clearFields() {
+
+            tbFolderCode.Text = "";
+            tbFolderName.Text = "";
+            cbFileBox.SelectedIndex = 0;
+            cbTagColor.SelectedIndex = 0;
+            tbFolderDescription.Text = "";
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -268,6 +290,11 @@ namespace FilingSystem2
             }
             
 
+        }
+
+        private void llColor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new ColorsForm().ShowDialog();
         }
     }
 }

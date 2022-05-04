@@ -83,6 +83,7 @@ namespace FilingSystem2
                     tbl_user AS usr
                     ON tfil.filed_by = usr.ID
                     )
+                    ORDER BY tfil.ID DESC
                         ";
 
             }

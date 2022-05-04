@@ -32,7 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnFileDocument = new System.Windows.Forms.Button();
+            this.cbTagColor = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,8 +51,8 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tbl_userTableAdapter1 = new FilingSystem2.db_filingsystemDataSetForReportsTableAdapters.tbl_userTableAdapter();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbTagColor = new System.Windows.Forms.ComboBox();
+            this.llColor = new System.Windows.Forms.LinkLabel();
+            this.btnFileDocument = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFolder)).BeginInit();
@@ -85,6 +86,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.llColor);
             this.panel2.Controls.Add(this.cbTagColor);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.btnFileDocument);
@@ -104,30 +106,30 @@
             this.panel2.Size = new System.Drawing.Size(800, 742);
             this.panel2.TabIndex = 1;
             // 
-            // btnFileDocument
+            // cbTagColor
             // 
-            this.btnFileDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
-            this.btnFileDocument.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnFileDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnFileDocument.ForeColor = System.Drawing.Color.White;
-            this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.folder__2_;
-            this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(317, 345);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnFileDocument.Name = "btnFileDocument";
-            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnFileDocument.Size = new System.Drawing.Size(155, 49);
-            this.btnFileDocument.TabIndex = 9;
-            this.btnFileDocument.Text = "Create";
-            this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFileDocument.UseVisualStyleBackColor = false;
-            this.btnFileDocument.Click += new System.EventHandler(this.btnFileDocument_Click);
+            this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbTagColor.FormattingEnabled = true;
+            this.cbTagColor.Location = new System.Drawing.Point(409, 134);
+            this.cbTagColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTagColor.Name = "cbTagColor";
+            this.cbTagColor.Size = new System.Drawing.Size(365, 36);
+            this.cbTagColor.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(404, 104);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 28);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Tag Color";
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(220, 111);
+            this.linkLabel2.Location = new System.Drawing.Point(219, 111);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(144, 16);
             this.linkLabel2.TabIndex = 14;
@@ -162,7 +164,7 @@
             this.cbFileBox.Location = new System.Drawing.Point(29, 134);
             this.cbFileBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFileBox.Name = "cbFileBox";
-            this.cbFileBox.Size = new System.Drawing.Size(335, 36);
+            this.cbFileBox.Size = new System.Drawing.Size(346, 36);
             this.cbFileBox.TabIndex = 10;
             // 
             // tbFolderDescription
@@ -178,18 +180,18 @@
             // tbFolderName
             // 
             this.tbFolderName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFolderName.Location = new System.Drawing.Point(410, 41);
+            this.tbFolderName.Location = new System.Drawing.Point(174, 43);
             this.tbFolderName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFolderName.MaxLength = 1028;
             this.tbFolderName.Name = "tbFolderName";
-            this.tbFolderName.Size = new System.Drawing.Size(343, 34);
+            this.tbFolderName.Size = new System.Drawing.Size(602, 34);
             this.tbFolderName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(405, 13);
+            this.label3.Location = new System.Drawing.Point(169, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 28);
             this.label3.TabIndex = 4;
@@ -202,7 +204,7 @@
             this.tbFolderCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFolderCode.MaxLength = 3;
             this.tbFolderCode.Name = "tbFolderCode";
-            this.tbFolderCode.Size = new System.Drawing.Size(335, 34);
+            this.tbFolderCode.Size = new System.Drawing.Size(116, 34);
             this.tbFolderCode.TabIndex = 1;
             this.tbFolderCode.TextChanged += new System.EventHandler(this.tbFolderCode_TextChanged);
             this.tbFolderCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFolderCode_KeyPress);
@@ -295,25 +297,36 @@
             // 
             this.tbl_userTableAdapter1.ClearBeforeFill = true;
             // 
-            // label7
+            // llColor
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(404, 104);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 28);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Tag Color";
+            this.llColor.AutoSize = true;
+            this.llColor.Location = new System.Drawing.Point(508, 111);
+            this.llColor.Name = "llColor";
+            this.llColor.Size = new System.Drawing.Size(67, 16);
+            this.llColor.TabIndex = 18;
+            this.llColor.TabStop = true;
+            this.llColor.Text = "Add Color";
+            this.llColor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llColor_LinkClicked);
             // 
-            // cbTagColor
+            // btnFileDocument
             // 
-            this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbTagColor.FormattingEnabled = true;
-            this.cbTagColor.Location = new System.Drawing.Point(409, 134);
-            this.cbTagColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbTagColor.Name = "cbTagColor";
-            this.cbTagColor.Size = new System.Drawing.Size(335, 36);
-            this.cbTagColor.TabIndex = 17;
+            this.btnFileDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
+            this.btnFileDocument.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFileDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFileDocument.ForeColor = System.Drawing.Color.White;
+            this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.folder__2_;
+            this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFileDocument.Location = new System.Drawing.Point(317, 345);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFileDocument.Name = "btnFileDocument";
+            this.btnFileDocument.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnFileDocument.Size = new System.Drawing.Size(155, 49);
+            this.btnFileDocument.TabIndex = 9;
+            this.btnFileDocument.Text = "Create";
+            this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFileDocument.UseVisualStyleBackColor = false;
+            this.btnFileDocument.Click += new System.EventHandler(this.btnFileDocument_Click);
             // 
             // foldersForm
             // 
@@ -365,5 +378,6 @@
         private db_filingsystemDataSetForReportsTableAdapters.tbl_userTableAdapter tbl_userTableAdapter1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbTagColor;
+        private System.Windows.Forms.LinkLabel llColor;
     }
 }

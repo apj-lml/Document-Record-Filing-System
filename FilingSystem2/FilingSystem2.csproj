@@ -105,6 +105,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorsForm.Designer.cs">
+      <DependentUpon>ColorsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUserControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     <Compile Include="ViewDocument.Designer.cs">
       <DependentUpon>ViewDocument.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ColorsForm.resx">
+      <DependentUpon>ColorsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -21,10 +21,12 @@ namespace FilingSystem2
         FindControl fc = new FindControl();
 
         private readonly foldersForm _foldersForm;
+        private readonly dashboardForm _dashboardForm;
         public EditFolderForm(foldersForm foldersform)
         {
             InitializeComponent();
             _foldersForm = foldersform;
+            //_dashboardForm = dashboardform;
         }
 
         public void CbLoadBoxes()
@@ -40,23 +42,51 @@ namespace FilingSystem2
             cbFileBox.DataSource = ds.Tables["Box"];
 
         }
+
+        private void clearFields()
+        {
+
+            tbFolderCode.Text = "";
+            tbFolderName.Text = "";
+            cbFileBox.SelectedIndex = 0;
+            cbTagColor.SelectedIndex = 0;
+            tbFolderDescription.Text = "";
+        }
+
+
         private void EditFolderForm_Load(object sender, EventArgs e)
         {
             CbLoadBoxes();
-
+            CbloadColors();
             DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("foldersForm"), "dgFolder"));
             var id = dgv.CurrentRow.Cells[0].Value;
             var folder_code = dgv.CurrentRow.Cells[1].Value;
             var folder_name = dgv.CurrentRow.Cells[2].Value;
             var folder_description = dgv.CurrentRow.Cells[3].Value;
-            var file_box = dgv.CurrentRow.Cells[4].Value;
-            var created_by = dgv.CurrentRow.Cells[5].Value;
+            var file_tag_color = dgv.CurrentRow.Cells[4].Value;
+            var file_box = dgv.CurrentRow.Cells[5].Value;
+            var created_by = dgv.CurrentRow.Cells[6].Value;
 
             tbID.Text = id.ToString();
             tbFolderCode.Text = folder_code.ToString();
             tbFolderName.Text = folder_name.ToString();
             tbFolderDescription.Text = folder_description.ToString();
             cbFileBox.Text = file_box.ToString();
+            cbTagColor.Text = file_tag_color.ToString();
+
+        }
+
+        public void CbloadColors()
+        {
+            string query = "SELECT * FROM tbl_color ORDER BY tag_color ASC";
+            da = new OleDbDataAdapter(query, con);
+            //con.Open();
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Colors");
+
+            cbTagColor.DisplayMember = "tag_color";
+            cbTagColor.ValueMember = "ID";
+            cbTagColor.DataSource = ds.Tables["Colors"];
 
         }
 
@@ -88,12 +118,14 @@ namespace FilingSystem2
                                                 SET folder_code = @folder_code,
                                                     folder_name = @folder_name,
                                                     folder_description = @folder_description,
+                                                    folder_tag_color = @folder_tag_color,
                                                     file_box_id = @file_box_id
                                                 WHERE ID = @id", con);
 
                     cmd_update_folder.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
                     cmd_update_folder.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
                     cmd_update_folder.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
+                    cmd_update_folder.Parameters.AddWithValue("@folder_tag_color", cbTagColor.SelectedValue);
                     cmd_update_folder.Parameters.AddWithValue("@file_box_id", cbFileBox.SelectedValue);
                     cmd_update_folder.Parameters.AddWithValue("@id", tbID.Text);
                     //cmd.Parameters.AddWithValue("@id", tbID.Text);
@@ -101,14 +133,28 @@ namespace FilingSystem2
                     cmd_update_folder.ExecuteNonQuery();
                     con.Close();
 
+                    clearFields();
                     _foldersForm.loadFolders();
 
+                    //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
+                    //dgv.Refresh();
+                    //dgv.Update();
+                    dashboardForm dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
+                    
+                    dashboardform.loadDgDocumentsRecords();
+
                     MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
                 }
 
 
             }
 
+        }
+
+        private void llColor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new ColorsForm().ShowDialog();
         }
     }
 }
