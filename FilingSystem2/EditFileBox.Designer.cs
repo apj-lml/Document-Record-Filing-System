@@ -37,11 +37,11 @@
             this.tbFileBoxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSaveChangesFileBox = new System.Windows.Forms.Button();
-            this.tblfileboxBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.llColor = new System.Windows.Forms.LinkLabel();
             this.cbTagColor = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnSaveChangesFileBox = new System.Windows.Forms.Button();
+            this.tblfileboxBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfileboxBindingSource)).BeginInit();
@@ -142,30 +142,6 @@
             this.panel2.Size = new System.Drawing.Size(597, 432);
             this.panel2.TabIndex = 22;
             // 
-            // btnSaveChangesFileBox
-            // 
-            this.btnSaveChangesFileBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
-            this.btnSaveChangesFileBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSaveChangesFileBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChangesFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSaveChangesFileBox.ForeColor = System.Drawing.Color.White;
-            this.btnSaveChangesFileBox.Image = global::FilingSystem2.Properties.Resources.edit;
-            this.btnSaveChangesFileBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChangesFileBox.Location = new System.Drawing.Point(198, 371);
-            this.btnSaveChangesFileBox.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSaveChangesFileBox.Name = "btnSaveChangesFileBox";
-            this.btnSaveChangesFileBox.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSaveChangesFileBox.Size = new System.Drawing.Size(188, 40);
-            this.btnSaveChangesFileBox.TabIndex = 9;
-            this.btnSaveChangesFileBox.Text = "  Save Changes";
-            this.btnSaveChangesFileBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSaveChangesFileBox.UseVisualStyleBackColor = false;
-            this.btnSaveChangesFileBox.Click += new System.EventHandler(this.btnSaveChangesFileBox_Click);
-            // 
-            // tblfileboxBindingSource
-            // 
-            this.tblfileboxBindingSource.DataMember = "tbl_file_box";
-            // 
             // llColor
             // 
             this.llColor.AutoSize = true;
@@ -198,6 +174,30 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Tag Color";
             // 
+            // btnSaveChangesFileBox
+            // 
+            this.btnSaveChangesFileBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
+            this.btnSaveChangesFileBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSaveChangesFileBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChangesFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSaveChangesFileBox.ForeColor = System.Drawing.Color.White;
+            this.btnSaveChangesFileBox.Image = global::FilingSystem2.Properties.Resources.edit;
+            this.btnSaveChangesFileBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveChangesFileBox.Location = new System.Drawing.Point(198, 371);
+            this.btnSaveChangesFileBox.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveChangesFileBox.Name = "btnSaveChangesFileBox";
+            this.btnSaveChangesFileBox.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSaveChangesFileBox.Size = new System.Drawing.Size(188, 40);
+            this.btnSaveChangesFileBox.TabIndex = 9;
+            this.btnSaveChangesFileBox.Text = "  Save Changes";
+            this.btnSaveChangesFileBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveChangesFileBox.UseVisualStyleBackColor = false;
+            this.btnSaveChangesFileBox.Click += new System.EventHandler(this.btnSaveChangesFileBox_Click);
+            // 
+            // tblfileboxBindingSource
+            // 
+            this.tblfileboxBindingSource.DataMember = "tbl_file_box";
+            // 
             // EditFileBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +206,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "EditFileBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View File Box / Location";
             this.Load += new System.EventHandler(this.EditFileBox_Load);
             this.panel1.ResumeLayout(false);

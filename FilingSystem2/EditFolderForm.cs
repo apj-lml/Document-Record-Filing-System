@@ -13,8 +13,8 @@ namespace FilingSystem2
 {
     public partial class EditFolderForm : Form
     {
-        OleDbConnection con2 = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=db_filingsystem.accdb");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\db_filingsystem.accdb");
+        MyConnectionString myConnectionString = new MyConnectionString();
+        OleDbConnection con = new OleDbConnection();
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -25,7 +25,8 @@ namespace FilingSystem2
         {
             InitializeComponent();
             _foldersForm = foldersform;
-            //_dashboardForm = dashboardform;
+            con = myConnectionString.MyConnection();
+
         }
 
         public void CbLoadBoxes()
@@ -117,17 +118,17 @@ namespace FilingSystem2
                                                 SET folder_code = @folder_code,
                                                     folder_name = @folder_name,
                                                     folder_description = @folder_description,
-                                                    folder_tag_color = @folder_tag_color,
-                                                    file_box_id = @file_box_id
+                                                    file_box_id = @file_box_id,
+                                                    folder_tag_color = @folder_tag_color
                                                 WHERE ID = @id", con);
 
                     cmd_update_folder.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
                     cmd_update_folder.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
                     cmd_update_folder.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
-                    cmd_update_folder.Parameters.AddWithValue("@folder_tag_color", cbTagColor.SelectedValue);
                     cmd_update_folder.Parameters.AddWithValue("@file_box_id", cbFileBox.SelectedValue);
+                    cmd_update_folder.Parameters.AddWithValue("@folder_tag_color", cbTagColor.SelectedValue);
                     cmd_update_folder.Parameters.AddWithValue("@id", tbID.Text);
-                    //cmd.Parameters.AddWithValue("@id", tbID.Text);
+
                     con.Open();
                     cmd_update_folder.ExecuteNonQuery();
                     con.Close();
@@ -135,15 +136,11 @@ namespace FilingSystem2
                     //clearFields();
                     _foldersForm.loadFolders();
 
-                    //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
-                    //dgv.Refresh();
-                    //dgv.Update();
-
                     dashboardForm dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
                     
                     dashboardform.loadDgDocumentsRecords();
 
-                    MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Successfully Saved Changes", "Folder Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                 }
 

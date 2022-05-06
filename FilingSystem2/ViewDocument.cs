@@ -35,6 +35,8 @@ namespace FilingSystem2
             var file_box_tag_color = dgv.CurrentRow.Cells[8].Value;
             var filed_by = dgv.CurrentRow.Cells[9].Value;
             var date_filed = dgv.CurrentRow.Cells[10].Value;
+            var folder_description = dgv.CurrentRow.Cells[11].Value;
+            var file_box_description = dgv.CurrentRow.Cells[12].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -51,6 +53,15 @@ namespace FilingSystem2
             tbFileBoxTagColor.Text = file_box_tag_color.ToString();
 
             tbDateFiled.Text = date_filed.ToString();
+
+            lFolderDescription.Text = folder_description.ToString();
+            lFileBoxDescription.Text = file_box_description.ToString();
+
+            lFolderDescription.MaximumSize = new Size(296, 39);
+            lFolderDescription.AutoSize = true;
+
+            lFileBoxDescription.MaximumSize = new Size(296, 39);
+            lFileBoxDescription.AutoSize = true;
         }
 
         private void btnEditDocument_Click(object sender, EventArgs e)

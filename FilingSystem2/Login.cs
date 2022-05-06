@@ -69,9 +69,10 @@ namespace FilingSystem2
                 LoginInfo.Status = reader["active_status"].ToString();
 
                 //LoginInfo.UserInfo = reader.GetString(0);
+                this.Hide();
+
                 new dashboardForm().Show();
 
-                this.Hide();
                 con.Close();
             }
             else
@@ -83,7 +84,23 @@ namespace FilingSystem2
 
         private void loginForm_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized; 
+            this.WindowState = FormWindowState.Normal;
+            this.Focus(); this.Show();
+        }
 
+        private void tbUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

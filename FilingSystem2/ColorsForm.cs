@@ -27,7 +27,7 @@ namespace FilingSystem2
         public ColorsForm()
         {
             InitializeComponent();
-            myConnectionString.MyConnection();
+            con = myConnectionString.MyConnection();
         }
 
         public DataTable MyColors(string filter_by = null, string filter_value = null)
