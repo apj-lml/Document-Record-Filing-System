@@ -2913,8 +2913,10 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::FilingSystem2.Properties.Settings.Default.db_filingsystemConnectionString;
+            MyConnectionString myConnectionString = new MyConnectionString();
+            this._connection = myConnectionString.MyConnection();
+            //this._connection.ConnectionString = global::FilingSystem2.Properties.Settings.Default.db_filingsystemConnectionString;
+            //this._connection.ConnectionString = myConnectionString.MyConnection();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

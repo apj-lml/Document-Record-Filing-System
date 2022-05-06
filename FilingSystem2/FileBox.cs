@@ -117,6 +117,10 @@ namespace FilingSystem2
                     con.Close();
 
                     loadFileBoxes();
+                tbFileBoxName.Text = "";
+                tbFileBoxDescription.Text = "";
+                cbTagColor.SelectedIndex = 0;
+
                     MessageBox.Show("File Box / Location Added Successfully", "Success!");
 
             }

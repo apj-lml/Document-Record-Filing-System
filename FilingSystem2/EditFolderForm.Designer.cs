@@ -56,16 +56,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(602, 81);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // tbID
             // 
             this.tbID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbID.Location = new System.Drawing.Point(31, 31);
-            this.tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2);
             this.tbID.MaxLength = 3;
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(138, 29);
@@ -103,7 +104,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 81);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(602, 334);
             this.panel2.TabIndex = 2;
@@ -125,7 +126,7 @@
             this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbTagColor.FormattingEnabled = true;
             this.cbTagColor.Location = new System.Drawing.Point(307, 109);
-            this.cbTagColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.cbTagColor.Name = "cbTagColor";
             this.cbTagColor.Size = new System.Drawing.Size(275, 29);
             this.cbTagColor.TabIndex = 20;
@@ -151,7 +152,7 @@
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.edit;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileDocument.Location = new System.Drawing.Point(241, 285);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnFileDocument.Size = new System.Drawing.Size(114, 40);
@@ -200,7 +201,7 @@
             this.cbFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbFileBox.FormattingEnabled = true;
             this.cbFileBox.Location = new System.Drawing.Point(22, 109);
-            this.cbFileBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFileBox.Margin = new System.Windows.Forms.Padding(2);
             this.cbFileBox.Name = "cbFileBox";
             this.cbFileBox.Size = new System.Drawing.Size(268, 29);
             this.cbFileBox.TabIndex = 10;
@@ -209,7 +210,7 @@
             // 
             this.tbFolderDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFolderDescription.Location = new System.Drawing.Point(22, 177);
-            this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderDescription.Multiline = true;
             this.tbFolderDescription.Name = "tbFolderDescription";
             this.tbFolderDescription.Size = new System.Drawing.Size(560, 98);
@@ -219,7 +220,7 @@
             // 
             this.tbFolderName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFolderName.Location = new System.Drawing.Point(134, 35);
-            this.tbFolderName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFolderName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderName.MaxLength = 1028;
             this.tbFolderName.Name = "tbFolderName";
             this.tbFolderName.Size = new System.Drawing.Size(448, 29);
@@ -240,7 +241,7 @@
             // 
             this.tbFolderCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFolderCode.Location = new System.Drawing.Point(22, 35);
-            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderCode.MaxLength = 3;
             this.tbFolderCode.Name = "tbFolderCode";
             this.tbFolderCode.Size = new System.Drawing.Size(88, 29);

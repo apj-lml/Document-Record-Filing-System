@@ -21,12 +21,20 @@ namespace FilingSystem2
 
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
+
+        private const int totalRecords = 43;
+        private const int pageSize = 10;
+
         public dashboardForm()
         {
             InitializeComponent();
             con = myConnectionString.MyConnection();
         }
-        public DataTable MyFiles(string filter_by = null, string filter_value = null)
+
+
+
+
+        public DataTable MyFiles(string filter_by = null, string filter_value = null, int myoffset = 5)
         {
             string sql = null;
             if (filter_value == "ID")
@@ -78,41 +86,42 @@ namespace FilingSystem2
 
             }
 
-            Console.WriteLine("filter val: "+ filter_value);
 
             if (filter_by == null)
             {
-                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS],
-                    tfol.folder_name AS [FOLDER],
-                    foltagclr.tag_color AS [FOLDER TAG COLOR],
-                    tfilbox.box_name AS [FILE BOX / LOCATION],
-                    boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR],
-                    usr.last_name & ', '& usr.first_name as [FILED BY],
-                    tfil.date_filed as [DATE FILED]
+                Console.WriteLine(myoffset);
+                sql = $@"
+                         SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS],
+                                tfol.folder_name AS [FOLDER],
+                                foltagclr.tag_color AS [FOLDER TAG COLOR],
+                                tfilbox.box_name AS [FILE BOX / LOCATION],
+                                boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR],
+                                usr.last_name & ', '& usr.first_name as [FILED BY],
+                                tfil.date_filed as [DATE FILED]
                     
-                    FROM (((((tbl_file AS tfil 
-                        LEFT JOIN 
-                    tbl_folder AS tfol
-                    ON tfil.folder_id = tfol.ID
-                    )
-                        LEFT JOIN
-                    tbl_file_box AS tfilbox
-                    ON tfilbox.ID = tfol.file_box_id
-                    )
-                        LEFT JOIN
-                    tbl_user AS usr
-                    ON tfil.filed_by = usr.ID
-                    )
-                        LEFT JOIN
-                    tbl_color AS foltagclr
-                    ON tfol.folder_tag_color = foltagclr.ID
-                    )
-                        LEFT JOIN
-                    tbl_color AS boxtagclr
-                    ON tfilbox.box_tag_color = boxtagclr.ID
-                    )
+                                FROM (((((tbl_file AS tfil 
+                                    LEFT JOIN 
+                                tbl_folder AS tfol
+                                ON tfil.folder_id = tfol.ID
+                                )
+                                    LEFT JOIN
+                                tbl_file_box AS tfilbox
+                                ON tfilbox.ID = tfol.file_box_id
+                                )
+                                    LEFT JOIN
+                                tbl_user AS usr
+                                ON tfil.filed_by = usr.ID
+                                )
+                                    LEFT JOIN
+                                tbl_color AS foltagclr
+                                ON tfol.folder_tag_color = foltagclr.ID
+                                )
+                                    LEFT JOIN
+                                tbl_color AS boxtagclr
+                                ON tfilbox.box_tag_color = boxtagclr.ID
+                                )
 
-                    ORDER BY tfil.ID DESC
+                          ORDER BY tfil.ID DESC
                         ";
 
             }
@@ -211,7 +220,7 @@ namespace FilingSystem2
 
             }
             //this.tbl_fileTableAdapter1.Fill(this.db_filingsystemDataSet1.tbl_file);
-            loadDgDocumentsRecords();
+           loadDgDocumentsRecords();
 
             cbFilter.DisplayMember = "Text";
             cbFilter.ValueMember = "Value";
@@ -223,9 +232,9 @@ namespace FilingSystem2
             items.Add(new { Text = "Subject", Value = "subject" });
             items.Add(new { Text = "Particulars", Value = "particulars" });
             items.Add(new { Text = "Remarks", Value = "remarks" });
-            items.Add(new { Text = "Folder", Value = "folder" });
+            items.Add(new { Text = "Folder", Value = "folder_name" });
             items.Add(new { Text = "Folder Tag Color", Value = "folder_tag_color" });
-            items.Add(new { Text = "File Box / Location", Value = "box_id" });
+            items.Add(new { Text = "File Box / Location", Value = "box_name" });
             items.Add(new { Text = "File Box / Location Tag Color", Value = "box_tag_color" });
             items.Add(new { Text = "Filed By", Value = "filed_by" });
             items.Add(new { Text = "Date Filed", Value = "date_filed" });
@@ -339,6 +348,11 @@ namespace FilingSystem2
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadDgDocumentsRecords();
+        }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
         }
     }
 }
