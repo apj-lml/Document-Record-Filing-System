@@ -89,6 +89,7 @@ namespace FilingSystem2
                 dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
                 dashboardform.loadDgDocumentsRecords();
                 this.Hide();
+
                 MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }

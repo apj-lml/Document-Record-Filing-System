@@ -187,6 +187,12 @@
     <Compile Include="ReportViewerForm.Designer.cs">
       <DependentUpon>ReportViewerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="BulkTransferDocumentRecordForm.cs">
       <SubType>Form</SubType>
@@ -199,6 +205,9 @@
     </Compile>
     <Compile Include="EditDocument.Designer.cs">
       <DependentUpon>EditDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuperGrid.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserProfile.cs">
       <SubType>Form</SubType>
@@ -261,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditDocument.resx">
       <DependentUpon>EditDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>
@@ -351,6 +363,7 @@
     <None Include="Resources\user %2822%29.png" />
     <Content Include="PAD_icon-icons.com_54953.ico" />
     <Content Include="Pad_icon-icons.com_54983.ico" />
+    <None Include="Resources\tacking-login bg 1111.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

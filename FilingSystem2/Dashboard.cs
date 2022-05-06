@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,14 +28,21 @@ namespace FilingSystem2
 
         public dashboardForm()
         {
+            Thread t = new Thread(new ThreadStart(StartSplash));
+            t.Start();
+            Thread.Sleep(1000);
             InitializeComponent();
+            t.Abort();
+
             con = myConnectionString.MyConnection();
         }
 
+        public void StartSplash()
+        {
+            Application.Run(new SplashScreen());
+        }
 
-
-
-        public DataTable MyFiles(string filter_by = null, string filter_value = null, int myoffset = 5)
+        public DataTable MyFiles(string filter_by = null, string filter_value = null)
         {
             string sql = null;
             if (filter_value == "ID")
@@ -87,17 +95,17 @@ namespace FilingSystem2
             }
 
 
-            if (filter_by == null)
+            if (filter_by == null || filter_by == "")
             {
-                Console.WriteLine(myoffset);
-                sql = $@"
-                         SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS],
-                                tfol.folder_name AS [FOLDER],
-                                foltagclr.tag_color AS [FOLDER TAG COLOR],
-                                tfilbox.box_name AS [FILE BOX / LOCATION],
-                                boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR],
-                                usr.last_name & ', '& usr.first_name as [FILED BY],
-                                tfil.date_filed as [DATE FILED]
+                sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS],
+                    tfol.folder_name AS [FOLDER],
+                    foltagclr.tag_color AS [FOLDER TAG COLOR],
+                    tfilbox.box_name AS [FILE BOX / LOCATION],
+                    boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR],
+                    usr.last_name & ', '& usr.first_name as [FILED BY],
+                    tfil.date_filed as [DATE FILED],
+                    tfol.folder_description AS [FOLDER DESCRIPTION],
+                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION]
                     
                                 FROM (((((tbl_file AS tfil 
                                     LEFT JOIN 
@@ -130,7 +138,9 @@ namespace FilingSystem2
                 if (filter_value != "all")
                 {
                     sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER], foltagclr.tag_color AS [FOLDER TAG COLOR],
-                    tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
+                    tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED],
+                    tfol.folder_description AS [FOLDER DESCRIPTION],
+                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION]
                     
                     FROM (((((tbl_file AS tfil 
                         INNER JOIN 
@@ -157,7 +167,9 @@ namespace FilingSystem2
                 else
                 {
                     sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER], foltagclr.tag_color AS [FOLDER TAG COLOR],
-                    tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED]
+                    tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED],
+                    tfol.folder_description AS [FOLDER DESCRIPTION],
+                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION]
                     
                     FROM (((((tbl_file AS tfil 
                         INNER JOIN 
@@ -192,12 +204,22 @@ namespace FilingSystem2
             DataTable dt = new DataTable();
 
             dt.Load(reader);
+
+            //DataTable dt = OleDbCommand.ExecuteDt("select * from test order by col");
+            
+
+
             con.Close();
             return dt;
         }
 
         public void loadDgDocumentsRecords() {
-            dgDocumentsRecords.DataSource = MyFiles();
+            dgDocumentsRecords.PageSize = 18;
+            dgDocumentsRecords.SetPagedDataSource(MyFiles(), bindingNavigator1);
+            //superGrid1.DataSource = MyFiles();
+
+            dgDocumentsRecords.Columns["FOLDER DESCRIPTION"].Visible = false;
+            dgDocumentsRecords.Columns["FILE BOX / LOCATION DESCRIPTION"].Visible = false;
             dgDocumentsRecords.Refresh();
             dgDocumentsRecords.Update();
         }
@@ -242,7 +264,6 @@ namespace FilingSystem2
 
             cbFilter.DataSource = items;
 
-
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)
@@ -267,8 +288,16 @@ namespace FilingSystem2
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            dgDocumentsRecords.DataSource = MyFiles(tbSearch.Text, cbFilter.SelectedValue.ToString());
-            Console.WriteLine(cbFilter.SelectedValue.ToString());
+            if(tbSearch.Text == "")
+            {
+                dgDocumentsRecords.SetPagedDataSource(MyFiles(), bindingNavigator1);
+
+            }
+            else
+            {
+                dgDocumentsRecords.DataSource = MyFiles(tbSearch.Text, cbFilter.SelectedValue.ToString());
+
+            }
         }
 
         private void btnFolders_Click(object sender, EventArgs e)
@@ -350,9 +379,9 @@ namespace FilingSystem2
             loadDgDocumentsRecords();
         }
 
-        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-
+            new addDocumentRecordForm(this).ShowDialog();
         }
     }
 }
