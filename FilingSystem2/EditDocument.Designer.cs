@@ -251,7 +251,7 @@
             this.tbFileBoxTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxTagColor.Name = "tbFileBoxTagColor";
             this.tbFileBoxTagColor.ReadOnly = true;
-            this.tbFileBoxTagColor.Size = new System.Drawing.Size(131, 29);
+            this.tbFileBoxTagColor.Size = new System.Drawing.Size(213, 29);
             this.tbFileBoxTagColor.TabIndex = 32;
             // 
             // label9
@@ -272,7 +272,7 @@
             this.tbFolderTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderTagColor.Name = "tbFolderTagColor";
             this.tbFolderTagColor.ReadOnly = true;
-            this.tbFolderTagColor.Size = new System.Drawing.Size(131, 29);
+            this.tbFolderTagColor.Size = new System.Drawing.Size(213, 29);
             this.tbFolderTagColor.TabIndex = 30;
             // 
             // label10

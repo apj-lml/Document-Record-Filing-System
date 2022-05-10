@@ -167,7 +167,7 @@ namespace FilingSystem2
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dashboardForm dashboardForm = new dashboardForm();
+           // dashboardForm dashboardForm = new dashboardForm();
 
             _dashboardForm.loadDgDocumentsRecords();
             //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));

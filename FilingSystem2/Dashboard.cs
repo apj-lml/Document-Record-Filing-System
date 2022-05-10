@@ -30,7 +30,7 @@ namespace FilingSystem2
         {
             Thread t = new Thread(new ThreadStart(StartSplash));
             t.Start();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             InitializeComponent();
             t.Abort();
 
