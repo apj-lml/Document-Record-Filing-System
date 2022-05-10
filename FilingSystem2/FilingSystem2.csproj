@@ -63,10 +63,11 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ManifestCertificateThumbprint>49DB869FB8412FD2E8662C284183E9A1A9BD412D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B59BC08FE17D2810AF48168B075A5D7477D057CA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>FilingSystem2_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
