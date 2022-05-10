@@ -22,6 +22,11 @@ namespace FilingSystem2
             // TODO: This line of code loads data into the 'db_filingsystemDataSetForReports1.tbl_file' table. You can move, or remove it, as needed.
             this.tbl_fileTableAdapter.Fill(this.db_filingsystemDataSetForReports1.tbl_file);
 
+            var setup = this.reportViewer1.GetPageSettings();
+            setup.Margins = new System.Drawing.Printing.Margins(1, 1, 1, 1);
+            setup.Landscape = true;
+            this.reportViewer1.SetPageSettings(setup);
+
             this.reportViewer1.RefreshReport();
         }
     }

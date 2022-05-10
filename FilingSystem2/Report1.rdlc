@@ -6,19 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.53188cm</Width>
+              <Width>7.00333cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.75236cm</Width>
+              <Width>5.59903cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.00521cm</Width>
+              <Width>3.91817cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.09266cm</Width>
+              <Width>4.85188cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.33621cm</Width>
+              <Width>3.93933cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.25683cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -34,7 +37,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>code</Value>
+                              <Value>CODE</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -64,7 +67,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>subject</Value>
+                              <Value>SUBJECT</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -87,6 +90,36 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>PARTICULARS</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -94,7 +127,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>folder name</Value>
+                              <Value>FOLDER</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -124,7 +157,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>filed by</Value>
+                              <Value>FILED BY</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -154,7 +187,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>date filed</Value>
+                              <Value>DATE FILED</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -227,6 +260,36 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>subject</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="particulars">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!particulars.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>particulars</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -341,6 +404,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -355,38 +419,20 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>1.01883cm</Top>
-        <Left>1.93887cm</Left>
+        <Left>0.7112cm</Left>
         <Height>1.46458cm</Height>
-        <Width>18.71832cm</Width>
+        <Width>29.56857cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Image Name="logo">
-        <Source>Embedded</Source>
-        <Value>logo125x125</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>3.60117cm</Top>
-        <Left>1.93887cm</Left>
-        <Height>2.38194cm</Height>
-        <Width>2.63771cm</Width>
-        <ZIndex>1</ZIndex>
-        <Visibility>
-          <Hidden>true</Hidden>
-        </Visibility>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
-    <Height>1008pt</Height>
+    <Height>689.37419pt</Height>
     <Style />
   </Body>
-  <Width>731.39996pt</Width>
+  <Width>898.07pt</Width>
   <Page>
     <PageHeader>
       <Height>3.29599cm</Height>
@@ -414,9 +460,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.99165cm</Top>
-          <Left>6.46028cm</Left>
-          <Height>1.04979cm</Height>
+          <Top>0.72707cm</Top>
+          <Left>11.01111cm</Left>
+          <Height>1.31437cm</Height>
           <Width>9.5432cm</Width>
           <Style>
             <Border>
@@ -428,6 +474,21 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="logo">
+          <Source>Embedded</Source>
+          <Value>logo125x125</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.41487cm</Top>
+          <Left>1.93887cm</Left>
+          <Height>2.38194cm</Height>
+          <Width>2.63771cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>
