@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.00333cm</Width>
+              <Width>5.47403cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>5.59903cm</Width>
@@ -417,11 +417,13 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
+        <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet1</DataSetName>
         <Top>1.01883cm</Top>
         <Left>0.7112cm</Left>
         <Height>1.46458cm</Height>
-        <Width>29.56857cm</Width>
+        <Width>28.03927cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -432,7 +434,7 @@
     <Height>689.37419pt</Height>
     <Style />
   </Body>
-  <Width>898.07pt</Width>
+  <Width>814.97395pt</Width>
   <Page>
     <PageHeader>
       <Height>3.29599cm</Height>
@@ -460,7 +462,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.72707cm</Top>
+          <Top>1.04457cm</Top>
           <Left>11.01111cm</Left>
           <Height>1.31437cm</Height>
           <Width>9.5432cm</Width>

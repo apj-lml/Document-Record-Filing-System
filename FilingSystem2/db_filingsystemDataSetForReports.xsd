@@ -31,7 +31,21 @@ ORDER BY tfol.folder_name ASC</CommandText>
               <Mapping SourceColumn="folder_name" DataSetColumn="folder_name" />
               <Mapping SourceColumn="filed_by" DataSetColumn="filed_by" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="db_filingsystemConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFolderId" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFolderId" GeneratorSourceName="FillByFolderId" GetMethodModifier="Public" GetMethodName="GetDataByFolderId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFolderId" UserSourceName="FillByFolderId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, usr.first_name &amp; ' ' &amp; usr.last_name AS filed_by
+FROM            ((tbl_file tfil LEFT OUTER JOIN
+                         tbl_folder tfol ON tfil.folder_id = tfol.ID) LEFT OUTER JOIN
+                         tbl_user usr ON tfil.filed_by = usr.ID)
+WHERE        (tfol.ID = '@folder_id')
+ORDER BY tfol.folder_name</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_file_boxTableAdapter" GeneratorDataComponentClassName="tbl_file_boxTableAdapter" Name="tbl_file_box" UserDataComponentName="tbl_file_boxTableAdapter">
             <MainSource>
@@ -267,14 +281,14 @@ FROM            (tbl_folder tfol LEFT OUTER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="date_filed" msprop:Generator_ColumnPropNameInTable="date_filedColumn" msprop:Generator_ColumnPropNameInRow="date_filed" msprop:Generator_UserColumnName="date_filed" msprop:Generator_ColumnVarNameInTable="columndate_filed" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="folder_name" msprop:Generator_UserColumnName="folder_name" msprop:Generator_ColumnPropNameInTable="folder_nameColumn" msprop:Generator_ColumnPropNameInRow="folder_name" msprop:Generator_ColumnVarNameInTable="columnfolder_name" minOccurs="0">
+              <xs:element name="folder_name" msprop:Generator_ColumnPropNameInTable="folder_nameColumn" msprop:Generator_ColumnPropNameInRow="folder_name" msprop:Generator_UserColumnName="folder_name" msprop:Generator_ColumnVarNameInTable="columnfolder_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="filed_by" msdata:ReadOnly="true" msprop:Generator_UserColumnName="filed_by" msprop:Generator_ColumnPropNameInTable="filed_byColumn" msprop:Generator_ColumnPropNameInRow="filed_by" msprop:Generator_ColumnVarNameInTable="columnfiled_by" minOccurs="0">
+              <xs:element name="filed_by" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="filed_byColumn" msprop:Generator_ColumnPropNameInRow="filed_by" msprop:Generator_UserColumnName="filed_by" msprop:Generator_ColumnVarNameInTable="columnfiled_by" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
@@ -341,7 +355,7 @@ FROM            (tbl_folder tfol LEFT OUTER JOIN
               </xs:element>
               <xs:element name="created_by" msprop:Generator_ColumnPropNameInTable="created_byColumn" msprop:Generator_ColumnPropNameInRow="created_by" msprop:Generator_UserColumnName="created_by" msprop:Generator_ColumnVarNameInTable="columncreated_by" type="xs:int" minOccurs="0" />
               <xs:element name="date_created" msprop:Generator_ColumnPropNameInTable="date_createdColumn" msprop:Generator_ColumnPropNameInRow="date_created" msprop:Generator_UserColumnName="date_created" msprop:Generator_ColumnVarNameInTable="columndate_created" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="box_name" msprop:Generator_UserColumnName="box_name" msprop:Generator_ColumnPropNameInTable="box_nameColumn" msprop:Generator_ColumnPropNameInRow="box_name" msprop:Generator_ColumnVarNameInTable="columnbox_name" minOccurs="0">
+              <xs:element name="box_name" msprop:Generator_ColumnPropNameInTable="box_nameColumn" msprop:Generator_ColumnPropNameInRow="box_name" msprop:Generator_UserColumnName="box_name" msprop:Generator_ColumnVarNameInTable="columnbox_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

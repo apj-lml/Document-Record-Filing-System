@@ -20,7 +20,9 @@ namespace FilingSystem2
         private void reportViewerForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'db_filingsystemDataSetForReports1.tbl_file' table. You can move, or remove it, as needed.
-            this.tbl_fileTableAdapter.Fill(this.db_filingsystemDataSetForReports1.tbl_file);
+            //this.tbl_fileTableAdapter.Fill(this.db_filingsystemDataSetForReports1.tbl_file);
+
+            this.tbl_fileTableAdapter.FillByFolderId(this.db_filingsystemDataSetForReports1.tbl_file);
 
             var setup = this.reportViewer1.GetPageSettings();
             setup.Margins = new System.Drawing.Printing.Margins(1, 1, 1, 1);

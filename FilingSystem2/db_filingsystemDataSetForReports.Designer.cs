@@ -2913,16 +2913,14 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
-            MyConnectionString myConnectionString = new MyConnectionString();
-            this._connection = myConnectionString.MyConnection();
-            //this._connection.ConnectionString = global::FilingSystem2.Properties.Settings.Default.db_filingsystemConnectionString;
-            //this._connection.ConnectionString = myConnectionString.MyConnection();
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::FilingSystem2.Properties.Settings.Default.db_filingsystemConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, usr.first_name & "" "" & usr.last_name AS [filed_by]
@@ -2931,6 +2929,15 @@ FROM            ((tbl_file tfil LEFT OUTER JOIN
                          tbl_user usr ON tfil.filed_by = usr.ID)
 ORDER BY tfol.folder_name ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, usr.first_name & ' ' & usr.last_name AS filed_by
+FROM            ((tbl_file tfil LEFT OUTER JOIN
+                         tbl_folder tfol ON tfil.folder_id = tfol.ID) LEFT OUTER JOIN
+                         tbl_user usr ON tfil.filed_by = usr.ID)
+WHERE        (tfol.ID = '@folder_id')
+ORDER BY tfol.folder_name";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2952,6 +2959,30 @@ ORDER BY tfol.folder_name ASC";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual db_filingsystemDataSetForReports.tbl_fileDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            db_filingsystemDataSetForReports.tbl_fileDataTable dataTable = new db_filingsystemDataSetForReports.tbl_fileDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByFolderId(db_filingsystemDataSetForReports.tbl_fileDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual db_filingsystemDataSetForReports.tbl_fileDataTable GetDataByFolderId() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             db_filingsystemDataSetForReports.tbl_fileDataTable dataTable = new db_filingsystemDataSetForReports.tbl_fileDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

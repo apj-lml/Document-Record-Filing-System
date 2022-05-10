@@ -63,7 +63,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B59BC08FE17D2810AF48168B075A5D7477D057CA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>20EDF5E1140327EA1C52D192178D45C953EC667F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -182,6 +182,11 @@
     <Compile Include="MyConnectionString.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,15 +259,10 @@
       <DependentUpon>FileDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReportViewerForm.resx">
       <DependentUpon>ReportViewerForm.cs</DependentUpon>
