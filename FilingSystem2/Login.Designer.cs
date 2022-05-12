@@ -201,6 +201,7 @@
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(221, 22);
             this.tbUser.TabIndex = 1;
+            this.tbUser.TextChanged += new System.EventHandler(this.tbUser_TextChanged);
             this.tbUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUser_KeyPress);
             // 
             // pictureBox1

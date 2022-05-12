@@ -84,8 +84,8 @@ namespace FilingSystem2
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized; 
-            this.WindowState = FormWindowState.Normal;
+            //this.WindowState = FormWindowState.Minimized; 
+            //this.WindowState = FormWindowState.Normal;
             this.Focus(); this.Show();
         }
 
@@ -101,6 +101,11 @@ namespace FilingSystem2
             {
                 e.Handled = true;
             }
+        }
+
+        private void tbUser_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -160,12 +160,22 @@ namespace FilingSystem2
             loadFolders();
             CbLoadBoxes();
             CbloadColors();
+            if(dgFolder.Rows.Count <= 0)
+            {
+                tsDeleteFolder.Enabled = false;
+                tsViewSelectedFolder.Enabled = false;
+            }
+            else
+            {
+                tsDeleteFolder.Enabled = true;
+                tsViewSelectedFolder.Enabled = true;
+            }
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
 
-            if (tbFolderCode.Text == "" || tbFolderName.Text == "" || tbFolderDescription.Text == "")
+            if (tbFolderCode.Text == "" || tbFolderName.Text == "" || tbFolderDescription.Text == "" || cbFileBox.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -226,7 +236,7 @@ namespace FilingSystem2
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             new fileBoxForm().ShowDialog();
         }
 
@@ -237,7 +247,11 @@ namespace FilingSystem2
 
         private void dgFolder_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            new EditFolderForm(this).ShowDialog();
+            if(dgFolder.SelectedRows.Count > 0)
+            {
+                new EditFolderForm(this).ShowDialog();
+
+            }
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -299,6 +313,16 @@ namespace FilingSystem2
         private void llColor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new ColorsForm().ShowDialog();
+        }
+
+        private void cbFileBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled  = true;
+        }
+
+        private void cbTagColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

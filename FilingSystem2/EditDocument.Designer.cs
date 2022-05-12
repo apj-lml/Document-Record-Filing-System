@@ -38,8 +38,6 @@
             this.tbCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lFileBoxDescription = new System.Windows.Forms.Label();
-            this.lFolderDescription = new System.Windows.Forms.Label();
             this.cbFolder = new System.Windows.Forms.ComboBox();
             this.tbDateFiled = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -49,7 +47,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tbFiledBy = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbFileBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
@@ -58,6 +55,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbID = new System.Windows.Forms.TextBox();
+            this.lFileBoxDescription = new System.Windows.Forms.Label();
+            this.lFolderDescription = new System.Windows.Forms.Label();
+            this.cbFileBox = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,7 +72,7 @@
             this.btnSaveChangesDocument.ForeColor = System.Drawing.Color.White;
             this.btnSaveChangesDocument.Image = global::FilingSystem2.Properties.Resources.diskette_white;
             this.btnSaveChangesDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChangesDocument.Location = new System.Drawing.Point(346, 501);
+            this.btnSaveChangesDocument.Location = new System.Drawing.Point(347, 501);
             this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChangesDocument.Name = "btnSaveChangesDocument";
             this.btnSaveChangesDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -99,7 +99,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(329, 8);
+            this.label5.Location = new System.Drawing.Point(329, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 21);
@@ -109,10 +109,11 @@
             // tbParticulars
             // 
             this.tbParticulars.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbParticulars.Location = new System.Drawing.Point(24, 358);
+            this.tbParticulars.Location = new System.Drawing.Point(24, 360);
             this.tbParticulars.Margin = new System.Windows.Forms.Padding(2);
             this.tbParticulars.Multiline = true;
             this.tbParticulars.Name = "tbParticulars";
+            this.tbParticulars.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbParticulars.Size = new System.Drawing.Size(608, 127);
             this.tbParticulars.TabIndex = 3;
             // 
@@ -120,7 +121,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(20, 335);
+            this.label4.Location = new System.Drawing.Point(20, 337);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 21);
@@ -131,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(20, 227);
+            this.label3.Location = new System.Drawing.Point(20, 229);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 21);
@@ -162,8 +163,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.lFileBoxDescription);
+            this.panel2.Controls.Add(this.cbFileBox);
             this.panel2.Controls.Add(this.lFolderDescription);
+            this.panel2.Controls.Add(this.lFileBoxDescription);
             this.panel2.Controls.Add(this.cbFolder);
             this.panel2.Controls.Add(this.tbDateFiled);
             this.panel2.Controls.Add(this.label11);
@@ -173,7 +175,6 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.tbFiledBy);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.tbFileBox);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.tbRemarks);
@@ -192,26 +193,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(893, 556);
             this.panel2.TabIndex = 3;
-            // 
-            // lFileBoxDescription
-            // 
-            this.lFileBoxDescription.AutoSize = true;
-            this.lFileBoxDescription.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lFileBoxDescription.Location = new System.Drawing.Point(332, 137);
-            this.lFileBoxDescription.Name = "lFileBoxDescription";
-            this.lFileBoxDescription.Size = new System.Drawing.Size(41, 13);
-            this.lFileBoxDescription.TabIndex = 37;
-            this.lFileBoxDescription.Text = "label12";
-            // 
-            // lFolderDescription
-            // 
-            this.lFolderDescription.AutoSize = true;
-            this.lFolderDescription.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lFolderDescription.Location = new System.Drawing.Point(333, 61);
-            this.lFolderDescription.Name = "lFolderDescription";
-            this.lFolderDescription.Size = new System.Drawing.Size(41, 13);
-            this.lFolderDescription.TabIndex = 36;
-            this.lFolderDescription.Text = "label12";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // cbFolder
             // 
@@ -221,12 +203,14 @@
             this.cbFolder.Name = "cbFolder";
             this.cbFolder.Size = new System.Drawing.Size(296, 29);
             this.cbFolder.TabIndex = 35;
+            this.cbFolder.SelectedIndexChanged += new System.EventHandler(this.cbFolder_SelectedIndexChanged_1);
             this.cbFolder.SelectionChangeCommitted += new System.EventHandler(this.cbFolder_SelectedIndexChanged);
+            this.cbFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFolder_KeyPress);
             // 
             // tbDateFiled
             // 
             this.tbDateFiled.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbDateFiled.Location = new System.Drawing.Point(23, 179);
+            this.tbDateFiled.Location = new System.Drawing.Point(23, 183);
             this.tbDateFiled.Margin = new System.Windows.Forms.Padding(2);
             this.tbDateFiled.Name = "tbDateFiled";
             this.tbDateFiled.ReadOnly = true;
@@ -237,7 +221,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(20, 157);
+            this.label11.Location = new System.Drawing.Point(20, 161);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 21);
@@ -247,7 +231,7 @@
             // tbFileBoxTagColor
             // 
             this.tbFileBoxTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFileBoxTagColor.Location = new System.Drawing.Point(655, 106);
+            this.tbFileBoxTagColor.Location = new System.Drawing.Point(655, 108);
             this.tbFileBoxTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxTagColor.Name = "tbFileBoxTagColor";
             this.tbFileBoxTagColor.ReadOnly = true;
@@ -258,7 +242,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(652, 85);
+            this.label9.Location = new System.Drawing.Point(652, 87);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(227, 21);
@@ -289,7 +273,7 @@
             // tbFiledBy
             // 
             this.tbFiledBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFiledBy.Location = new System.Drawing.Point(23, 106);
+            this.tbFiledBy.Location = new System.Drawing.Point(23, 108);
             this.tbFiledBy.Margin = new System.Windows.Forms.Padding(2);
             this.tbFiledBy.Name = "tbFiledBy";
             this.tbFiledBy.ReadOnly = true;
@@ -300,28 +284,18 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(20, 84);
+            this.label8.Location = new System.Drawing.Point(20, 86);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 21);
             this.label8.TabIndex = 27;
             this.label8.Text = "Filed By";
             // 
-            // tbFileBox
-            // 
-            this.tbFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbFileBox.Location = new System.Drawing.Point(333, 106);
-            this.tbFileBox.Margin = new System.Windows.Forms.Padding(2);
-            this.tbFileBox.Name = "tbFileBox";
-            this.tbFileBox.ReadOnly = true;
-            this.tbFileBox.Size = new System.Drawing.Size(296, 29);
-            this.tbFileBox.TabIndex = 26;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(329, 84);
+            this.label7.Location = new System.Drawing.Point(329, 86);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 21);
@@ -332,7 +306,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(651, 225);
+            this.label6.Location = new System.Drawing.Point(651, 227);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 21);
@@ -342,17 +316,18 @@
             // tbRemarks
             // 
             this.tbRemarks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbRemarks.Location = new System.Drawing.Point(655, 250);
+            this.tbRemarks.Location = new System.Drawing.Point(655, 252);
             this.tbRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
+            this.tbRemarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbRemarks.Size = new System.Drawing.Size(213, 235);
             this.tbRemarks.TabIndex = 18;
             // 
             // tbSubject
             // 
             this.tbSubject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tbSubject.Location = new System.Drawing.Point(24, 250);
+            this.tbSubject.Location = new System.Drawing.Point(24, 252);
             this.tbSubject.Margin = new System.Windows.Forms.Padding(2);
             this.tbSubject.Multiline = true;
             this.tbSubject.Name = "tbSubject";
@@ -391,6 +366,44 @@
             this.tbID.Size = new System.Drawing.Size(117, 20);
             this.tbID.TabIndex = 15;
             this.tbID.Visible = false;
+            // 
+            // lFileBoxDescription
+            // 
+            this.lFileBoxDescription.AutoEllipsis = true;
+            this.lFileBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lFileBoxDescription.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lFileBoxDescription.Location = new System.Drawing.Point(333, 138);
+            this.lFileBoxDescription.MaximumSize = new System.Drawing.Size(285, 35);
+            this.lFileBoxDescription.Name = "lFileBoxDescription";
+            this.lFileBoxDescription.Size = new System.Drawing.Size(285, 30);
+            this.lFileBoxDescription.TabIndex = 38;
+            this.lFileBoxDescription.Text = "label12";
+            this.lFileBoxDescription.UseCompatibleTextRendering = true;
+            // 
+            // lFolderDescription
+            // 
+            this.lFolderDescription.AutoEllipsis = true;
+            this.lFolderDescription.CausesValidation = false;
+            this.lFolderDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lFolderDescription.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lFolderDescription.Location = new System.Drawing.Point(333, 60);
+            this.lFolderDescription.MaximumSize = new System.Drawing.Size(285, 35);
+            this.lFolderDescription.Name = "lFolderDescription";
+            this.lFolderDescription.Size = new System.Drawing.Size(284, 30);
+            this.lFolderDescription.TabIndex = 39;
+            this.lFolderDescription.Text = "label12";
+            this.lFolderDescription.UseCompatibleTextRendering = true;
+            // 
+            // cbFileBox
+            // 
+            this.cbFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFileBox.FormattingEnabled = true;
+            this.cbFileBox.Location = new System.Drawing.Point(333, 106);
+            this.cbFileBox.Name = "cbFileBox";
+            this.cbFileBox.Size = new System.Drawing.Size(296, 29);
+            this.cbFileBox.TabIndex = 40;
+            this.cbFileBox.SelectedIndexChanged += new System.EventHandler(this.cbFileBox_SelectedIndexChanged);
+            this.cbFileBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFileBox_KeyPress);
             // 
             // EditDocument
             // 
@@ -432,7 +445,6 @@
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.TextBox tbFiledBy;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbFileBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbFileBoxTagColor;
         private System.Windows.Forms.Label label9;
@@ -443,5 +455,6 @@
         private System.Windows.Forms.ComboBox cbFolder;
         private System.Windows.Forms.Label lFileBoxDescription;
         private System.Windows.Forms.Label lFolderDescription;
+        private System.Windows.Forms.ComboBox cbFileBox;
     }
 }

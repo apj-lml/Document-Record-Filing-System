@@ -87,6 +87,7 @@
             this.tbFileBoxDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFileBoxDescription.Location = new System.Drawing.Point(19, 254);
             this.tbFileBoxDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFileBoxDescription.MaxLength = 255;
             this.tbFileBoxDescription.Multiline = true;
             this.tbFileBoxDescription.Name = "tbFileBoxDescription";
             this.tbFileBoxDescription.Size = new System.Drawing.Size(560, 98);

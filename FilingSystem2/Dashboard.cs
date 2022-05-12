@@ -30,7 +30,7 @@ namespace FilingSystem2
         {
             Thread t = new Thread(new ThreadStart(StartSplash));
             t.Start();
-            Thread.Sleep(3000);
+            Thread.Sleep(4000);
             InitializeComponent();
             t.Abort();
 
@@ -217,11 +217,18 @@ namespace FilingSystem2
             dgDocumentsRecords.PageSize = 18;
             dgDocumentsRecords.SetPagedDataSource(MyFiles(), bindingNavigator1);
             //superGrid1.DataSource = MyFiles();
+            //if(dgDocumentsRecords.Rows.Count > 0)
+            //{
+            if (dgDocumentsRecords.Columns.Contains("FOLDER DESCRIPTION") == true)
+            {
+                dgDocumentsRecords.Columns["FOLDER DESCRIPTION"].Visible = false;
+                dgDocumentsRecords.Columns["FILE BOX / LOCATION DESCRIPTION"].Visible = false;
+            }
 
-            dgDocumentsRecords.Columns["FOLDER DESCRIPTION"].Visible = false;
-            dgDocumentsRecords.Columns["FILE BOX / LOCATION DESCRIPTION"].Visible = false;
-            dgDocumentsRecords.Refresh();
-            dgDocumentsRecords.Update();
+                dgDocumentsRecords.Refresh();
+                dgDocumentsRecords.Update();
+            //}
+
         }
         private void dashboardForm_Load(object sender, EventArgs e)
         {
@@ -231,7 +238,16 @@ namespace FilingSystem2
 
             ll_user.Text = first_name.ToString();
 
-            //MessageBox.Show("Welcome,"+first_name, "Hi!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if(dgDocumentsRecords.Rows.Count <= 0)
+            {
+                tsDeleteDocument.Enabled = false;
+                tsViewDocument.Enabled = false;
+            }
+            else
+            {
+                tsDeleteDocument.Enabled = true;
+                tsViewDocument.Enabled = true;
+            }
 
             if (role == "User")
             {
@@ -319,14 +335,16 @@ namespace FilingSystem2
 
         private void btnViewDocument_Click(object sender, EventArgs e)
         {
-            new ViewDocument(this).ShowDialog();
-            //Console.WriteLine(dgDocumentsRecords.CurrentRow.Cells[0].Value);
+            if(dgDocumentsRecords.SelectedRows.Count > 0)
+            {
+                new ViewDocument(this).ShowDialog();
+            }
 
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            new reportViewerForm().ShowDialog();  
+            new ReportDashboard().ShowDialog();  
         }
 
         private void btnTransferDocuments_Click(object sender, EventArgs e)
@@ -341,27 +359,33 @@ namespace FilingSystem2
 
         private void tsDeleteDocument_Click(object sender, EventArgs e)
         {
-            var id = dgDocumentsRecords.CurrentRow.Cells[0].Value;
+            if (dgDocumentsRecords.Rows.Count > 0) {
+                var id = dgDocumentsRecords.CurrentRow.Cells[0].Value;
 
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Document / Record?", "Delete Document / Record?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes)
-            { 
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Document / Record?", "Delete Document / Record?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
 
-                OleDbCommand cmd_delete_document = new OleDbCommand(@"DELETE FROM tbl_file
+                    OleDbCommand cmd_delete_document = new OleDbCommand(@"DELETE FROM tbl_file
                                         WHERE ID = @id", con);
 
-                cmd_delete_document.Parameters.AddWithValue("@id", id);
-                con.Open();
-                cmd_delete_document.ExecuteNonQuery();
-                con.Close();
+                    cmd_delete_document.Parameters.AddWithValue("@id", id);
+                    con.Open();
+                    cmd_delete_document.ExecuteNonQuery();
+                    con.Close();
 
-                loadDgDocumentsRecords();
+                    loadDgDocumentsRecords();
 
-                MessageBox.Show("Document / Record deleted succesfully!", "Document / Record Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Document / Record deleted succesfully!", "Document / Record Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                
+                }
             }
+            else
+            {
+                MessageBox.Show("No Document / File is selected!", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
         }
 
         private void ll_user_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

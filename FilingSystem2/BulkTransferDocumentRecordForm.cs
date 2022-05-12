@@ -73,7 +73,7 @@ namespace FilingSystem2
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
-            string dateNow = "";
+
             string new_code = "";
 
             if (cbFolderFrom.SelectedValue.ToString() == cbFolderTo.SelectedValue.ToString())
@@ -95,38 +95,48 @@ namespace FilingSystem2
                     while (reader.Read())
                     {
                         Random rnd = new Random();
-                        string sql_get_files = "SELECT * FROM tbl_file WHERE folder_id = " + cbFolderFrom.SelectedValue.ToString() + " ";
-                                   // con.Open();
 
-                                    OleDbCommand cmd_get_files = new OleDbCommand(sql_get_files, con);
-                                    OleDbDataReader reader2 = cmd_get_files.ExecuteReader();
+                        string sql_get_files = "SELECT * FROM tbl_file WHERE folder_id = " + cbFolderFrom.SelectedValue.ToString() + " ORDER BY date_filed ASC";
+                        OleDbCommand cmd_get_files = new OleDbCommand(sql_get_files, con);
+                        OleDbDataReader reader2 = cmd_get_files.ExecuteReader();
                                     
-                                    if (reader2.HasRows)
-                                    {
-                                        while (reader2.Read())
-                                        {
-                                            dateNow = DateTime.Now.ToString("Mdyy-HHmmssFF");
-                                            new_code = reader.GetString(1);
-                                            int folder_id = reader.GetInt32(0);
-                                            int id = reader2.GetInt32(0);
-                                //Console.WriteLine(new_code + DateTime.Now.ToString("Mdyy-HHmmssff-")+rnd.Next(10));
+                        if (reader2.HasRows)
+                        {
+                            DateTime now = DateTime.Now;
+
+                    
+                            OleDbCommand cmd_count_files = new OleDbCommand();
+          
+                            cmd_count_files.CommandText = "SELECT COUNT(*) FROM tbl_file WHERE folder_id = " + cbFolderTo.SelectedValue.ToString() +"";
+                            cmd_count_files.Connection = con;
+                            Int32 count = (Int32)cmd_count_files.ExecuteScalar();
+
+                            //int count = 0;
+
+                            //MessageBox.Show(count.ToString());
+
+                            while (reader2.Read())
+                            {
+                               count++;
+
+                                new_code = reader.GetString(1);
+                                int folder_id = reader.GetInt32(0);
+                                int id = reader2.GetInt32(0);
 
                                 OleDbCommand cmd_update_files_folder = new OleDbCommand(@"UPDATE tbl_file
-                                                        SET code = @code, folder_id = @folder_id
-                                                        WHERE ID = @id", con);
+                                            SET code = @code, folder_id = @folder_id
+                                            WHERE ID = @id", con);
 
-                                            cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + DateTime.Now.ToString("Mdyy-HHmmssff-")+rnd.Next(250));
-                                            cmd_update_files_folder.Parameters.AddWithValue("@folder_id", folder_id);
-                                            cmd_update_files_folder.Parameters.AddWithValue("@id", id);
-                                            //con.Open();
-                                            cmd_update_files_folder.ExecuteNonQuery();
-
+                                cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + "-" + now.ToString("MMdyy-HHmmss")+ "-" + count.ToString());
+                                cmd_update_files_folder.Parameters.AddWithValue("@folder_id", folder_id);
+                                cmd_update_files_folder.Parameters.AddWithValue("@id", id);
+                                cmd_update_files_folder.ExecuteNonQuery();
                             }
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("No rows found in tbl_file.");
-                                    }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No rows found in tbl_file.");
+                        }
 
                                  //   reader.Close();
                                    // con.Close();

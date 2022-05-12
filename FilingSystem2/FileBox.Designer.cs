@@ -77,7 +77,7 @@
             // llColor
             // 
             this.llColor.AutoSize = true;
-            this.llColor.Location = new System.Drawing.Point(93, 82);
+            this.llColor.Location = new System.Drawing.Point(160, 81);
             this.llColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llColor.Name = "llColor";
             this.llColor.Size = new System.Drawing.Size(53, 13);
@@ -90,22 +90,23 @@
             // 
             this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.cbTagColor.FormattingEnabled = true;
-            this.cbTagColor.Location = new System.Drawing.Point(19, 101);
+            this.cbTagColor.Location = new System.Drawing.Point(19, 100);
             this.cbTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.cbTagColor.Name = "cbTagColor";
             this.cbTagColor.Size = new System.Drawing.Size(275, 29);
             this.cbTagColor.TabIndex = 20;
+            this.cbTagColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbTagColor_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(15, 76);
+            this.label7.Location = new System.Drawing.Point(15, 75);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 21);
+            this.label7.Size = new System.Drawing.Size(146, 21);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Tag Color";
+            this.label7.Text = "File Box Tag Color";
             // 
             // btnFileDocument
             // 
@@ -132,6 +133,7 @@
             this.tbFileBoxDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbFileBoxDescription.Location = new System.Drawing.Point(19, 163);
             this.tbFileBoxDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFileBoxDescription.MaxLength = 255;
             this.tbFileBoxDescription.Multiline = true;
             this.tbFileBoxDescription.Name = "tbFileBoxDescription";
             this.tbFileBoxDescription.Size = new System.Drawing.Size(652, 99);

@@ -159,9 +159,15 @@ namespace FilingSystem2
             new fileBoxForm().ShowDialog();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void cbFileBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbTagColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled= true;
         }
     }
 }

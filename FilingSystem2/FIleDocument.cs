@@ -114,14 +114,21 @@ namespace FilingSystem2
                 cmd = new OleDbCommand(sql, con);
                 OleDbDataReader reader = cmd.ExecuteReader();
 
+
                 if (reader.HasRows)
                 {
+                    OleDbCommand cmd_count_files = new OleDbCommand();
+                    cmd_count_files.CommandText = "SELECT COUNT(*) FROM tbl_file WHERE folder_id = " + cbFolder.SelectedValue.ToString() + "";
+                    cmd_count_files.Connection = con;
+                    Int32 count = (Int32)cmd_count_files.ExecuteScalar();
+
                     while (reader.Read())
                     {
+                        count++;
                         Random rnd = new Random();
-                        var dateNow = DateTime.Now.ToString("MMdyy-HHmmssff-") + rnd.Next(250);
+                        var dateNow = DateTime.Now.AddSeconds(0.1);
                         Console.WriteLine(dateNow);
-                        tbCode.Text = reader.GetString(1) + dateNow;
+                        tbCode.Text = dateNow.ToString("MMdyy-HHmm") +"-"+ reader.GetString(1) + "-";
                     }
                 }
                 else
@@ -142,5 +149,9 @@ namespace FilingSystem2
             new foldersForm().Show();
         }
 
+        private void cbFolder_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

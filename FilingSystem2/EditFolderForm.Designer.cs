@@ -60,7 +60,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(602, 81);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // tbID
             // 
@@ -130,6 +129,7 @@
             this.cbTagColor.Name = "cbTagColor";
             this.cbTagColor.Size = new System.Drawing.Size(275, 29);
             this.cbTagColor.TabIndex = 20;
+            this.cbTagColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbTagColor_KeyPress);
             // 
             // label7
             // 
@@ -205,12 +205,14 @@
             this.cbFileBox.Name = "cbFileBox";
             this.cbFileBox.Size = new System.Drawing.Size(268, 29);
             this.cbFileBox.TabIndex = 10;
+            this.cbFileBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFileBox_KeyPress);
             // 
             // tbFolderDescription
             // 
-            this.tbFolderDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFolderDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFolderDescription.Location = new System.Drawing.Point(22, 177);
             this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFolderDescription.MaxLength = 255;
             this.tbFolderDescription.Multiline = true;
             this.tbFolderDescription.Name = "tbFolderDescription";
             this.tbFolderDescription.Size = new System.Drawing.Size(560, 98);

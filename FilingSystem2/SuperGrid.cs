@@ -52,7 +52,11 @@ namespace FilingSystem2
         }
         void bs_PositionChanged(object sender, EventArgs e)
         {
-            this.DataSource = tables[bs.Position];
+            if(bs.Count > 0)
+            {
+                this.DataSource = tables[bs.Position];
+
+            }
 
         }
     }

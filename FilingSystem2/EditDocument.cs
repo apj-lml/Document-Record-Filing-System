@@ -33,10 +33,12 @@ namespace FilingSystem2
 
         public void CbLoadFolders()
         {
-            string query = "SELECT * FROM tbl_folder ORDER BY folder_name ASC";
+            int box_id = int.Parse(cbFileBox.SelectedValue.ToString());
+            string query = "SELECT * FROM tbl_folder WHERE file_box_id = "+box_id+ " ORDER BY folder_name ASC";
             da = new OleDbDataAdapter(query, con);
             //con.Open();
             DataSet ds = new DataSet();
+
             da.Fill(ds, "Folders");
 
             cbFolder.DisplayMember = "folder_name";
@@ -44,11 +46,28 @@ namespace FilingSystem2
             cbFolder.DataSource = ds.Tables["Folders"];
 
 
-        }
+            
 
+
+        }
+        public void CbLoadBoxes()
+        {
+            string query = "SELECT * FROM tbl_file_box ORDER BY box_name ASC";
+            da = new OleDbDataAdapter(query, con);
+            //con.Open();
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Box");
+
+            cbFileBox.DisplayMember = "box_name";
+            cbFileBox.ValueMember = "ID";
+            cbFileBox.DataSource = ds.Tables["Box"];
+
+        }
         private void ViewDocument_Load(object sender, EventArgs e)
         {
+            CbLoadBoxes();
 
+            CbLoadFolders();
             // TODO: This line of code loads data into the 'db_filingsystemDataSet_test_1.tbl_folder' table. You can move, or remove it, as needed.
             //this.tbl_folderTableAdapter.Fill(this.db_filingsystemDataSet_test_1.tbl_folder);
 
@@ -71,7 +90,7 @@ namespace FilingSystem2
             tbCode.Text = code.ToString();
             cbFolder.Text = folder.ToString();
 
-            tbFileBox.Text = file_box.ToString();
+            cbFileBox.Text = file_box.ToString();
             tbFiledBy.Text = filed_by.ToString();
 
             tbSubject.Text = subject.ToString();
@@ -92,17 +111,14 @@ namespace FilingSystem2
             lFileBoxDescription.MaximumSize = new Size(296, 39);
             lFileBoxDescription.AutoSize = true;
 
-            CbLoadFolders();
 
         }
 
-
-
-        private void cbFolder_SelectedIndexChanged(object sender, EventArgs e)
+        private void CreateCode()
         {
             if (cbFolder.SelectedIndex != -1)
             {
-                string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC" ;
+                string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC";
                 con.Open();
 
                 cmd = new OleDbCommand(sql, con);
@@ -115,7 +131,7 @@ namespace FilingSystem2
                         Random rnd = new Random();
                         var dateNow = DateTime.Now.ToString("MMdyy-HHmmssff-") + rnd.Next(10);
                         tbCode.Text = reader.GetString(1) + dateNow;
-         
+
 
                     }
                 }
@@ -127,6 +143,11 @@ namespace FilingSystem2
                 reader.Close();
                 con.Close();
             }
+        }
+
+        private void cbFolder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           CreateCode();
         }
 
 
@@ -175,5 +196,36 @@ namespace FilingSystem2
 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbFolder_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbFileBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbFileBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CbLoadFolders();
+            lFolderDescription.Text = "";
+            lFileBoxDescription.Text = "";
+            CreateCode();
+
+        }
+
+        private void cbFolder_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            lFolderDescription.Text = "";
+            lFileBoxDescription.Text = "";
+            CreateCode();
+
+        }
     }
 }

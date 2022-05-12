@@ -95,34 +95,32 @@ namespace FilingSystem2
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
-            if (tbFileBoxName.Text == "" || tbFileBoxDescription.Text == "")
+            if (tbFileBoxName.Text == "" || tbFileBoxDescription.Text == "" || cbTagColor.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                var user_id = loginForm.LoginInfo.UserID;
 
-                    var user_id = loginForm.LoginInfo.UserID;
-
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO tbl_file_box (box_name, box_description, box_tag_color, created_by) values(@box_name,@box_description, @box_tag_color, @created_by)";
-                    cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
-                    cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
-                    cmd.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO tbl_file_box (box_name, box_description, box_tag_color, created_by) values(@box_name,@box_description, @box_tag_color, @created_by)";
+                cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
+                cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
+                cmd.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
                 cmd.Parameters.AddWithValue("@created_by", user_id);
 
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-                    loadFileBoxes();
+                loadFileBoxes();
                 tbFileBoxName.Text = "";
                 tbFileBoxDescription.Text = "";
                 cbTagColor.SelectedIndex = 0;
 
-                    MessageBox.Show("File Box / Location Added Successfully", "Success!");
-
+                MessageBox.Show("File Box / Location Added Successfully", "Success!");
             }
         }
 
@@ -130,11 +128,24 @@ namespace FilingSystem2
         {
             loadFileBoxes();
             CbloadColors();
+            if(dgFileBox.Rows.Count > 0)
+            {
+                editSelectedFileBoxLocationToolStripMenuItem.Enabled = true;
+                deleteSelectedFileBoxLocationToolStripMenuItem.Enabled=true;
+            }
+            else
+            {
+                editSelectedFileBoxLocationToolStripMenuItem.Enabled = false;
+                deleteSelectedFileBoxLocationToolStripMenuItem.Enabled = false; 
+            }
         }
 
         private void dgFileBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            new EditFileBox(this).ShowDialog();
+            if(dgFileBox.Rows.Count > 0)
+            {
+                new EditFileBox(this).ShowDialog();
+            }
         }
 
 
@@ -193,6 +204,11 @@ namespace FilingSystem2
 
             }
 
+        }
+
+        private void cbTagColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled  = true;
         }
     }
 }

@@ -2927,17 +2927,21 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
 FROM            ((tbl_file tfil LEFT OUTER JOIN
                          tbl_folder tfol ON tfil.folder_id = tfol.ID) LEFT OUTER JOIN
                          tbl_user usr ON tfil.filed_by = usr.ID)
-ORDER BY tfol.folder_name ASC";
+ORDER BY tfil.date_filed DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, usr.first_name & ' ' & usr.last_name AS filed_by
-FROM            ((tbl_file tfil LEFT OUTER JOIN
-                         tbl_folder tfol ON tfil.folder_id = tfol.ID) LEFT OUTER JOIN
-                         tbl_user usr ON tfil.filed_by = usr.ID)
-WHERE        (tfol.ID = '@folder_id')
-ORDER BY tfol.folder_name";
+
+FROM         ((tbl_file AS tfil LEFT JOIN tbl_folder AS tfol ON tfil.folder_id = tfol.ID)
+                     LEFT JOIN tbl_user AS usr ON tfil.filed_by = usr.ID )
+
+
+WHERE tfol.ID IS NULL OR tfol.ID = ?
+
+ORDER BY tfil.date_filed DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2968,8 +2972,9 @@ ORDER BY tfol.folder_name";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByFolderId(db_filingsystemDataSetForReports.tbl_fileDataTable dataTable) {
+        public virtual int FillByFolderId(db_filingsystemDataSetForReports.tbl_fileDataTable dataTable, int ID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2981,8 +2986,9 @@ ORDER BY tfol.folder_name";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual db_filingsystemDataSetForReports.tbl_fileDataTable GetDataByFolderId() {
+        public virtual db_filingsystemDataSetForReports.tbl_fileDataTable GetDataByFolderId(int ID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID));
             db_filingsystemDataSetForReports.tbl_fileDataTable dataTable = new db_filingsystemDataSetForReports.tbl_fileDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
