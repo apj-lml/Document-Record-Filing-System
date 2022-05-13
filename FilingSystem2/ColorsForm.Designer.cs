@@ -35,12 +35,12 @@
             this.tbColor = new System.Windows.Forms.TextBox();
             this.btnAddColor = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.llAdd = new System.Windows.Forms.LinkLabel();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgColors = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editSelectedColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.llAdd = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgColors)).BeginInit();
@@ -84,12 +84,12 @@
             // 
             // tbColor
             // 
-            this.tbColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbColor.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbColor.Location = new System.Drawing.Point(9, 38);
             this.tbColor.Margin = new System.Windows.Forms.Padding(2);
             this.tbColor.MaxLength = 1028;
             this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(280, 29);
+            this.tbColor.Size = new System.Drawing.Size(280, 26);
             this.tbColor.TabIndex = 15;
             // 
             // btnAddColor
@@ -125,6 +125,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(297, 317);
             this.panel2.TabIndex = 25;
+            // 
+            // llAdd
+            // 
+            this.llAdd.AutoSize = true;
+            this.llAdd.Location = new System.Drawing.Point(91, 16);
+            this.llAdd.Name = "llAdd";
+            this.llAdd.Size = new System.Drawing.Size(26, 13);
+            this.llAdd.TabIndex = 27;
+            this.llAdd.TabStop = true;
+            this.llAdd.Text = "Add";
+            this.llAdd.Visible = false;
+            this.llAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llAdd_LinkClicked);
             // 
             // btnSave
             // 
@@ -185,18 +197,6 @@
             this.deleteSelectedColorToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.deleteSelectedColorToolStripMenuItem.Text = "Delete Selected Color";
             this.deleteSelectedColorToolStripMenuItem.Click += new System.EventHandler(this.deleteSelectedColorToolStripMenuItem_Click);
-            // 
-            // llAdd
-            // 
-            this.llAdd.AutoSize = true;
-            this.llAdd.Location = new System.Drawing.Point(91, 16);
-            this.llAdd.Name = "llAdd";
-            this.llAdd.Size = new System.Drawing.Size(26, 13);
-            this.llAdd.TabIndex = 27;
-            this.llAdd.TabStop = true;
-            this.llAdd.Text = "Add";
-            this.llAdd.Visible = false;
-            this.llAdd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llAdd_LinkClicked);
             // 
             // ColorsForm
             // 

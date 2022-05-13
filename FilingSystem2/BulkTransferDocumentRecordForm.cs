@@ -71,6 +71,14 @@ namespace FilingSystem2
             new foldersForm().ShowDialog(); 
         }
 
+        public string RandomChars()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, 3)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
 
@@ -94,7 +102,6 @@ namespace FilingSystem2
                 {
                     while (reader.Read())
                     {
-                        Random rnd = new Random();
 
                         string sql_get_files = "SELECT * FROM tbl_file WHERE folder_id = " + cbFolderFrom.SelectedValue.ToString() + " ORDER BY date_filed ASC";
                         OleDbCommand cmd_get_files = new OleDbCommand(sql_get_files, con);
@@ -104,31 +111,21 @@ namespace FilingSystem2
                         {
                             DateTime now = DateTime.Now;
 
-                    
-                            OleDbCommand cmd_count_files = new OleDbCommand();
-          
-                            cmd_count_files.CommandText = "SELECT COUNT(*) FROM tbl_file WHERE folder_id = " + cbFolderTo.SelectedValue.ToString() +"";
-                            cmd_count_files.Connection = con;
-                            Int32 count = (Int32)cmd_count_files.ExecuteScalar();
-
-                            //int count = 0;
-
-                            //MessageBox.Show(count.ToString());
-
                             while (reader2.Read())
                             {
-                               count++;
+                                MessageBox.Show(RandomChars());
 
                                 new_code = reader.GetString(1);
                                 int folder_id = reader.GetInt32(0);
                                 int id = reader2.GetInt32(0);
 
                                 OleDbCommand cmd_update_files_folder = new OleDbCommand(@"UPDATE tbl_file
-                                            SET code = @code, folder_id = @folder_id
+                                            SET code = @code, folder_id = @folder_id, date_filed = @date_filed
                                             WHERE ID = @id", con);
 
-                                cmd_update_files_folder.Parameters.AddWithValue("@code", new_code + "-" + now.ToString("MMdyy-HHmmss")+ "-" + count.ToString());
+                                cmd_update_files_folder.Parameters.AddWithValue("@code", now.ToString("MMdyy-HHmm")+ "-" + RandomChars());
                                 cmd_update_files_folder.Parameters.AddWithValue("@folder_id", folder_id);
+                                cmd_update_files_folder.Parameters.AddWithValue("@date_filed", now.ToString("MM/dd/yyyy hh:mm:ss tt"));
                                 cmd_update_files_folder.Parameters.AddWithValue("@id", id);
                                 cmd_update_files_folder.ExecuteNonQuery();
                             }
@@ -138,16 +135,11 @@ namespace FilingSystem2
                             Console.WriteLine("No rows found in tbl_file.");
                         }
 
-                                 //   reader.Close();
-                                   // con.Close();
-
-
                     }
                 }
                 else
                 {
                     Console.WriteLine("No rows found in tbl_folder.");
-                    //MessageBox.Show("No files to transfer in this folder!", "Transfer Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 reader.Close();
@@ -155,7 +147,7 @@ namespace FilingSystem2
 
                 _dashboardForm.loadDgDocumentsRecords();
 
-
+                this.Hide();
                 MessageBox.Show("Documents / Records transferred successfully!", "Transfer Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }

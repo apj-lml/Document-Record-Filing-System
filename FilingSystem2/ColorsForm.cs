@@ -75,7 +75,7 @@ namespace FilingSystem2
             {
                 OleDbCommand cmd_update_folder = new OleDbCommand(@"INSERT INTO tbl_color (tag_color) VALUES (@color)", con);
 
-                cmd_update_folder.Parameters.AddWithValue("@color", tbColor.Text);
+                cmd_update_folder.Parameters.AddWithValue("@color", tbColor.Text.ToUpper());
 
                 //cmd.Parameters.AddWithValue("@id", tbID.Text);
                 con.Open();
@@ -83,7 +83,24 @@ namespace FilingSystem2
                 con.Close();
 
                 tbColor.Text = "";
-
+                Form form = Application.OpenForms["foldersForm"];
+                if (form != null)
+                {
+                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                    foldersform.CbloadColors();
+                }
+                Form form2 = Application.OpenForms["fileBoxForm"];
+                if (form2 != null)
+                {
+                    fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
+                    fileboxform.CbloadColors();
+                }
+                Form form3 = Application.OpenForms["EditFolderForm"];
+                if (form3 != null)
+                {
+                    EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
+                    editfolderform.CbloadColors();
+                }
                 MessageBox.Show("Successfully added color!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadColors();
             }
@@ -115,7 +132,7 @@ namespace FilingSystem2
 
                 OleDbCommand cmd_update = new OleDbCommand(@"UPDATE tbl_color SET tag_color = @color WHERE ID = @color_id", con);
 
-                cmd_update.Parameters.AddWithValue("@color", tbColor.Text);
+                cmd_update.Parameters.AddWithValue("@color", tbColor.Text.ToUpper());
                 cmd_update.Parameters.AddWithValue("@color_id", int.Parse(id.ToString()));
 
 
@@ -130,6 +147,25 @@ namespace FilingSystem2
                 btnAddColor.Visible = true;
                 btnSave.Visible = false;
                 llAdd.Visible = false;
+
+                Form form = Application.OpenForms["foldersForm"];
+                if (form != null)
+                {
+                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                    foldersform.CbloadColors();
+                }
+                Form form2 = Application.OpenForms["fileBoxForm"];
+                if (form2 != null)
+                {
+                    fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
+                    fileboxform.CbloadColors();
+                }
+                Form form3 = Application.OpenForms["EditFolderForm"];
+                if (form3 != null)
+                {
+                    EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
+                    editfolderform.CbloadColors();
+                }
 
                 MessageBox.Show("Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -187,7 +223,24 @@ namespace FilingSystem2
                         con.Close();
 
                         loadColors();
-
+                        Form form = Application.OpenForms["foldersForm"];
+                        if (form != null)
+                        {
+                            foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                            foldersform.CbloadColors();
+                        }
+                        Form form2 = Application.OpenForms["fileBoxForm"];
+                        if (form2 != null)
+                        {
+                            fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
+                            fileboxform.CbloadColors();
+                        }
+                        Form form3 = Application.OpenForms["EditFolderForm"];
+                        if (form3 != null)
+                        {
+                            EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
+                            editfolderform.CbloadColors();
+                        }
                         MessageBox.Show("Deleted succesfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 

@@ -84,7 +84,7 @@
             // 
             // tbFileBoxDescription
             // 
-            this.tbFileBoxDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFileBoxDescription.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFileBoxDescription.Location = new System.Drawing.Point(19, 254);
             this.tbFileBoxDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxDescription.MaxLength = 255;
@@ -106,12 +106,12 @@
             // 
             // tbFileBoxName
             // 
-            this.tbFileBoxName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFileBoxName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFileBoxName.Location = new System.Drawing.Point(19, 126);
             this.tbFileBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFileBoxName.MaxLength = 1028;
             this.tbFileBoxName.Name = "tbFileBoxName";
-            this.tbFileBoxName.Size = new System.Drawing.Size(560, 29);
+            this.tbFileBoxName.Size = new System.Drawing.Size(560, 26);
             this.tbFileBoxName.TabIndex = 2;
             // 
             // label3
@@ -156,12 +156,12 @@
             // 
             // cbTagColor
             // 
-            this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbTagColor.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbTagColor.FormattingEnabled = true;
             this.cbTagColor.Location = new System.Drawing.Point(19, 189);
             this.cbTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.cbTagColor.Name = "cbTagColor";
-            this.cbTagColor.Size = new System.Drawing.Size(275, 29);
+            this.cbTagColor.Size = new System.Drawing.Size(275, 27);
             this.cbTagColor.TabIndex = 23;
             // 
             // label7

@@ -155,6 +155,13 @@ namespace FilingSystem2
             dgFolder.Refresh();
             dgFolder.Update();
         }
+        public string RandomChars()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, 3)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         private void foldersForm_Load(object sender, EventArgs e)
         {
             loadFolders();
@@ -170,12 +177,13 @@ namespace FilingSystem2
                 tsDeleteFolder.Enabled = true;
                 tsViewSelectedFolder.Enabled = true;
             }
+            tbFolderCode.Text = RandomChars();
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
 
-            if (tbFolderCode.Text == "" || tbFolderName.Text == "" || tbFolderDescription.Text == "" || cbFileBox.Text == "")
+            if (tbFolderCode.Text == "" || tbFolderName.Text == "" || cbFileBox.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -207,14 +215,21 @@ namespace FilingSystem2
                     //cmd.Connection = con;
                     con.Open();
                     cmd = new OleDbCommand(sql, con);
-                    cmd.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
-                    cmd.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
-                    cmd.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
+                    cmd.Parameters.AddWithValue("@folder_code", tbFolderCode.Text.ToUpper());
+                    cmd.Parameters.AddWithValue("@folder_name", tbFolderName.Text.ToUpper());
+                    cmd.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text.ToUpper());
                     cmd.Parameters.AddWithValue("@file_box_id", int.Parse(cbFileBox.SelectedValue.ToString()));
                     cmd.Parameters.AddWithValue("@folder_tag_color", int.Parse(cbTagColor.SelectedValue.ToString()));
                     cmd.Parameters.AddWithValue("@created_by", user_id);
                     cmd.ExecuteNonQuery();
                     con.Close();
+
+                    Form form = Application.OpenForms["addDocumentRecordForm"];
+                    if (form != null)
+                    {
+                        addDocumentRecordForm adddocumentrecordform = (addDocumentRecordForm)fc.TheForm("addDocumentRecordForm");
+                        adddocumentrecordform.CbLoadFolders();
+                    }
 
                     loadFolders();
                     clearFields();
@@ -300,7 +315,15 @@ namespace FilingSystem2
                     cmd_delete_folder.ExecuteNonQuery();
                     con.Close();
 
+                    Form form = Application.OpenForms["addDocumentRecordForm"];
+                    if (form != null)
+                    {
+                        addDocumentRecordForm adddocumentrecordform = (addDocumentRecordForm)fc.TheForm("addDocumentRecordForm");
+                        adddocumentrecordform.CbLoadFolders();
+                    }
+
                     MessageBox.Show("Folder deleted succesfully!", "Folder Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                     loadFolders();
 

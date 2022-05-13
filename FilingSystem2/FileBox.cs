@@ -105,8 +105,8 @@ namespace FilingSystem2
 
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO tbl_file_box (box_name, box_description, box_tag_color, created_by) values(@box_name,@box_description, @box_tag_color, @created_by)";
-                cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
-                cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
+                cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
                 cmd.Parameters.AddWithValue("@created_by", user_id);
 
@@ -119,6 +119,15 @@ namespace FilingSystem2
                 tbFileBoxName.Text = "";
                 tbFileBoxDescription.Text = "";
                 cbTagColor.SelectedIndex = 0;
+
+                
+                Form form = Application.OpenForms["foldersForm"];
+                if (form != null)
+                {
+                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                    foldersform.CbLoadBoxes();
+                }
+
 
                 MessageBox.Show("File Box / Location Added Successfully", "Success!");
             }
@@ -197,6 +206,13 @@ namespace FilingSystem2
                     cmd_delete.Connection = con;
                     cmd_delete.ExecuteNonQuery();
                     con.Close();
+
+                    Form form = Application.OpenForms["foldersForm"];
+                    if (form != null)
+                    {
+                        foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                        foldersform.CbLoadBoxes();
+                    }
 
                     loadFileBoxes();
                     MessageBox.Show("File Box / Location Deleted Successfully", "Success!");

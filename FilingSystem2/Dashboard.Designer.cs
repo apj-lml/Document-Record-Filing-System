@@ -72,6 +72,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -130,7 +131,7 @@
             this.btnTransferDocuments.Name = "btnTransferDocuments";
             this.btnTransferDocuments.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnTransferDocuments.Size = new System.Drawing.Size(230, 57);
-            this.btnTransferDocuments.TabIndex = 9;
+            this.btnTransferDocuments.TabIndex = 10;
             this.btnTransferDocuments.Text = "  BULK TRANSFER DOCUMENTS";
             this.btnTransferDocuments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransferDocuments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -153,7 +154,7 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(230, 57);
-            this.btnLogout.TabIndex = 10;
+            this.btnLogout.TabIndex = 11;
             this.btnLogout.Text = "  LOGOUT";
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -175,7 +176,7 @@
             this.btnReports.Name = "btnReports";
             this.btnReports.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnReports.Size = new System.Drawing.Size(230, 57);
-            this.btnReports.TabIndex = 8;
+            this.btnReports.TabIndex = 9;
             this.btnReports.Text = "  REPORTS";
             this.btnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReports.UseVisualStyleBackColor = false;
@@ -197,7 +198,7 @@
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnUsers.Size = new System.Drawing.Size(230, 57);
-            this.btnUsers.TabIndex = 7;
+            this.btnUsers.TabIndex = 8;
             this.btnUsers.Text = "  USERS";
             this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsers.UseVisualStyleBackColor = false;
@@ -219,7 +220,7 @@
             this.btnFileBox.Name = "btnFileBox";
             this.btnFileBox.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnFileBox.Size = new System.Drawing.Size(230, 57);
-            this.btnFileBox.TabIndex = 6;
+            this.btnFileBox.TabIndex = 7;
             this.btnFileBox.Text = "  FILE BOX / LOCATION";
             this.btnFileBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileBox.UseVisualStyleBackColor = false;
@@ -241,7 +242,7 @@
             this.btnFolders.Name = "btnFolders";
             this.btnFolders.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnFolders.Size = new System.Drawing.Size(230, 57);
-            this.btnFolders.TabIndex = 5;
+            this.btnFolders.TabIndex = 6;
             this.btnFolders.Text = "  FOLDERS";
             this.btnFolders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFolders.UseVisualStyleBackColor = false;
@@ -263,7 +264,7 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(230, 57);
-            this.btnDashboard.TabIndex = 4;
+            this.btnDashboard.TabIndex = 5;
             this.btnDashboard.Text = "  DASHBOARD";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -274,6 +275,7 @@
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(29)))), ((int)(((byte)(66)))));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -285,9 +287,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FilingSystem2.Properties.Resources.logo200x200;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 18);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(135, 131);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -300,7 +302,7 @@
             this.panel2.Location = new System.Drawing.Point(230, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1072, 674);
+            this.panel2.Size = new System.Drawing.Size(1119, 674);
             this.panel2.TabIndex = 1;
             // 
             // panel5
@@ -310,7 +312,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 193);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1072, 481);
+            this.panel5.Size = new System.Drawing.Size(1119, 481);
             this.panel5.TabIndex = 1;
             // 
             // panel8
@@ -320,7 +322,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1072, 481);
+            this.panel8.Size = new System.Drawing.Size(1119, 481);
             this.panel8.TabIndex = 4;
             // 
             // panel9
@@ -329,7 +331,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 30);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1072, 451);
+            this.panel9.Size = new System.Drawing.Size(1119, 451);
             this.panel9.TabIndex = 4;
             // 
             // contextMenuStrip1
@@ -369,7 +371,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1072, 30);
+            this.panel6.Size = new System.Drawing.Size(1119, 30);
             this.panel6.TabIndex = 3;
             // 
             // bindingNavigator1
@@ -398,7 +400,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1072, 23);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1119, 23);
             this.bindingNavigator1.TabIndex = 2;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -505,7 +507,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1072, 193);
+            this.panel4.Size = new System.Drawing.Size(1119, 193);
             this.panel4.TabIndex = 0;
             // 
             // ll_user
@@ -516,7 +518,7 @@
             this.ll_user.Location = new System.Drawing.Point(78, 11);
             this.ll_user.Name = "ll_user";
             this.ll_user.Size = new System.Drawing.Size(29, 13);
-            this.ll_user.TabIndex = 7;
+            this.ll_user.TabIndex = 1;
             this.ll_user.TabStop = true;
             this.ll_user.Text = "User";
             this.ll_user.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_user_LinkClicked);
@@ -553,13 +555,13 @@
             // 
             // cbFilter
             // 
-            this.cbFilter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFilter.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbFilter.FormattingEnabled = true;
             this.cbFilter.Location = new System.Drawing.Point(399, 150);
             this.cbFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(340, 29);
-            this.cbFilter.TabIndex = 2;
+            this.cbFilter.Size = new System.Drawing.Size(340, 27);
+            this.cbFilter.TabIndex = 3;
             // 
             // btnFileDocument
             // 
@@ -570,12 +572,12 @@
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.plus_symbol_button__1_;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(796, 144);
+            this.btnFileDocument.Location = new System.Drawing.Point(843, 144);
             this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnFileDocument.Size = new System.Drawing.Size(249, 40);
-            this.btnFileDocument.TabIndex = 3;
+            this.btnFileDocument.TabIndex = 4;
             this.btnFileDocument.Text = "  File Document / Record";
             this.btnFileDocument.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFileDocument.UseVisualStyleBackColor = false;
@@ -595,12 +597,12 @@
             // tbSearch
             // 
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbSearch.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbSearch.Location = new System.Drawing.Point(22, 150);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(361, 29);
-            this.tbSearch.TabIndex = 1;
+            this.tbSearch.Size = new System.Drawing.Size(361, 26);
+            this.tbSearch.TabIndex = 2;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // dgDocumentsRecords
@@ -612,19 +614,32 @@
             this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
             this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
+            this.dgDocumentsRecords.MultiSelect = false;
             this.dgDocumentsRecords.Name = "dgDocumentsRecords";
             this.dgDocumentsRecords.PageSize = 10;
             this.dgDocumentsRecords.ReadOnly = true;
             this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDocumentsRecords.Size = new System.Drawing.Size(1072, 451);
+            this.dgDocumentsRecords.Size = new System.Drawing.Size(1119, 451);
             this.dgDocumentsRecords.TabIndex = 1;
             this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trajan", 7.5F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(12, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(203, 26);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Pangasinan \r\nIrrigation Management Office";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 674);
+            this.ClientSize = new System.Drawing.Size(1349, 674);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -634,6 +649,7 @@
             this.Load += new System.EventHandler(this.dashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -697,5 +713,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label4;
     }
 }

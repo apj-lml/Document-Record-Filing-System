@@ -92,7 +92,7 @@ namespace FilingSystem2
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
-            if (tbFolderCode.Text == "" || tbFolderName.Text == "" || tbFolderDescription.Text == "")
+            if (tbFolderCode.Text == "" || tbFolderName.Text == "")
             {
                 MessageBox.Show("Please fill out all fields.", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -107,7 +107,7 @@ namespace FilingSystem2
                 if (reader.Read() == true)
                 {
 
-                    MessageBox.Show("Code prefix has already been used. Please choose another.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Code suffix has already been used. Please choose another.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.Close();
 
                 }
@@ -122,9 +122,9 @@ namespace FilingSystem2
                                                     folder_tag_color = @folder_tag_color
                                                 WHERE ID = @id", con);
 
-                    cmd_update_folder.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
-                    cmd_update_folder.Parameters.AddWithValue("@folder_name", tbFolderName.Text);
-                    cmd_update_folder.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text);
+                    cmd_update_folder.Parameters.AddWithValue("@folder_code", tbFolderCode.Text.ToUpper());
+                    cmd_update_folder.Parameters.AddWithValue("@folder_name", tbFolderName.Text.ToUpper());
+                    cmd_update_folder.Parameters.AddWithValue("@folder_description", tbFolderDescription.Text.ToUpper());
                     cmd_update_folder.Parameters.AddWithValue("@file_box_id", cbFileBox.SelectedValue);
                     cmd_update_folder.Parameters.AddWithValue("@folder_tag_color", cbTagColor.SelectedValue);
                     cmd_update_folder.Parameters.AddWithValue("@id", tbID.Text);
@@ -139,6 +139,20 @@ namespace FilingSystem2
                     dashboardForm dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
                     
                     dashboardform.loadDgDocumentsRecords();
+
+                    Form form = Application.OpenForms["addDocumentRecordForm"];
+                    if (form != null)
+                    {
+                        addDocumentRecordForm adddocumentrecordform = (addDocumentRecordForm)fc.TheForm("addDocumentRecordForm");
+                        adddocumentrecordform.CbLoadFolders();
+                    }
+
+                    Form form2 = Application.OpenForms["EditDocument"];
+                    if (form2 != null)
+                    {
+                        EditDocument editdocument = (EditDocument)fc.TheForm("EditDocument");
+                        editdocument.CbLoadFolders();
+                    }
 
                     MessageBox.Show("Successfully Saved Changes", "Folder Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();

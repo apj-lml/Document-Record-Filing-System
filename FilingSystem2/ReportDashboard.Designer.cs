@@ -77,10 +77,10 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 82);
+            this.checkBox1.Font = new System.Drawing.Font("Cambria", 12F);
+            this.checkBox1.Location = new System.Drawing.Point(28, 74);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(84, 17);
+            this.checkBox1.Size = new System.Drawing.Size(140, 23);
             this.checkBox1.TabIndex = 41;
             this.checkBox1.Text = "Generate All";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -120,13 +120,13 @@
             // cbFolder
             // 
             this.cbFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFolder.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbFolder.FormattingEnabled = true;
             this.cbFolder.Items.AddRange(new object[] {
             "All"});
             this.cbFolder.Location = new System.Drawing.Point(28, 41);
             this.cbFolder.Name = "cbFolder";
-            this.cbFolder.Size = new System.Drawing.Size(319, 29);
+            this.cbFolder.Size = new System.Drawing.Size(319, 27);
             this.cbFolder.TabIndex = 38;
             this.cbFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFolder_KeyPress);
             // 

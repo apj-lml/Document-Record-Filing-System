@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(578, 81);
             this.panel1.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.panel2.Controls.Add(this.cbFolderFrom);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 81);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(578, 162);
             this.panel2.TabIndex = 3;
@@ -94,12 +94,12 @@
             // 
             // cbFolderTo
             // 
-            this.cbFolderTo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFolderTo.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbFolderTo.FormattingEnabled = true;
             this.cbFolderTo.Location = new System.Drawing.Point(304, 45);
-            this.cbFolderTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFolderTo.Margin = new System.Windows.Forms.Padding(2);
             this.cbFolderTo.Name = "cbFolderTo";
-            this.cbFolderTo.Size = new System.Drawing.Size(252, 29);
+            this.cbFolderTo.Size = new System.Drawing.Size(252, 27);
             this.cbFolderTo.TabIndex = 15;
             // 
             // btnFileDocument
@@ -111,8 +111,8 @@
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.edit;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(227, 104);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFileDocument.Location = new System.Drawing.Point(233, 111);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnFileDocument.Size = new System.Drawing.Size(114, 40);
@@ -147,12 +147,12 @@
             // 
             // cbFolderFrom
             // 
-            this.cbFolderFrom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFolderFrom.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbFolderFrom.FormattingEnabled = true;
             this.cbFolderFrom.Location = new System.Drawing.Point(26, 45);
-            this.cbFolderFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFolderFrom.Margin = new System.Windows.Forms.Padding(2);
             this.cbFolderFrom.Name = "cbFolderFrom";
-            this.cbFolderFrom.Size = new System.Drawing.Size(252, 29);
+            this.cbFolderFrom.Size = new System.Drawing.Size(252, 27);
             this.cbFolderFrom.TabIndex = 10;
             // 
             // BulkTransferDocumentRecordForm
@@ -162,7 +162,7 @@
             this.ClientSize = new System.Drawing.Size(578, 243);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BulkTransferDocumentRecordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Documents / Records Form";

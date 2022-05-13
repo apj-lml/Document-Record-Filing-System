@@ -89,6 +89,10 @@ namespace FilingSystem2
             {
                 filter_value = "tfil.date_filed";
             }
+            else if (filter_value == "date_received")
+            {
+                filter_value = "tfil.date_received";
+            }
             else {
                 //filter_value = "usr.last_name & ', '& usr.first_name";
 
@@ -105,7 +109,8 @@ namespace FilingSystem2
                     usr.last_name & ', '& usr.first_name as [FILED BY],
                     tfil.date_filed as [DATE FILED],
                     tfol.folder_description AS [FOLDER DESCRIPTION],
-                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION]
+                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION],
+                    tfil.date_received as [DATE RECEIVED]
                     
                                 FROM (((((tbl_file AS tfil 
                                     LEFT JOIN 
@@ -140,7 +145,8 @@ namespace FilingSystem2
                     sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER], foltagclr.tag_color AS [FOLDER TAG COLOR],
                     tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED],
                     tfol.folder_description AS [FOLDER DESCRIPTION],
-                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION]
+                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION],
+                    tfil.date_received as [DATE RECEIVED]
                     
                     FROM (((((tbl_file AS tfil 
                         INNER JOIN 
@@ -169,7 +175,8 @@ namespace FilingSystem2
                     sql = @"SELECT tfil.ID AS [ID], tfil.code AS [CODE], tfil.subject AS [SUBJECT], tfil.particulars AS [PARTICULARS], tfil.remarks AS [REMARKS], tfol.folder_name AS [FOLDER], foltagclr.tag_color AS [FOLDER TAG COLOR],
                     tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED],
                     tfol.folder_description AS [FOLDER DESCRIPTION],
-                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION]
+                    tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION],
+                    tfil.date_received as [DATE RECEIVED]
                     
                     FROM (((((tbl_file AS tfil 
                         INNER JOIN 
@@ -216,18 +223,30 @@ namespace FilingSystem2
         public void loadDgDocumentsRecords() {
             dgDocumentsRecords.PageSize = 18;
             dgDocumentsRecords.SetPagedDataSource(MyFiles(), bindingNavigator1);
-            //superGrid1.DataSource = MyFiles();
-            //if(dgDocumentsRecords.Rows.Count > 0)
-            //{
+
             if (dgDocumentsRecords.Columns.Contains("FOLDER DESCRIPTION") == true)
             {
                 dgDocumentsRecords.Columns["FOLDER DESCRIPTION"].Visible = false;
                 dgDocumentsRecords.Columns["FILE BOX / LOCATION DESCRIPTION"].Visible = false;
-            }
 
-                dgDocumentsRecords.Refresh();
-                dgDocumentsRecords.Update();
-            //}
+                DataGridViewColumn column_id = dgDocumentsRecords.Columns[0];
+                DataGridViewColumn column_code = dgDocumentsRecords.Columns[1];
+                column_id.Width = 30;
+                column_code.Width = 115;
+
+                tsDeleteDocument.Enabled = true;
+                tsViewDocument.Enabled = true;
+
+            }
+            else
+            {
+                tsDeleteDocument.Enabled = false;
+                tsViewDocument.Enabled = false;
+            }
+           
+
+            dgDocumentsRecords.Refresh();
+            dgDocumentsRecords.Update();
 
         }
         private void dashboardForm_Load(object sender, EventArgs e)
@@ -237,17 +256,8 @@ namespace FilingSystem2
             var first_name = loginForm.LoginInfo.FirstName;
 
             ll_user.Text = first_name.ToString();
+            loadDgDocumentsRecords();
 
-            if(dgDocumentsRecords.Rows.Count <= 0)
-            {
-                tsDeleteDocument.Enabled = false;
-                tsViewDocument.Enabled = false;
-            }
-            else
-            {
-                tsDeleteDocument.Enabled = true;
-                tsViewDocument.Enabled = true;
-            }
 
             if (role == "User")
             {
@@ -258,7 +268,6 @@ namespace FilingSystem2
 
             }
             //this.tbl_fileTableAdapter1.Fill(this.db_filingsystemDataSet1.tbl_file);
-           loadDgDocumentsRecords();
 
             cbFilter.DisplayMember = "Text";
             cbFilter.ValueMember = "Value";
@@ -276,6 +285,7 @@ namespace FilingSystem2
             items.Add(new { Text = "File Box / Location Tag Color", Value = "box_tag_color" });
             items.Add(new { Text = "Filed By", Value = "filed_by" });
             items.Add(new { Text = "Date Filed", Value = "date_filed" });
+            items.Add(new { Text = "Date Received", Value = "date_received" });
 
 
             cbFilter.DataSource = items;

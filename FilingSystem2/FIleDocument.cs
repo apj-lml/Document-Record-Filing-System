@@ -45,20 +45,12 @@ namespace FilingSystem2
             cbFolder.ValueMember = "ID";
             cbFolder.DataSource = ds.Tables["Folders"];
 
-
         }
 
         private void addDocumentRecordForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'db_filingsystemDataSet_test_1.tbl_folder' table. You can move, or remove it, as needed.
-           // this.tbl_folderTableAdapter1.Fill(this.db_filingsystemDataSet_test_1.tbl_folder);
-            // TODO: This line of code loads data into the 'db_filingsystemDataSet.tbl_file' table. You can move, or remove it, as needed.
-            //this.tbl_fileTableAdapter.Fill(this.db_filingsystemDataSet.tbl_file);
-            // TODO: This line of code loads data into the 'db_filingsystemDataSet.tbl_folder' table. You can move, or remove it, as needed.
-            //this.tbl_folderTableAdapter.Fill(this.db_filingsystemDataSet.tbl_folder);
-
             CbLoadFolders();
-
+            dtpDateReceived.Checked = false;
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)
@@ -74,15 +66,24 @@ namespace FilingSystem2
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else 
-            { 
+            else
+            {
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO tbl_file(code,subject, particulars, remarks, folder_id, filed_by) values(@code,@subject,@particulars, @remarks, @folder_id,@filed_by)";
-                cmd.Parameters.AddWithValue("@code", tbCode.Text);
-                cmd.Parameters.AddWithValue("@subject", tbSubject.Text);
-                cmd.Parameters.AddWithValue("@particulars", tbParticulars.Text);
-                cmd.Parameters.AddWithValue("@remarks", tbRemarks.Text);
+                cmd.CommandText = "INSERT INTO tbl_file(code, subject, particulars, remarks, folder_id, date_received, filed_by) values(@code, @subject, @particulars, @remarks, @folder_id, @date_received, @filed_by)";
+                cmd.Parameters.AddWithValue("@code", tbCode.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@subject", tbSubject.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@particulars", tbParticulars.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@remarks", tbRemarks.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@folder_id", int.Parse(cbFolder.SelectedValue.ToString()));
+                if (dtpDateReceived.Checked)
+                {
+                    cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value.ToString("MM/dd/yyyy"));
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@date_received", "");
+                }
+
                 cmd.Parameters.AddWithValue("@filed_by", user_id);
                 cmd.Connection = con;
                 con.Open();
@@ -96,6 +97,8 @@ namespace FilingSystem2
                 tbRemarks.Text = string.Empty;
                 cbFolder.SelectedIndex = 0;
 
+                GenerateCode();
+                dtpDateReceived.Checked = false;
 
                 MessageBox.Show("Document / Record Added Successfully", "Success!");
 
@@ -103,9 +106,7 @@ namespace FilingSystem2
 
             }
         }
-
-        private void cbFolder_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void OldGenerateCode(){
             if (cbFolder.SelectedIndex != -1)
             {
                 string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC";
@@ -128,7 +129,48 @@ namespace FilingSystem2
                         Random rnd = new Random();
                         var dateNow = DateTime.Now.AddSeconds(0.1);
                         Console.WriteLine(dateNow);
-                        tbCode.Text = dateNow.ToString("MMdyy-HHmm") +"-"+ reader.GetString(1) + "-";
+                        tbCode.Text = dateNow.ToString("MMdyy-HHmm") + "-" + reader.GetString(1);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+
+                //Console.WriteLine(reader);
+                //tbCode.Text = reader.GetString(1);
+                reader.Close();
+                con.Close();
+                }
+            }
+
+        public string RandomChars()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, 3)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void GenerateCode()
+        {
+            if (cbFolder.SelectedIndex != -1)
+            {
+                string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC";
+                con.Open();
+
+                cmd = new OleDbCommand(sql, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        Random rnd = new Random();
+                        var dateNow = DateTime.Now.AddSeconds(0.1);
+                        Console.WriteLine(dateNow);
+                        tbCode.Text = dateNow.ToString("MMdyy-HHmm") + "-" + RandomChars();
                     }
                 }
                 else
@@ -141,6 +183,11 @@ namespace FilingSystem2
                 reader.Close();
                 con.Close();
             }
+        }
+        private void cbFolder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            GenerateCode();
 
         }
 
@@ -152,6 +199,11 @@ namespace FilingSystem2
         private void cbFolder_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void dtpDateReceived_ValueChanged(object sender, EventArgs e)
+        {
+            //dtpDateReceived.Format = DateTimePickerFormat.Short;
         }
     }
 }

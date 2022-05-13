@@ -78,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(218, 20);
+            this.label1.Location = new System.Drawing.Point(223, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 39);
@@ -122,12 +122,12 @@
             // 
             // cbTagColor
             // 
-            this.cbTagColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbTagColor.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbTagColor.FormattingEnabled = true;
             this.cbTagColor.Location = new System.Drawing.Point(307, 109);
             this.cbTagColor.Margin = new System.Windows.Forms.Padding(2);
             this.cbTagColor.Name = "cbTagColor";
-            this.cbTagColor.Size = new System.Drawing.Size(275, 29);
+            this.cbTagColor.Size = new System.Drawing.Size(275, 27);
             this.cbTagColor.TabIndex = 20;
             this.cbTagColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbTagColor_KeyPress);
             // 
@@ -198,18 +198,18 @@
             // 
             // cbFileBox
             // 
-            this.cbFileBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbFileBox.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbFileBox.FormattingEnabled = true;
             this.cbFileBox.Location = new System.Drawing.Point(22, 109);
             this.cbFileBox.Margin = new System.Windows.Forms.Padding(2);
             this.cbFileBox.Name = "cbFileBox";
-            this.cbFileBox.Size = new System.Drawing.Size(268, 29);
+            this.cbFileBox.Size = new System.Drawing.Size(268, 27);
             this.cbFileBox.TabIndex = 10;
             this.cbFileBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFileBox_KeyPress);
             // 
             // tbFolderDescription
             // 
-            this.tbFolderDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFolderDescription.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFolderDescription.Location = new System.Drawing.Point(22, 177);
             this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderDescription.MaxLength = 255;
@@ -220,12 +220,12 @@
             // 
             // tbFolderName
             // 
-            this.tbFolderName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFolderName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFolderName.Location = new System.Drawing.Point(134, 35);
             this.tbFolderName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderName.MaxLength = 1028;
             this.tbFolderName.Name = "tbFolderName";
-            this.tbFolderName.Size = new System.Drawing.Size(448, 29);
+            this.tbFolderName.Size = new System.Drawing.Size(448, 26);
             this.tbFolderName.TabIndex = 2;
             // 
             // label3
@@ -241,12 +241,13 @@
             // 
             // tbFolderCode
             // 
-            this.tbFolderCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFolderCode.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFolderCode.Location = new System.Drawing.Point(22, 35);
             this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderCode.MaxLength = 3;
             this.tbFolderCode.Name = "tbFolderCode";
-            this.tbFolderCode.Size = new System.Drawing.Size(88, 29);
+            this.tbFolderCode.ReadOnly = true;
+            this.tbFolderCode.Size = new System.Drawing.Size(88, 26);
             this.tbFolderCode.TabIndex = 1;
             // 
             // label2
@@ -258,7 +259,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Code Prefix";
+            this.label2.Text = "Code Suffix";
             // 
             // EditFolderForm
             // 

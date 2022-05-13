@@ -75,8 +75,8 @@ namespace FilingSystem2
                                                     box_tag_color = @box_tag_color
                                                 WHERE ID = @id", con);
 
-                cmd_update_box.Parameters.AddWithValue("@box_name", tbFileBoxName.Text);
-                cmd_update_box.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text);
+                cmd_update_box.Parameters.AddWithValue("@box_name", tbFileBoxName.Text.ToUpper());
+                cmd_update_box.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text.ToUpper());
                 cmd_update_box.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
                 cmd_update_box.Parameters.AddWithValue("@id", tbID.Text);
                 con.Open();
@@ -89,6 +89,13 @@ namespace FilingSystem2
                 dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
                 dashboardform.loadDgDocumentsRecords();
                 this.Hide();
+
+                Form form = Application.OpenForms["foldersForm"];
+                if (form != null)
+                {
+                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                    foldersform.CbLoadBoxes();
+                }
 
                 MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

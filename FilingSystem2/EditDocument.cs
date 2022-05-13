@@ -14,7 +14,6 @@ namespace FilingSystem2
 {
     public partial class EditDocument : Form
     {
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
 
         MyConnectionString myConnectionString = new MyConnectionString();
         OleDbConnection con = new OleDbConnection();
@@ -45,10 +44,6 @@ namespace FilingSystem2
             cbFolder.ValueMember = "ID";
             cbFolder.DataSource = ds.Tables["Folders"];
 
-
-            
-
-
         }
         public void CbLoadBoxes()
         {
@@ -66,10 +61,7 @@ namespace FilingSystem2
         private void ViewDocument_Load(object sender, EventArgs e)
         {
             CbLoadBoxes();
-
             CbLoadFolders();
-            // TODO: This line of code loads data into the 'db_filingsystemDataSet_test_1.tbl_folder' table. You can move, or remove it, as needed.
-            //this.tbl_folderTableAdapter.Fill(this.db_filingsystemDataSet_test_1.tbl_folder);
 
             DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
             var id = dgv.CurrentRow.Cells[0].Value;
@@ -85,6 +77,8 @@ namespace FilingSystem2
             var date_filed = dgv.CurrentRow.Cells[10].Value;
             var folder_description = dgv.CurrentRow.Cells[11].Value;
             var file_box_description = dgv.CurrentRow.Cells[12].Value;
+            var date_received = dgv.CurrentRow.Cells[13].Value;
+
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -111,10 +105,70 @@ namespace FilingSystem2
             lFileBoxDescription.MaximumSize = new Size(296, 39);
             lFileBoxDescription.AutoSize = true;
 
+            if ((string)date_received != "")
+            {
+                dtpDateReceived.Value = Convert.ToDateTime(date_received.ToString());
+                //dtpDateReceived.Checked = true;
+            }
+            else
+            {
+                dtpDateReceived.Format = DateTimePickerFormat.Custom;
+                dtpDateReceived.CustomFormat = " ";
 
+                dtpDateReceived.Checked = false;
+            }
+
+        }
+        public string RandomChars()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, 3)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         private void CreateCode()
+        {
+            DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
+
+            var code = dgv.CurrentRow.Cells[1].Value;
+            tbCode.Text = code.ToString();
+        }
+
+        private void GenerateCode()
+        {
+            //if (cbFolder.SelectedIndex != -1)
+            //{
+                string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC";
+                con.Open();
+
+                cmd = new OleDbCommand(sql, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        Random rnd = new Random();
+                        var dateNow = DateTime.Now.AddSeconds(0.1);
+                        Console.WriteLine(dateNow);
+                        tbCode.Text = dateNow.ToString("MMdyy-HHmm") + "-" + RandomChars();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+
+                //Console.WriteLine(reader);
+                //tbCode.Text = reader.GetString(1);
+                reader.Close();
+                con.Close();
+            //}
+        }
+
+        private void OldCreateCode()
         {
             if (cbFolder.SelectedIndex != -1)
             {
@@ -145,27 +199,12 @@ namespace FilingSystem2
             }
         }
 
-        private void cbFolder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           CreateCode();
-        }
-
-
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new foldersForm().Show();
         }
 
-        private void cbFolder_Click(object sender, EventArgs e)
-        {
-            //CbLoadFolders();
-            //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
-            //var folder = dgv.CurrentRow.Cells[4].Value;
-            //cbFolder.SelectedIndex = cbFolder.FindStringExact(folder.ToString());
 
-
-        }
 
         private void btnSaveChangesDocument_Click(object sender, EventArgs e)
         {
@@ -174,7 +213,8 @@ namespace FilingSystem2
                                                         subject = @subject,
                                                         particulars = @particulars,
                                                         remarks = @remarks,
-                                                        folder_id = @folder_id
+                                                        folder_id = @folder_id,
+                                                        date_received = @date_received
                                                     WHERE ID = @id", con);
 
             cmd.Parameters.AddWithValue("@code", tbCode.Text);
@@ -182,6 +222,17 @@ namespace FilingSystem2
             cmd.Parameters.AddWithValue("@particulars", tbParticulars.Text);
             cmd.Parameters.AddWithValue("@remarks", tbRemarks.Text);
             cmd.Parameters.AddWithValue("@folder_id", cbFolder.SelectedValue);
+
+            if (dtpDateReceived.Checked)
+            {
+                cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value.ToString("MM/dd/yyyy"));
+
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@date_received", "");
+            }
+
             cmd.Parameters.AddWithValue("@id", tbID.Text);
 
             con.Open();
@@ -192,14 +243,10 @@ namespace FilingSystem2
 
             _dashboardForm.loadDgDocumentsRecords();
             //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
-
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
+            this.Hide();
 
         }
+
 
         private void cbFolder_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -216,7 +263,6 @@ namespace FilingSystem2
             CbLoadFolders();
             lFolderDescription.Text = "";
             lFileBoxDescription.Text = "";
-            CreateCode();
 
         }
 
@@ -224,7 +270,33 @@ namespace FilingSystem2
         {
             lFolderDescription.Text = "";
             lFileBoxDescription.Text = "";
-            CreateCode();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new fileBoxForm().ShowDialog();
+        }
+
+        private void dtpDateReceived_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpDateReceived.Checked)
+            {
+                dtpDateReceived.Format = DateTimePickerFormat.Short;
+
+            }
+            else
+            {
+                dtpDateReceived.Format = DateTimePickerFormat.Custom;
+                dtpDateReceived.CustomFormat = " ";
+
+                dtpDateReceived.Checked = false;
+            }
+        }
+
+        private void cbFolder_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GenerateCode();
+            tbDateFiled.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt");
 
         }
     }

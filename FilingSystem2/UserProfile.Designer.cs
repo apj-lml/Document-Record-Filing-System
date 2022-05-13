@@ -91,12 +91,12 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbLastName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbLastName.Location = new System.Drawing.Point(25, 174);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastName.MaxLength = 1028;
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(269, 29);
+            this.tbLastName.Size = new System.Drawing.Size(269, 26);
             this.tbLastName.TabIndex = 3;
             // 
             // label5
@@ -123,12 +123,12 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFirstName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFirstName.Location = new System.Drawing.Point(297, 174);
             this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstName.MaxLength = 1028;
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(260, 29);
+            this.tbFirstName.Size = new System.Drawing.Size(260, 26);
             this.tbFirstName.TabIndex = 10;
             // 
             // label3
@@ -144,12 +144,12 @@
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbMiddleName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbMiddleName.Location = new System.Drawing.Point(561, 174);
             this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2);
             this.tbMiddleName.MaxLength = 1028;
             this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(261, 29);
+            this.tbMiddleName.Size = new System.Drawing.Size(261, 26);
             this.tbMiddleName.TabIndex = 12;
             // 
             // label4
@@ -165,13 +165,13 @@
             // 
             // tbEmpId
             // 
-            this.tbEmpId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbEmpId.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbEmpId.Location = new System.Drawing.Point(25, 110);
             this.tbEmpId.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmpId.MaxLength = 1028;
             this.tbEmpId.Name = "tbEmpId";
             this.tbEmpId.ReadOnly = true;
-            this.tbEmpId.Size = new System.Drawing.Size(269, 29);
+            this.tbEmpId.Size = new System.Drawing.Size(269, 26);
             this.tbEmpId.TabIndex = 14;
             // 
             // label6
@@ -187,12 +187,12 @@
             // 
             // tbNameExtn
             // 
-            this.tbNameExtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbNameExtn.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbNameExtn.Location = new System.Drawing.Point(826, 174);
             this.tbNameExtn.Margin = new System.Windows.Forms.Padding(2);
             this.tbNameExtn.MaxLength = 1028;
             this.tbNameExtn.Name = "tbNameExtn";
-            this.tbNameExtn.Size = new System.Drawing.Size(126, 29);
+            this.tbNameExtn.Size = new System.Drawing.Size(126, 26);
             this.tbNameExtn.TabIndex = 16;
             // 
             // label7
@@ -208,7 +208,7 @@
             // 
             // cbSection
             // 
-            this.cbSection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbSection.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbSection.FormattingEnabled = true;
             this.cbSection.Items.AddRange(new object[] {
             "Administrative & Finance Section",
@@ -219,7 +219,7 @@
             this.cbSection.Location = new System.Drawing.Point(25, 237);
             this.cbSection.Margin = new System.Windows.Forms.Padding(2);
             this.cbSection.Name = "cbSection";
-            this.cbSection.Size = new System.Drawing.Size(269, 29);
+            this.cbSection.Size = new System.Drawing.Size(269, 27);
             this.cbSection.TabIndex = 19;
             // 
             // label8
@@ -235,7 +235,7 @@
             // 
             // cbUnit
             // 
-            this.cbUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbUnit.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbUnit.FormattingEnabled = true;
             this.cbUnit.Items.AddRange(new object[] {
             "Administrative Unit",
@@ -249,7 +249,7 @@
             this.cbUnit.Location = new System.Drawing.Point(297, 237);
             this.cbUnit.Margin = new System.Windows.Forms.Padding(2);
             this.cbUnit.Name = "cbUnit";
-            this.cbUnit.Size = new System.Drawing.Size(260, 29);
+            this.cbUnit.Size = new System.Drawing.Size(260, 27);
             this.cbUnit.TabIndex = 21;
             // 
             // btnFileDocument
@@ -298,13 +298,13 @@
             // 
             // tbStatus
             // 
-            this.tbStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbStatus.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbStatus.Location = new System.Drawing.Point(297, 110);
             this.tbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.tbStatus.MaxLength = 1028;
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.ReadOnly = true;
-            this.tbStatus.Size = new System.Drawing.Size(260, 29);
+            this.tbStatus.Size = new System.Drawing.Size(260, 26);
             this.tbStatus.TabIndex = 24;
             // 
             // UserProfile

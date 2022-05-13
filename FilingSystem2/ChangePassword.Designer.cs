@@ -46,7 +46,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 81);
             this.panel1.TabIndex = 1;
@@ -66,9 +66,10 @@
             // 
             // tbCurrentPassword
             // 
+            this.tbCurrentPassword.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbCurrentPassword.Location = new System.Drawing.Point(143, 111);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
-            this.tbCurrentPassword.Size = new System.Drawing.Size(278, 20);
+            this.tbCurrentPassword.Size = new System.Drawing.Size(278, 26);
             this.tbCurrentPassword.TabIndex = 2;
             this.tbCurrentPassword.UseSystemPasswordChar = true;
             // 
@@ -92,9 +93,10 @@
             // 
             // tbNewPassword
             // 
+            this.tbNewPassword.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbNewPassword.Location = new System.Drawing.Point(143, 152);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.Size = new System.Drawing.Size(278, 20);
+            this.tbNewPassword.Size = new System.Drawing.Size(278, 26);
             this.tbNewPassword.TabIndex = 4;
             this.tbNewPassword.UseSystemPasswordChar = true;
             // 
@@ -109,9 +111,10 @@
             // 
             // tbConfirmPassword
             // 
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbConfirmPassword.Location = new System.Drawing.Point(143, 192);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.Size = new System.Drawing.Size(278, 20);
+            this.tbConfirmPassword.Size = new System.Drawing.Size(278, 26);
             this.tbConfirmPassword.TabIndex = 6;
             this.tbConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -125,7 +128,7 @@
             this.btnSaveChangesDocument.Image = global::FilingSystem2.Properties.Resources.edit;
             this.btnSaveChangesDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveChangesDocument.Location = new System.Drawing.Point(143, 241);
-            this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveChangesDocument.Name = "btnSaveChangesDocument";
             this.btnSaveChangesDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnSaveChangesDocument.Size = new System.Drawing.Size(213, 40);

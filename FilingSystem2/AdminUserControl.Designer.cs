@@ -49,6 +49,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbConfirmPassword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -60,9 +63,6 @@
             this.editSelectedUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -91,7 +91,7 @@
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.plus_symbol_button__1_;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFileDocument.Location = new System.Drawing.Point(424, 290);
-            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnFileDocument.Size = new System.Drawing.Size(139, 41);
@@ -114,12 +114,12 @@
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbMiddleName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbMiddleName.Location = new System.Drawing.Point(555, 104);
-            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMiddleName.Margin = new System.Windows.Forms.Padding(2);
             this.tbMiddleName.MaxLength = 1028;
             this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(261, 29);
+            this.tbMiddleName.Size = new System.Drawing.Size(261, 26);
             this.tbMiddleName.TabIndex = 31;
             // 
             // label2
@@ -135,12 +135,12 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbFirstName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbFirstName.Location = new System.Drawing.Point(291, 104);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstName.MaxLength = 1028;
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(260, 29);
+            this.tbFirstName.Size = new System.Drawing.Size(260, 26);
             this.tbFirstName.TabIndex = 29;
             // 
             // label5
@@ -181,7 +181,7 @@
             // 
             this.cbUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbUnit.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbUnit.FormattingEnabled = true;
             this.cbUnit.Items.AddRange(new object[] {
             "Administrative Unit",
@@ -193,9 +193,9 @@
             "Institutional Development Unit",
             "N/A"});
             this.cbUnit.Location = new System.Drawing.Point(291, 167);
-            this.cbUnit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbUnit.Margin = new System.Windows.Forms.Padding(2);
             this.cbUnit.Name = "cbUnit";
-            this.cbUnit.Size = new System.Drawing.Size(260, 29);
+            this.cbUnit.Size = new System.Drawing.Size(260, 27);
             this.cbUnit.TabIndex = 40;
             // 
             // label7
@@ -213,7 +213,7 @@
             // 
             this.cbSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbSection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.cbSection.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbSection.FormattingEnabled = true;
             this.cbSection.Items.AddRange(new object[] {
             "Administrative & Finance Section",
@@ -222,9 +222,9 @@
             "Office of the Irrigation Manager",
             "N/A"});
             this.cbSection.Location = new System.Drawing.Point(19, 167);
-            this.cbSection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSection.Margin = new System.Windows.Forms.Padding(2);
             this.cbSection.Name = "cbSection";
-            this.cbSection.Size = new System.Drawing.Size(269, 29);
+            this.cbSection.Size = new System.Drawing.Size(269, 27);
             this.cbSection.TabIndex = 38;
             // 
             // label6
@@ -240,12 +240,12 @@
             // 
             // tbNameExtn
             // 
-            this.tbNameExtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbNameExtn.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbNameExtn.Location = new System.Drawing.Point(820, 104);
-            this.tbNameExtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNameExtn.Margin = new System.Windows.Forms.Padding(2);
             this.tbNameExtn.MaxLength = 1028;
             this.tbNameExtn.Name = "tbNameExtn";
-            this.tbNameExtn.Size = new System.Drawing.Size(126, 29);
+            this.tbNameExtn.Size = new System.Drawing.Size(126, 26);
             this.tbNameExtn.TabIndex = 35;
             // 
             // label4
@@ -261,22 +261,22 @@
             // 
             // tbEmpId
             // 
-            this.tbEmpId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbEmpId.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbEmpId.Location = new System.Drawing.Point(19, 41);
-            this.tbEmpId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmpId.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmpId.MaxLength = 6;
             this.tbEmpId.Name = "tbEmpId";
-            this.tbEmpId.Size = new System.Drawing.Size(269, 29);
+            this.tbEmpId.Size = new System.Drawing.Size(269, 26);
             this.tbEmpId.TabIndex = 33;
             // 
             // tbLastName
             // 
-            this.tbLastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbLastName.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbLastName.Location = new System.Drawing.Point(19, 104);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastName.MaxLength = 1028;
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(269, 29);
+            this.tbLastName.Size = new System.Drawing.Size(269, 26);
             this.tbLastName.TabIndex = 27;
             // 
             // panel1
@@ -286,7 +286,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(957, 78);
             this.panel1.TabIndex = 26;
@@ -296,7 +296,7 @@
             this.tbId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tbId.HideSelection = false;
             this.tbId.Location = new System.Drawing.Point(73, 27);
-            this.tbId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbId.Margin = new System.Windows.Forms.Padding(2);
             this.tbId.MaxLength = 1028;
             this.tbId.Name = "tbId";
             this.tbId.ReadOnly = true;
@@ -332,10 +332,49 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 78);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(957, 522);
             this.panel2.TabIndex = 45;
+            // 
+            // cbRole
+            // 
+            this.cbRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbRole.Font = new System.Drawing.Font("Cambria", 12F);
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "User",
+            "Admin"});
+            this.cbRole.Location = new System.Drawing.Point(556, 41);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(260, 27);
+            this.cbRole.TabIndex = 52;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(552, 16);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 21);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "Role";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.Font = new System.Drawing.Font("Cambria", 12F);
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.cbStatus.Location = new System.Drawing.Point(291, 41);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(260, 27);
+            this.cbStatus.TabIndex = 50;
             // 
             // label11
             // 
@@ -350,12 +389,12 @@
             // 
             // tbConfirmPassword
             // 
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbConfirmPassword.Location = new System.Drawing.Point(291, 230);
-            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirmPassword.MaxLength = 1028;
             this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.Size = new System.Drawing.Size(260, 29);
+            this.tbConfirmPassword.Size = new System.Drawing.Size(260, 26);
             this.tbConfirmPassword.TabIndex = 48;
             this.tbConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -372,12 +411,12 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.tbPassword.Font = new System.Drawing.Font("Cambria", 12F);
             this.tbPassword.Location = new System.Drawing.Point(19, 230);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.MaxLength = 1028;
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(269, 29);
+            this.tbPassword.Size = new System.Drawing.Size(269, 26);
             this.tbPassword.TabIndex = 46;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
@@ -391,7 +430,7 @@
             this.btnSaveChanges.Image = global::FilingSystem2.Properties.Resources.diskette_white;
             this.btnSaveChanges.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveChanges.Location = new System.Drawing.Point(400, 290);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.btnSaveChanges.Size = new System.Drawing.Size(175, 41);
@@ -407,7 +446,7 @@
             this.panel3.Controls.Add(this.dgListOfUsers);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 431);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(957, 169);
             this.panel3.TabIndex = 46;
@@ -421,7 +460,7 @@
             this.dgListOfUsers.ContextMenuStrip = this.cmControlsDg;
             this.dgListOfUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgListOfUsers.Location = new System.Drawing.Point(0, 0);
-            this.dgListOfUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgListOfUsers.Margin = new System.Windows.Forms.Padding(2);
             this.dgListOfUsers.Name = "dgListOfUsers";
             this.dgListOfUsers.ReadOnly = true;
             this.dgListOfUsers.RowHeadersWidth = 51;
@@ -438,12 +477,12 @@
             this.activateUserToolStripMenuItem,
             this.deactivateUserToolStripMenuItem});
             this.cmControlsDg.Name = "cmControlsDg";
-            this.cmControlsDg.Size = new System.Drawing.Size(203, 92);
+            this.cmControlsDg.Size = new System.Drawing.Size(203, 70);
             // 
             // editSelectedUserToolStripMenuItem
             // 
             this.editSelectedUserToolStripMenuItem.Name = "editSelectedUserToolStripMenuItem";
-            this.editSelectedUserToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.editSelectedUserToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.editSelectedUserToolStripMenuItem.Text = "Edit Selected User";
             this.editSelectedUserToolStripMenuItem.Click += new System.EventHandler(this.editSelectedUserToolStripMenuItem_Click);
             // 
@@ -461,45 +500,6 @@
             this.deactivateUserToolStripMenuItem.Text = "Deactivate Selected User";
             this.deactivateUserToolStripMenuItem.Click += new System.EventHandler(this.deactivateUserToolStripMenuItem_Click);
             // 
-            // cbStatus
-            // 
-            this.cbStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.cbStatus.Location = new System.Drawing.Point(291, 41);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(260, 29);
-            this.cbStatus.TabIndex = 50;
-            // 
-            // cbRole
-            // 
-            this.cbRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
-            "User",
-            "Admin"});
-            this.cbRole.Location = new System.Drawing.Point(556, 41);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(2);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(260, 29);
-            this.cbRole.TabIndex = 52;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(552, 16);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 21);
-            this.label12.TabIndex = 51;
-            this.label12.Text = "Role";
-            // 
             // AdminUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,7 +509,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminUserControl";
             this.Text = "AdminUserControl";
             this.Load += new System.EventHandler(this.AdminUserControl_Load);

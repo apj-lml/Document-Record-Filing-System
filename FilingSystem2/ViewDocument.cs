@@ -37,6 +37,7 @@ namespace FilingSystem2
             var date_filed = dgv.CurrentRow.Cells[10].Value;
             var folder_description = dgv.CurrentRow.Cells[11].Value;
             var file_box_description = dgv.CurrentRow.Cells[12].Value;
+            var date_received = dgv.CurrentRow.Cells[13].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -62,6 +63,16 @@ namespace FilingSystem2
 
             lFileBoxDescription.MaximumSize = new Size(296, 39);
             lFileBoxDescription.AutoSize = true;
+
+            if((string)date_received != "")
+            {
+               dtpDateReceived.Value = Convert.ToDateTime(date_received.ToString());
+            }
+            else
+            {
+                dtpDateReceived.Format = DateTimePickerFormat.Custom;
+                dtpDateReceived.CustomFormat = " ";
+            }
         }
 
         private void btnEditDocument_Click(object sender, EventArgs e)
@@ -69,5 +80,6 @@ namespace FilingSystem2
             this.Hide();
             new EditDocument(_dashboardForm).ShowDialog();
         }
+
     }
 }
