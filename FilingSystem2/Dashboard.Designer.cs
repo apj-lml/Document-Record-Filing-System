@@ -40,11 +40,13 @@
             this.btnFolders = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsViewDocument = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +73,6 @@
             this.btnFileDocument = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,13 +80,13 @@
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -284,6 +284,18 @@
             this.panel3.Size = new System.Drawing.Size(230, 193);
             this.panel3.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trajan Pro", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(12, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(202, 28);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Pangasinan \r\nIrrigation Management Office";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FilingSystem2.Properties.Resources.logo200x200;
@@ -333,6 +345,24 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1119, 451);
             this.panel9.TabIndex = 4;
+            // 
+            // dgDocumentsRecords
+            // 
+            this.dgDocumentsRecords.AllowUserToAddRows = false;
+            this.dgDocumentsRecords.AllowUserToDeleteRows = false;
+            this.dgDocumentsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgDocumentsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
+            this.dgDocumentsRecords.MultiSelect = false;
+            this.dgDocumentsRecords.Name = "dgDocumentsRecords";
+            this.dgDocumentsRecords.PageSize = 10;
+            this.dgDocumentsRecords.ReadOnly = true;
+            this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgDocumentsRecords.Size = new System.Drawing.Size(1119, 451);
+            this.dgDocumentsRecords.TabIndex = 1;
+            this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
             // 
             // contextMenuStrip1
             // 
@@ -605,36 +635,6 @@
             this.tbSearch.TabIndex = 2;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // dgDocumentsRecords
-            // 
-            this.dgDocumentsRecords.AllowUserToAddRows = false;
-            this.dgDocumentsRecords.AllowUserToDeleteRows = false;
-            this.dgDocumentsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgDocumentsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
-            this.dgDocumentsRecords.MultiSelect = false;
-            this.dgDocumentsRecords.Name = "dgDocumentsRecords";
-            this.dgDocumentsRecords.PageSize = 10;
-            this.dgDocumentsRecords.ReadOnly = true;
-            this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDocumentsRecords.Size = new System.Drawing.Size(1119, 451);
-            this.dgDocumentsRecords.TabIndex = 1;
-            this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Trajan", 7.5F);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(12, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(203, 26);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Pangasinan \r\nIrrigation Management Office";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,6 +655,7 @@
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -664,7 +665,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).EndInit();
             this.ResumeLayout(false);
 
         }

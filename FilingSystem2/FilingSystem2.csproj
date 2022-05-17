@@ -329,6 +329,7 @@
     <None Include="Resources\tacking-login 3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TrajanPro-Regular.ttf" />
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>

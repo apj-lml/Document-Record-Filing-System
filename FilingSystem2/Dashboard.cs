@@ -6,6 +6,8 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -41,6 +43,8 @@ namespace FilingSystem2
         {
             Application.Run(new SplashScreen());
         }
+
+
 
         public DataTable MyFiles(string filter_by = null, string filter_value = null)
         {
@@ -249,8 +253,11 @@ namespace FilingSystem2
             dgDocumentsRecords.Update();
 
         }
+
+
         private void dashboardForm_Load(object sender, EventArgs e)
         {
+
             var role = loginForm.LoginInfo.Role;
             var last_name = loginForm.LoginInfo.LastName;
             var first_name = loginForm.LoginInfo.FirstName;

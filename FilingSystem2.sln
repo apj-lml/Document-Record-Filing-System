@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00718635-FC4C-480B-ABF9-2B9116B1FC99}"
 	ProjectSection(SolutionItems) = preProject
 		mysettings.txt = mysettings.txt
+		..\..\..\Desktop\TrajanPro-Regular.ttf = ..\..\..\Desktop\TrajanPro-Regular.ttf
 	EndProjectSection
 EndProject
 Global
