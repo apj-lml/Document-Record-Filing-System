@@ -634,7 +634,7 @@
         <Border>
           <Style>None</Style>
         </Border>
-        <BackgroundColor>MidnightBlue</BackgroundColor>
+        <BackgroundColor>#0f1d42</BackgroundColor>
       </Style>
     </PageHeader>
     <PageFooter>
