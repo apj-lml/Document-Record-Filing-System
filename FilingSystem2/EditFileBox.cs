@@ -69,35 +69,52 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd_update_box = new OleDbCommand(@"UPDATE tbl_file_box
+
+
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_file_box WHERE box_name = @my_box_name", con);
+                cmd2.Parameters.AddWithValue("@my_box_name", tbFileBoxName.Text.ToUpper());
+                con.Open();
+                OleDbDataReader reader = cmd2.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+
+                    MessageBox.Show("File Box / Location name already exists. Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    con.Close();
+
+                }
+                else
+                {
+                    OleDbCommand cmd_update_box = new OleDbCommand(@"UPDATE tbl_file_box
                                                 SET box_name = @box_name,
                                                     box_description = @box_description,
                                                     box_tag_color = @box_tag_color
                                                 WHERE ID = @id", con);
 
-                cmd_update_box.Parameters.AddWithValue("@box_name", tbFileBoxName.Text.ToUpper());
-                cmd_update_box.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text.ToUpper());
-                cmd_update_box.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
-                cmd_update_box.Parameters.AddWithValue("@id", tbID.Text);
-                con.Open();
-                cmd_update_box.ExecuteNonQuery();
-                con.Close();
+                    cmd_update_box.Parameters.AddWithValue("@box_name", tbFileBoxName.Text.ToUpper());
+                    cmd_update_box.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text.ToUpper());
+                    cmd_update_box.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
+                    cmd_update_box.Parameters.AddWithValue("@id", tbID.Text);
+                    //con.Open();
+                    cmd_update_box.ExecuteNonQuery();
+                    con.Close();
 
-                _fileBoxForm.loadFileBoxes();
-                //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
-                dashboardForm dashboardform;
-                dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
-                dashboardform.loadDgDocumentsRecords();
-                this.Hide();
+                    _fileBoxForm.loadFileBoxes();
+                    //DataGridView dgv = ((DataGridView)fc.Ctrl(fc.TheForm("dashboardForm"), "dgDocumentsRecords"));
+                    dashboardForm dashboardform;
+                    dashboardform = (dashboardForm)fc.TheForm("dashboardForm");
+                    dashboardform.loadDgDocumentsRecords();
+                    this.Hide();
 
-                Form form = Application.OpenForms["foldersForm"];
-                if (form != null)
-                {
-                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
-                    foldersform.CbLoadBoxes();
+                    Form form = Application.OpenForms["foldersForm"];
+                    if (form != null)
+                    {
+                        foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                        foldersform.CbLoadBoxes();
+                    }
+
+                    MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                MessageBox.Show("Successfully Saved Changes", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }

@@ -62,40 +62,6 @@ namespace FilingSystem2
         public DataTable MyFolders(string filter_by = null, string filter_value = null)
         {
             string sql = null;
-            //if (filter_value == "ID")
-            //{
-            //    filter_value = "tfil.ID";
-            //}
-            //else if (filter_value == "code")
-            //{
-            //    filter_value = "tfil.code";
-
-            //}
-            //else if (filter_value == "subject")
-            //{
-            //    filter_value = "tfil.subject";
-            //}
-            //else if (filter_value == "particulars")
-            //{
-            //    filter_value = "tfil.particulars";
-            //}
-            //else if (filter_value == "folder_name")
-            //{
-            //    filter_value = "tfol.folder_name";
-            //}
-            //else if (filter_value == "box_name")
-            //{
-            //    filter_value = "tfilbox.box_name";
-            //}
-            //else if (filter_value == "filed_by")
-            //{
-            //    filter_value = "usr.last_name & ', '& usr.first_name";
-            //}
-            //else
-            //{
-            //    //filter_value = "usr.last_name & ', '& usr.first_name";
-
-            //}
 
             Console.WriteLine("filter val: " + filter_value);
 
@@ -115,8 +81,6 @@ namespace FilingSystem2
                         ON tfol.folder_tag_color = clr.ID)
                         ORDER BY tfol.ID DESC
                         ";
-
-                //sql = @"SELECT * FROM tbl_folder";
 
             }
             else
@@ -167,7 +131,10 @@ namespace FilingSystem2
             loadFolders();
             CbLoadBoxes();
             CbloadColors();
-            if(dgFolder.Rows.Count <= 0)
+
+            this.dgFolder.Columns["Code"].Visible = false;
+
+            if (dgFolder.Rows.Count <= 0)
             {
                 tsDeleteFolder.Enabled = false;
                 tsViewSelectedFolder.Enabled = false;
@@ -189,15 +156,15 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_code = @folder_code", con);
-                cmd2.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_name = @my_folder_name", con);
+                cmd2.Parameters.AddWithValue("@my_folder_name", tbFolderName.Text.ToUpper());
                 con.Open();
                 OleDbDataReader reader = cmd2.ExecuteReader();
 
                 if (reader.Read() == true)
                 {
 
-                    MessageBox.Show("Code prefix has already been used. Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Folder name already exists. Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     con.Close();
 
                 }

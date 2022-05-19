@@ -98,16 +98,15 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_code = @folder_code AND ID <> @id", con);
-                cmd2.Parameters.AddWithValue("@folder_code", tbFolderCode.Text);
-                cmd2.Parameters.AddWithValue("@id", tbID.Text);
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_name = @my_folder_name ", con);
+                cmd2.Parameters.AddWithValue("@my_folder_name", tbFolderName.Text.ToUpper());
                 con.Open();
                 OleDbDataReader reader = cmd2.ExecuteReader();
 
                 if (reader.Read() == true)
                 {
 
-                    MessageBox.Show("Code suffix has already been used. Please choose another.", "Saved Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Folder name already exists! Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     con.Close();
 
                 }

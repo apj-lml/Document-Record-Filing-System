@@ -38,6 +38,7 @@ namespace FilingSystem2
             var folder_description = dgv.CurrentRow.Cells[11].Value;
             var file_box_description = dgv.CurrentRow.Cells[12].Value;
             var date_received = dgv.CurrentRow.Cells[13].Value;
+            var due_date = dgv.CurrentRow.Cells[14].Value;
 
             tbID.Text = id.ToString();
             tbCode.Text = code.ToString();
@@ -64,7 +65,7 @@ namespace FilingSystem2
             lFileBoxDescription.MaximumSize = new Size(296, 39);
             lFileBoxDescription.AutoSize = true;
 
-            if((string)date_received != "")
+            if(date_received.ToString() != "")
             {
                dtpDateReceived.Value = Convert.ToDateTime(date_received.ToString());
             }
@@ -72,6 +73,16 @@ namespace FilingSystem2
             {
                 dtpDateReceived.Format = DateTimePickerFormat.Custom;
                 dtpDateReceived.CustomFormat = " ";
+            }
+
+            if (due_date.ToString() != "")
+            {
+                dtpDueDate.Value = Convert.ToDateTime(due_date.ToString());
+            }
+            else
+            {
+                dtpDueDate.Format = DateTimePickerFormat.Custom;
+                dtpDueDate.CustomFormat = " ";
             }
         }
 

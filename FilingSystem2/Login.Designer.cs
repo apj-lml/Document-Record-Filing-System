@@ -106,11 +106,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
-            this.label1.Location = new System.Drawing.Point(49, 87);
+            this.label1.Location = new System.Drawing.Point(65, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 25);
+            this.label1.Size = new System.Drawing.Size(163, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "LOGIN ACCOUNT";
             // 
@@ -118,7 +118,7 @@
             // 
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
             this.btnLogin.Location = new System.Drawing.Point(99, 271);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
@@ -144,7 +144,7 @@
             // tbPassword
             // 
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.tbPassword.Font = new System.Drawing.Font("Cambria", 14F);
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
             this.tbPassword.Location = new System.Drawing.Point(57, 10);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
@@ -193,7 +193,7 @@
             // tbUser
             // 
             this.tbUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.tbUser.Font = new System.Drawing.Font("Cambria", 14F);
             this.tbUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(94)))), ((int)(((byte)(4)))));
             this.tbUser.Location = new System.Drawing.Point(56, 10);
             this.tbUser.Margin = new System.Windows.Forms.Padding(2, 10, 2, 2);

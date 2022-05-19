@@ -398,6 +398,8 @@ namespace FilingSystem2 {
             
             private global::System.Data.DataColumn columnfiled_by;
             
+            private global::System.Data.DataColumn columnbox_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public tbl_fileDataTable() {
@@ -489,6 +491,14 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn box_nameColumn {
+                get {
+                    return this.columnbox_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -524,7 +534,7 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_fileRow Addtbl_fileRow(string code, string subject, string particulars, System.DateTime date_filed, string folder_name, string filed_by) {
+            public tbl_fileRow Addtbl_fileRow(string code, string subject, string particulars, System.DateTime date_filed, string folder_name, string filed_by, string box_name) {
                 tbl_fileRow rowtbl_fileRow = ((tbl_fileRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -533,7 +543,8 @@ namespace FilingSystem2 {
                         particulars,
                         date_filed,
                         folder_name,
-                        filed_by};
+                        filed_by,
+                        box_name};
                 rowtbl_fileRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_fileRow);
                 return rowtbl_fileRow;
@@ -570,6 +581,7 @@ namespace FilingSystem2 {
                 this.columndate_filed = base.Columns["date_filed"];
                 this.columnfolder_name = base.Columns["folder_name"];
                 this.columnfiled_by = base.Columns["filed_by"];
+                this.columnbox_name = base.Columns["box_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +601,8 @@ namespace FilingSystem2 {
                 base.Columns.Add(this.columnfolder_name);
                 this.columnfiled_by = new global::System.Data.DataColumn("filed_by", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfiled_by);
+                this.columnbox_name = new global::System.Data.DataColumn("box_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbox_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -602,6 +616,7 @@ namespace FilingSystem2 {
                 this.columnfolder_name.MaxLength = 255;
                 this.columnfiled_by.ReadOnly = true;
                 this.columnfiled_by.MaxLength = 536870910;
+                this.columnbox_name.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1930,6 +1945,22 @@ namespace FilingSystem2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string box_name {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_file.box_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'box_name\' in table \'tbl_file\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_file.box_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscodeNull() {
                 return this.IsNull(this.tabletbl_file.codeColumn);
             }
@@ -1998,6 +2029,18 @@ namespace FilingSystem2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setfiled_byNull() {
                 this[this.tabletbl_file.filed_byColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isbox_nameNull() {
+                return this.IsNull(this.tabletbl_file.box_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setbox_nameNull() {
+                this[this.tabletbl_file.box_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2907,6 +2950,7 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             tableMapping.ColumnMappings.Add("date_filed", "date_filed");
             tableMapping.ColumnMappings.Add("folder_name", "folder_name");
             tableMapping.ColumnMappings.Add("filed_by", "filed_by");
+            tableMapping.ColumnMappings.Add("box_name", "box_name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2923,10 +2967,11 @@ namespace FilingSystem2.db_filingsystemDataSetForReportsTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, usr.first_name & "" "" & usr.last_name AS [filed_by]
-FROM            ((tbl_file tfil LEFT OUTER JOIN
+            this._commandCollection[0].CommandText = @"SELECT        tfil.ID, tfil.code, tfil.subject, tfil.particulars, tfil.date_filed, tfol.folder_name, tfilbox.box_name, usr.first_name & ' ' & usr.last_name AS filed_by
+FROM            (((tbl_file tfil LEFT OUTER JOIN
                          tbl_folder tfol ON tfil.folder_id = tfol.ID) LEFT OUTER JOIN
-                         tbl_user usr ON tfil.filed_by = usr.ID)
+                         tbl_user usr ON tfil.filed_by = usr.ID) LEFT OUTER JOIN
+                         tbl_file_box tfilbox ON tfol.file_box_id = tfilbox.ID)
 ORDER BY tfil.date_filed DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
@@ -2972,9 +3017,14 @@ ORDER BY tfil.date_filed DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByFolderId(db_filingsystemDataSetForReports.tbl_fileDataTable dataTable, int ID) {
+        public virtual int FillByFolderId(db_filingsystemDataSetForReports.tbl_fileDataTable dataTable, global::System.Nullable<int> ID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID));
+            if ((ID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2986,9 +3036,14 @@ ORDER BY tfil.date_filed DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual db_filingsystemDataSetForReports.tbl_fileDataTable GetDataByFolderId(int ID) {
+        public virtual db_filingsystemDataSetForReports.tbl_fileDataTable GetDataByFolderId(global::System.Nullable<int> ID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID));
+            if ((ID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             db_filingsystemDataSetForReports.tbl_fileDataTable dataTable = new db_filingsystemDataSetForReports.tbl_fileDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

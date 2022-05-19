@@ -73,36 +73,49 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd_update_folder = new OleDbCommand(@"INSERT INTO tbl_color (tag_color) VALUES (@color)", con);
-
-                cmd_update_folder.Parameters.AddWithValue("@color", tbColor.Text.ToUpper());
-
-                //cmd.Parameters.AddWithValue("@id", tbID.Text);
+                MessageBox.Show(tbColor.Text.ToUpper());
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_color WHERE tag_color = @my_tag_color", con);
+                cmd2.Parameters.AddWithValue("@my_tag_color", tbColor.Text.ToUpper());
                 con.Open();
-                cmd_update_folder.ExecuteNonQuery();
-                con.Close();
+                OleDbDataReader reader = cmd2.ExecuteReader();
 
-                tbColor.Text = "";
-                Form form = Application.OpenForms["foldersForm"];
-                if (form != null)
+                if (reader.Read() == true)
                 {
-                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
-                    foldersform.CbloadColors();
+                    MessageBox.Show("Color already exists!", "Duplicate Color", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    con.Close();
+
                 }
-                Form form2 = Application.OpenForms["fileBoxForm"];
-                if (form2 != null)
+                else
                 {
-                    fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
-                    fileboxform.CbloadColors();
+                    OleDbCommand cmd_update_folder = new OleDbCommand(@"INSERT INTO tbl_color (tag_color) VALUES (@color)", con);
+
+                    cmd_update_folder.Parameters.AddWithValue("@color", tbColor.Text.ToUpper());
+
+                    cmd_update_folder.ExecuteNonQuery();
+                    con.Close();
+
+                    tbColor.Text = "";
+                    Form form = Application.OpenForms["foldersForm"];
+                    if (form != null)
+                    {
+                        foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                        foldersform.CbloadColors();
+                    }
+                    Form form2 = Application.OpenForms["fileBoxForm"];
+                    if (form2 != null)
+                    {
+                        fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
+                        fileboxform.CbloadColors();
+                    }
+                    Form form3 = Application.OpenForms["EditFolderForm"];
+                    if (form3 != null)
+                    {
+                        EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
+                        editfolderform.CbloadColors();
+                    }
+                    MessageBox.Show("Successfully added color!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadColors();
                 }
-                Form form3 = Application.OpenForms["EditFolderForm"];
-                if (form3 != null)
-                {
-                    EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
-                    editfolderform.CbloadColors();
-                }
-                MessageBox.Show("Successfully added color!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadColors();
             }
         }
 
@@ -123,53 +136,63 @@ namespace FilingSystem2
             if (tbColor.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             else
             {
                 var id = dgColors.CurrentRow.Cells[0].Value;
-                Console.WriteLine(id.ToString());
 
-                OleDbCommand cmd_update = new OleDbCommand(@"UPDATE tbl_color SET tag_color = @color WHERE ID = @color_id", con);
-
-                cmd_update.Parameters.AddWithValue("@color", tbColor.Text.ToUpper());
-                cmd_update.Parameters.AddWithValue("@color_id", int.Parse(id.ToString()));
-
-
-                //cmd.Parameters.AddWithValue("@id", tbID.Text);
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_color WHERE tag_color = @my_tag_color", con);
+                cmd2.Parameters.AddWithValue("@my_tag_color", tbColor.Text.ToUpper());
                 con.Open();
-                cmd_update.ExecuteNonQuery();
-                con.Close();
+                OleDbDataReader reader = cmd2.ExecuteReader();
 
-                tbColor.Text = "";
-                loadColors();
-
-                btnAddColor.Visible = true;
-                btnSave.Visible = false;
-                llAdd.Visible = false;
-
-                Form form = Application.OpenForms["foldersForm"];
-                if (form != null)
+                if (reader.Read() == true)
                 {
-                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
-                    foldersform.CbloadColors();
+                    MessageBox.Show("Color already exists!", "Duplicate Color", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    con.Close();
                 }
-                Form form2 = Application.OpenForms["fileBoxForm"];
-                if (form2 != null)
-                {
-                    fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
-                    fileboxform.CbloadColors();
-                }
-                Form form3 = Application.OpenForms["EditFolderForm"];
-                if (form3 != null)
-                {
-                    EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
-                    editfolderform.CbloadColors();
-                }
+                else {
 
-                MessageBox.Show("Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    OleDbCommand cmd_update = new OleDbCommand(@"UPDATE tbl_color SET tag_color = @color WHERE ID = @color_id", con);
+
+                    cmd_update.Parameters.AddWithValue("@color", tbColor.Text.ToUpper());
+                    cmd_update.Parameters.AddWithValue("@color_id", int.Parse(id.ToString()));
 
 
+                    //cmd.Parameters.AddWithValue("@id", tbID.Text);
+                    //con.Open();
+                    cmd_update.ExecuteNonQuery();
+                    con.Close();
+
+                    tbColor.Text = "";
+                    loadColors();
+
+                    btnAddColor.Visible = true;
+                    btnSave.Visible = false;
+                    llAdd.Visible = false;
+
+                    Form form = Application.OpenForms["foldersForm"];
+                    if (form != null)
+                    {
+                        foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                        foldersform.CbloadColors();
+                    }
+                    Form form2 = Application.OpenForms["fileBoxForm"];
+                    if (form2 != null)
+                    {
+                        fileBoxForm fileboxform = (fileBoxForm)fc.TheForm("fileBoxForm");
+                        fileboxform.CbloadColors();
+                    }
+                    Form form3 = Application.OpenForms["EditFolderForm"];
+                    if (form3 != null)
+                    {
+                        EditFolderForm editfolderform = (EditFolderForm)fc.TheForm("EditFolderForm");
+                        editfolderform.CbloadColors();
+                    }
+
+                    MessageBox.Show("Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
 
             }
         }

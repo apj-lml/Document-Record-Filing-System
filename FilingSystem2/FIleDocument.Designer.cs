@@ -32,6 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpDateReceived = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,10 +54,6 @@
             this.tbCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tblfolderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource1)).BeginInit();
@@ -74,7 +76,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(247, 21);
+            this.label1.Location = new System.Drawing.Point(255, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(367, 39);
@@ -84,6 +86,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.dtpDueDate);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
@@ -106,8 +110,82 @@
             this.panel2.Location = new System.Drawing.Point(0, 78);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(879, 414);
+            this.panel2.Size = new System.Drawing.Size(879, 422);
             this.panel2.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(16, 302);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(81, 21);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Due Date";
+            // 
+            // dtpDueDate
+            // 
+            this.dtpDueDate.Font = new System.Drawing.Font("Cambria", 12F);
+            this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDueDate.Location = new System.Drawing.Point(20, 324);
+            this.dtpDueDate.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dtpDueDate.Name = "dtpDueDate";
+            this.dtpDueDate.ShowCheckBox = true;
+            this.dtpDueDate.Size = new System.Drawing.Size(208, 26);
+            this.dtpDueDate.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(104, 187);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(17, 17);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(80, 79);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(17, 17);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(292, 15);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(17, 17);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(61, 16);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 17);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "*";
             // 
             // label7
             // 
@@ -125,7 +203,7 @@
             this.dtpDateReceived.Font = new System.Drawing.Font("Cambria", 12F);
             this.dtpDateReceived.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateReceived.Location = new System.Drawing.Point(645, 39);
-            this.dtpDateReceived.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpDateReceived.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
             this.dtpDateReceived.Name = "dtpDateReceived";
             this.dtpDateReceived.ShowCheckBox = true;
             this.dtpDateReceived.Size = new System.Drawing.Size(213, 26);
@@ -150,7 +228,7 @@
             this.tbRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
-            this.tbRemarks.Size = new System.Drawing.Size(213, 235);
+            this.tbRemarks.Size = new System.Drawing.Size(213, 191);
             this.tbRemarks.TabIndex = 5;
             // 
             // cbFolder
@@ -180,7 +258,7 @@
             this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(312, 353);
+            this.btnFileDocument.Location = new System.Drawing.Point(327, 356);
             this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Size = new System.Drawing.Size(243, 45);
@@ -215,11 +293,11 @@
             // tbParticulars
             // 
             this.tbParticulars.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbParticulars.Location = new System.Drawing.Point(20, 211);
+            this.tbParticulars.Location = new System.Drawing.Point(20, 208);
             this.tbParticulars.Margin = new System.Windows.Forms.Padding(2);
             this.tbParticulars.Multiline = true;
             this.tbParticulars.Name = "tbParticulars";
-            this.tbParticulars.Size = new System.Drawing.Size(608, 127);
+            this.tbParticulars.Size = new System.Drawing.Size(608, 86);
             this.tbParticulars.TabIndex = 4;
             // 
             // label4
@@ -236,7 +314,7 @@
             // tbSubject
             // 
             this.tbSubject.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbSubject.Location = new System.Drawing.Point(20, 103);
+            this.tbSubject.Location = new System.Drawing.Point(20, 102);
             this.tbSubject.Margin = new System.Windows.Forms.Padding(2);
             this.tbSubject.Multiline = true;
             this.tbSubject.Name = "tbSubject";
@@ -275,63 +353,11 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Code";
             // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(61, 16);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 17);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "*";
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(292, 15);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 17);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "*";
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(80, 79);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(17, 17);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "*";
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(104, 187);
-            this.label11.Margin = new System.Windows.Forms.Padding(0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(17, 17);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "*";
-            // 
             // addDocumentRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 492);
+            this.ClientSize = new System.Drawing.Size(879, 500);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -374,5 +400,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dtpDueDate;
     }
 }

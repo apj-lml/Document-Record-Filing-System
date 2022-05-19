@@ -32,12 +32,10 @@ namespace FilingSystem2
 
         public void CbLoadFolders()
         {
-            int box_id = int.Parse(cbFileBox.SelectedValue.ToString());
-            string query = "SELECT * FROM tbl_folder WHERE file_box_id = "+box_id+ " ORDER BY folder_name ASC";
+            string query = "SELECT * FROM tbl_folder ORDER BY folder_name ASC";
             da = new OleDbDataAdapter(query, con);
             //con.Open();
             DataSet ds = new DataSet();
-
             da.Fill(ds, "Folders");
 
             cbFolder.DisplayMember = "folder_name";
@@ -78,6 +76,7 @@ namespace FilingSystem2
             var folder_description = dgv.CurrentRow.Cells[11].Value;
             var file_box_description = dgv.CurrentRow.Cells[12].Value;
             var date_received = dgv.CurrentRow.Cells[13].Value;
+            var due_date = dgv.CurrentRow.Cells[14].Value;
 
 
             tbID.Text = id.ToString();
@@ -105,10 +104,9 @@ namespace FilingSystem2
             lFileBoxDescription.MaximumSize = new Size(296, 39);
             lFileBoxDescription.AutoSize = true;
 
-            if ((string)date_received != "")
+            if (date_received != DBNull.Value)
             {
                 dtpDateReceived.Value = Convert.ToDateTime(date_received.ToString());
-                //dtpDateReceived.Checked = true;
             }
             else
             {
@@ -116,6 +114,17 @@ namespace FilingSystem2
                 dtpDateReceived.CustomFormat = " ";
 
                 dtpDateReceived.Checked = false;
+            }
+
+            if (due_date.ToString() != "")
+            {
+                dtpDueDate.Value = Convert.ToDateTime(due_date.ToString());
+            }
+            else
+            {
+                dtpDueDate.Checked = false;
+                dtpDueDate.Format = DateTimePickerFormat.Custom;
+                dtpDueDate.CustomFormat = " ";
             }
 
         }
@@ -137,8 +146,6 @@ namespace FilingSystem2
 
         private void GenerateCode()
         {
-            //if (cbFolder.SelectedIndex != -1)
-            //{
                 string sql = "SELECT * FROM tbl_folder WHERE ID = " + cbFolder.SelectedValue.ToString() + " ORDER BY folder_name ASC";
                 con.Open();
 
@@ -161,11 +168,8 @@ namespace FilingSystem2
                     Console.WriteLine("No rows found.");
                 }
 
-                //Console.WriteLine(reader);
-                //tbCode.Text = reader.GetString(1);
                 reader.Close();
                 con.Close();
-            //}
         }
 
         private void OldCreateCode()
@@ -214,7 +218,8 @@ namespace FilingSystem2
                                                         particulars = @particulars,
                                                         remarks = @remarks,
                                                         folder_id = @folder_id,
-                                                        date_received = @date_received
+                                                        date_received = @date_received,
+                                                        due_date = @due_date
                                                     WHERE ID = @id", con);
 
             cmd.Parameters.AddWithValue("@code", tbCode.Text);
@@ -231,6 +236,14 @@ namespace FilingSystem2
             else
             {
                 cmd.Parameters.AddWithValue("@date_received", "");
+            }
+            if (dtpDueDate.Checked)
+            {
+                cmd.Parameters.AddWithValue("@due_date", dtpDueDate.Value.ToString("MM/dd/yyyy"));
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@due_date", "");
             }
 
             cmd.Parameters.AddWithValue("@id", tbID.Text);
@@ -289,7 +302,7 @@ namespace FilingSystem2
                 dtpDateReceived.Format = DateTimePickerFormat.Custom;
                 dtpDateReceived.CustomFormat = " ";
 
-                dtpDateReceived.Checked = false;
+                //dtpDateReceived.Checked = true;
             }
         }
 
@@ -298,6 +311,22 @@ namespace FilingSystem2
             GenerateCode();
             tbDateFiled.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt");
 
+        }
+
+        private void dtpDueDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpDueDate.Checked)
+            {
+                dtpDueDate.Format = DateTimePickerFormat.Short;
+
+            }
+            else
+            {
+                dtpDueDate.Format = DateTimePickerFormat.Custom;
+                dtpDueDate.CustomFormat = " ";
+
+                //dtpDueDate.Checked = true;
+            }
         }
     }
 }

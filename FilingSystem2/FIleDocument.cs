@@ -51,6 +51,7 @@ namespace FilingSystem2
         {
             CbLoadFolders();
             dtpDateReceived.Checked = false;
+            dtpDueDate.Checked = false;
         }
 
         private void btnFileDocument_Click(object sender, EventArgs e)
@@ -69,19 +70,29 @@ namespace FilingSystem2
             else
             {
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO tbl_file(code, subject, particulars, remarks, folder_id, date_received, filed_by) values(@code, @subject, @particulars, @remarks, @folder_id, @date_received, @filed_by)";
+                cmd.CommandText = "INSERT INTO tbl_file(code, subject, particulars, remarks, folder_id, date_received, due_date, filed_by) values(@code, @subject, @particulars, @remarks, @folder_id, @date_received, @due_date, @filed_by)";
                 cmd.Parameters.AddWithValue("@code", tbCode.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@subject", tbSubject.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@particulars", tbParticulars.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@remarks", tbRemarks.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@folder_id", int.Parse(cbFolder.SelectedValue.ToString()));
+
                 if (dtpDateReceived.Checked)
                 {
                     cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value.ToString("MM/dd/yyyy"));
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@date_received", "");
+                    cmd.Parameters.AddWithValue("@date_received", DBNull.Value);
+                }
+
+                if (dtpDueDate.Checked)
+                {
+                    cmd.Parameters.AddWithValue("@due_date", dtpDueDate.Value.ToString("MM/dd/yyyy"));
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@due_date", DBNull.Value);
                 }
 
                 cmd.Parameters.AddWithValue("@filed_by", user_id);

@@ -38,6 +38,7 @@
             this.tbCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -61,6 +62,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbID = new System.Windows.Forms.TextBox();
+            this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblfolderBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
@@ -75,7 +77,7 @@
             this.btnSaveChangesDocument.ForeColor = System.Drawing.Color.White;
             this.btnSaveChangesDocument.Image = global::FilingSystem2.Properties.Resources.diskette_white;
             this.btnSaveChangesDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChangesDocument.Location = new System.Drawing.Point(215, 503);
+            this.btnSaveChangesDocument.Location = new System.Drawing.Point(215, 517);
             this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChangesDocument.Name = "btnSaveChangesDocument";
             this.btnSaveChangesDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -112,19 +114,19 @@
             // tbParticulars
             // 
             this.tbParticulars.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbParticulars.Location = new System.Drawing.Point(24, 360);
+            this.tbParticulars.Location = new System.Drawing.Point(24, 355);
             this.tbParticulars.Margin = new System.Windows.Forms.Padding(2);
             this.tbParticulars.Multiline = true;
             this.tbParticulars.Name = "tbParticulars";
             this.tbParticulars.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbParticulars.Size = new System.Drawing.Size(318, 127);
+            this.tbParticulars.Size = new System.Drawing.Size(284, 86);
             this.tbParticulars.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(20, 337);
+            this.label4.Location = new System.Drawing.Point(20, 332);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 21);
@@ -135,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(20, 229);
+            this.label3.Location = new System.Drawing.Point(20, 223);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 21);
@@ -166,6 +168,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.dtpDueDate);
+            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.tbCode);
@@ -197,14 +201,25 @@
             this.panel2.Location = new System.Drawing.Point(0, 88);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(598, 556);
+            this.panel2.Size = new System.Drawing.Size(598, 573);
             this.panel2.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(21, 451);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 21);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Due Date";
             // 
             // label10
             // 
             this.label10.CausesValidation = false;
             this.label10.Font = new System.Drawing.Font("Cambria", 8F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label10.Location = new System.Drawing.Point(76, 96);
             this.label10.MaximumSize = new System.Drawing.Size(285, 35);
             this.label10.Name = "label10";
@@ -217,7 +232,7 @@
             // 
             this.label9.CausesValidation = false;
             this.label9.Font = new System.Drawing.Font("Cambria", 8F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Location = new System.Drawing.Point(170, 19);
             this.label9.MaximumSize = new System.Drawing.Size(285, 35);
             this.label9.Name = "label9";
@@ -243,7 +258,7 @@
             this.tbFileBoxTagColor.AutoEllipsis = true;
             this.tbFileBoxTagColor.CausesValidation = false;
             this.tbFileBoxTagColor.Font = new System.Drawing.Font("Cambria", 8F);
-            this.tbFileBoxTagColor.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tbFileBoxTagColor.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbFileBoxTagColor.Location = new System.Drawing.Point(224, 19);
             this.tbFileBoxTagColor.MaximumSize = new System.Drawing.Size(285, 35);
             this.tbFileBoxTagColor.Name = "tbFileBoxTagColor";
@@ -257,7 +272,7 @@
             this.tbFolderTagColor.AutoEllipsis = true;
             this.tbFolderTagColor.CausesValidation = false;
             this.tbFolderTagColor.Font = new System.Drawing.Font("Cambria", 8F);
-            this.tbFolderTagColor.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tbFolderTagColor.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbFolderTagColor.Location = new System.Drawing.Point(130, 96);
             this.tbFolderTagColor.MaximumSize = new System.Drawing.Size(285, 35);
             this.tbFolderTagColor.Name = "tbFolderTagColor";
@@ -305,7 +320,7 @@
             this.lFolderDescription.AutoEllipsis = true;
             this.lFolderDescription.CausesValidation = false;
             this.lFolderDescription.Font = new System.Drawing.Font("Cambria", 8F);
-            this.lFolderDescription.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lFolderDescription.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lFolderDescription.Location = new System.Drawing.Point(24, 141);
             this.lFolderDescription.MaximumSize = new System.Drawing.Size(285, 35);
             this.lFolderDescription.Name = "lFolderDescription";
@@ -318,8 +333,8 @@
             // 
             this.lFileBoxDescription.AutoEllipsis = true;
             this.lFileBoxDescription.Font = new System.Drawing.Font("Cambria", 8F);
-            this.lFileBoxDescription.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lFileBoxDescription.Location = new System.Drawing.Point(24, 65);
+            this.lFileBoxDescription.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lFileBoxDescription.Location = new System.Drawing.Point(24, 62);
             this.lFileBoxDescription.MaximumSize = new System.Drawing.Size(285, 35);
             this.lFileBoxDescription.Name = "lFileBoxDescription";
             this.lFileBoxDescription.Size = new System.Drawing.Size(275, 30);
@@ -397,7 +412,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(357, 227);
+            this.label6.Location = new System.Drawing.Point(319, 224);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 21);
@@ -407,22 +422,22 @@
             // tbRemarks
             // 
             this.tbRemarks.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbRemarks.Location = new System.Drawing.Point(361, 252);
+            this.tbRemarks.Location = new System.Drawing.Point(323, 247);
             this.tbRemarks.Margin = new System.Windows.Forms.Padding(2);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
             this.tbRemarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbRemarks.Size = new System.Drawing.Size(213, 235);
+            this.tbRemarks.Size = new System.Drawing.Size(251, 251);
             this.tbRemarks.TabIndex = 8;
             // 
             // tbSubject
             // 
             this.tbSubject.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbSubject.Location = new System.Drawing.Point(24, 252);
+            this.tbSubject.Location = new System.Drawing.Point(24, 246);
             this.tbSubject.Margin = new System.Windows.Forms.Padding(2);
             this.tbSubject.Multiline = true;
             this.tbSubject.Name = "tbSubject";
-            this.tbSubject.Size = new System.Drawing.Size(318, 75);
+            this.tbSubject.Size = new System.Drawing.Size(284, 75);
             this.tbSubject.TabIndex = 6;
             // 
             // label1
@@ -458,11 +473,23 @@
             this.tbID.TabIndex = 15;
             this.tbID.Visible = false;
             // 
+            // dtpDueDate
+            // 
+            this.dtpDueDate.Font = new System.Drawing.Font("Cambria", 12F);
+            this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDueDate.Location = new System.Drawing.Point(23, 475);
+            this.dtpDueDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpDueDate.Name = "dtpDueDate";
+            this.dtpDueDate.ShowCheckBox = true;
+            this.dtpDueDate.Size = new System.Drawing.Size(282, 26);
+            this.dtpDueDate.TabIndex = 11;
+            this.dtpDueDate.ValueChanged += new System.EventHandler(this.dtpDueDate_ValueChanged);
+            // 
             // EditDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 644);
+            this.ClientSize = new System.Drawing.Size(598, 661);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -512,5 +539,7 @@
         private System.Windows.Forms.Label tbFolderTagColor;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dtpDueDate;
     }
 }

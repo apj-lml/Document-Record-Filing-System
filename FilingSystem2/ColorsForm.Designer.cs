@@ -129,7 +129,7 @@
             // llAdd
             // 
             this.llAdd.AutoSize = true;
-            this.llAdd.Location = new System.Drawing.Point(91, 16);
+            this.llAdd.Location = new System.Drawing.Point(91, 17);
             this.llAdd.Name = "llAdd";
             this.llAdd.Size = new System.Drawing.Size(26, 13);
             this.llAdd.TabIndex = 27;

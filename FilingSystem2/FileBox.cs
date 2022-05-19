@@ -101,35 +101,52 @@ namespace FilingSystem2
             }
             else
             {
-                var user_id = loginForm.LoginInfo.UserID;
 
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO tbl_file_box (box_name, box_description, box_tag_color, created_by) values(@box_name,@box_description, @box_tag_color, @created_by)";
-                cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text.ToUpper());
-                cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text.ToUpper());
-                cmd.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
-                cmd.Parameters.AddWithValue("@created_by", user_id);
-
-                cmd.Connection = con;
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_file_box WHERE box_name = @my_box_name", con);
+                cmd2.Parameters.AddWithValue("@my_box_name", tbFileBoxName.Text.ToUpper());
                 con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+                OleDbDataReader reader = cmd2.ExecuteReader();
 
-                loadFileBoxes();
-                tbFileBoxName.Text = "";
-                tbFileBoxDescription.Text = "";
-                cbTagColor.SelectedIndex = 0;
-
-                
-                Form form = Application.OpenForms["foldersForm"];
-                if (form != null)
+                if (reader.Read() == true)
                 {
-                    foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
-                    foldersform.CbLoadBoxes();
+
+                    MessageBox.Show("File Box / Location name already exists. Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    con.Close();
+
+                }
+                else
+                {
+                    var user_id = loginForm.LoginInfo.UserID;
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO tbl_file_box (box_name, box_description, box_tag_color, created_by) values(@box_name,@box_description, @box_tag_color, @created_by)";
+                    cmd.Parameters.AddWithValue("@box_name", tbFileBoxName.Text.ToUpper());
+                    cmd.Parameters.AddWithValue("@box_description", tbFileBoxDescription.Text.ToUpper());
+                    cmd.Parameters.AddWithValue("@box_tag_color", cbTagColor.SelectedValue);
+                    cmd.Parameters.AddWithValue("@created_by", user_id);
+
+                    cmd.Connection = con;
+                    //con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    loadFileBoxes();
+                    tbFileBoxName.Text = "";
+                    tbFileBoxDescription.Text = "";
+                    cbTagColor.SelectedIndex = 0;
+
+
+                    Form form = Application.OpenForms["foldersForm"];
+                    if (form != null)
+                    {
+                        foldersForm foldersform = (foldersForm)fc.TheForm("foldersForm");
+                        foldersform.CbLoadBoxes();
+                    }
+
+                    MessageBox.Show("File Box / Location Added Successfully", "Success!");
                 }
 
-
-                MessageBox.Show("File Box / Location Added Successfully", "Success!");
+                   
             }
         }
 

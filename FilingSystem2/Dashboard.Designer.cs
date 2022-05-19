@@ -46,7 +46,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsViewDocument = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +72,7 @@
             this.btnFileDocument = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,13 +81,13 @@
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,7 +123,7 @@
             this.btnTransferDocuments.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnTransferDocuments.FlatAppearance.BorderSize = 0;
             this.btnTransferDocuments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransferDocuments.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnTransferDocuments.Font = new System.Drawing.Font("Cambria", 8F, System.Drawing.FontStyle.Bold);
             this.btnTransferDocuments.ForeColor = System.Drawing.Color.White;
             this.btnTransferDocuments.Image = global::FilingSystem2.Properties.Resources.data_transfer;
             this.btnTransferDocuments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,7 +146,7 @@
             this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = global::FilingSystem2.Properties.Resources.logout;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,7 +168,7 @@
             this.btnReports.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnReports.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
             this.btnReports.ForeColor = System.Drawing.Color.White;
             this.btnReports.Image = global::FilingSystem2.Properties.Resources.report;
             this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,7 +190,7 @@
             this.btnUsers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnUsers.FlatAppearance.BorderSize = 0;
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnUsers.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
             this.btnUsers.ForeColor = System.Drawing.Color.White;
             this.btnUsers.Image = global::FilingSystem2.Properties.Resources.users_32x32;
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -212,7 +212,7 @@
             this.btnFileBox.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnFileBox.FlatAppearance.BorderSize = 0;
             this.btnFileBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnFileBox.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
             this.btnFileBox.ForeColor = System.Drawing.Color.White;
             this.btnFileBox.Image = global::FilingSystem2.Properties.Resources.archives;
             this.btnFileBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -234,7 +234,7 @@
             this.btnFolders.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnFolders.FlatAppearance.BorderSize = 0;
             this.btnFolders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFolders.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnFolders.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
             this.btnFolders.ForeColor = System.Drawing.Color.White;
             this.btnFolders.Image = global::FilingSystem2.Properties.Resources.folder;
             this.btnFolders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,7 +256,7 @@
             this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDashboard.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.Image = global::FilingSystem2.Properties.Resources.dashboard1;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,7 +298,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FilingSystem2.Properties.Resources.logo200x200;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(44, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(135, 131);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -313,17 +313,17 @@
             this.panel2.Location = new System.Drawing.Point(230, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1119, 674);
+            this.panel2.Size = new System.Drawing.Size(1166, 674);
             this.panel2.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 193);
+            this.panel5.Location = new System.Drawing.Point(0, 119);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1119, 481);
+            this.panel5.Size = new System.Drawing.Size(1166, 555);
             this.panel5.TabIndex = 1;
             // 
             // panel8
@@ -333,7 +333,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1119, 481);
+            this.panel8.Size = new System.Drawing.Size(1166, 555);
             this.panel8.TabIndex = 4;
             // 
             // panel9
@@ -342,26 +342,8 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 30);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1119, 451);
+            this.panel9.Size = new System.Drawing.Size(1166, 525);
             this.panel9.TabIndex = 4;
-            // 
-            // dgDocumentsRecords
-            // 
-            this.dgDocumentsRecords.AllowUserToAddRows = false;
-            this.dgDocumentsRecords.AllowUserToDeleteRows = false;
-            this.dgDocumentsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgDocumentsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
-            this.dgDocumentsRecords.MultiSelect = false;
-            this.dgDocumentsRecords.Name = "dgDocumentsRecords";
-            this.dgDocumentsRecords.PageSize = 10;
-            this.dgDocumentsRecords.ReadOnly = true;
-            this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDocumentsRecords.Size = new System.Drawing.Size(1119, 451);
-            this.dgDocumentsRecords.TabIndex = 1;
-            this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
             // 
             // contextMenuStrip1
             // 
@@ -400,7 +382,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1119, 30);
+            this.panel6.Size = new System.Drawing.Size(1166, 30);
             this.panel6.TabIndex = 3;
             // 
             // bindingNavigator1
@@ -429,7 +411,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1119, 23);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1166, 23);
             this.bindingNavigator1.TabIndex = 2;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -536,17 +518,18 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1119, 193);
+            this.panel4.Size = new System.Drawing.Size(1166, 119);
             this.panel4.TabIndex = 0;
             // 
             // ll_user
             // 
             this.ll_user.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ll_user.AutoSize = true;
+            this.ll_user.Font = new System.Drawing.Font("Cambria", 9F);
             this.ll_user.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.ll_user.Location = new System.Drawing.Point(78, 11);
+            this.ll_user.Location = new System.Drawing.Point(79, 10);
             this.ll_user.Name = "ll_user";
-            this.ll_user.Size = new System.Drawing.Size(29, 13);
+            this.ll_user.Size = new System.Drawing.Size(31, 14);
             this.ll_user.TabIndex = 1;
             this.ll_user.TabStop = true;
             this.ll_user.Text = "User";
@@ -555,16 +538,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 11);
+            this.label3.Font = new System.Drawing.Font("Cambria", 9F);
+            this.label3.Location = new System.Drawing.Point(27, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(58, 14);
             this.label3.TabIndex = 8;
             this.label3.Text = "Welcome, ";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::FilingSystem2.Properties.Resources.user__22_;
-            this.pictureBox2.Location = new System.Drawing.Point(5, 7);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 19);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -574,11 +558,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(395, 129);
+            this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(391, 60);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 21);
+            this.label2.Size = new System.Drawing.Size(49, 19);
             this.label2.TabIndex = 5;
             this.label2.Text = "Filter";
             // 
@@ -586,7 +570,7 @@
             // 
             this.cbFilter.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.Location = new System.Drawing.Point(399, 150);
+            this.cbFilter.Location = new System.Drawing.Point(395, 79);
             this.cbFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(340, 27);
@@ -597,11 +581,11 @@
             this.btnFileDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFileDocument.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(92)))));
             this.btnFileDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFileDocument.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.plus_symbol_button__1_;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(843, 144);
+            this.btnFileDocument.Location = new System.Drawing.Point(896, 73);
             this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
@@ -615,11 +599,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(18, 127);
+            this.label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(14, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 21);
+            this.label1.Size = new System.Drawing.Size(59, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Search";
             // 
@@ -627,18 +611,37 @@
             // 
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearch.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbSearch.Location = new System.Drawing.Point(22, 150);
+            this.tbSearch.Location = new System.Drawing.Point(18, 79);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(361, 26);
             this.tbSearch.TabIndex = 2;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
+            // dgDocumentsRecords
+            // 
+            this.dgDocumentsRecords.AllowUserToAddRows = false;
+            this.dgDocumentsRecords.AllowUserToDeleteRows = false;
+            this.dgDocumentsRecords.AllowUserToResizeRows = false;
+            this.dgDocumentsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgDocumentsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
+            this.dgDocumentsRecords.MultiSelect = false;
+            this.dgDocumentsRecords.Name = "dgDocumentsRecords";
+            this.dgDocumentsRecords.PageSize = 10;
+            this.dgDocumentsRecords.ReadOnly = true;
+            this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgDocumentsRecords.Size = new System.Drawing.Size(1166, 525);
+            this.dgDocumentsRecords.TabIndex = 1;
+            this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
+            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 674);
+            this.ClientSize = new System.Drawing.Size(1396, 674);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -654,7 +657,6 @@
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -664,6 +666,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -114,7 +114,8 @@ namespace FilingSystem2
                     tfil.date_filed as [DATE FILED],
                     tfol.folder_description AS [FOLDER DESCRIPTION],
                     tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION],
-                    tfil.date_received as [DATE RECEIVED]
+                    tfil.date_received as [DATE RECEIVED],
+                    tfil.due_date as [DUE DATE]
                     
                                 FROM (((((tbl_file AS tfil 
                                     LEFT JOIN 
@@ -150,7 +151,8 @@ namespace FilingSystem2
                     tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED],
                     tfol.folder_description AS [FOLDER DESCRIPTION],
                     tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION],
-                    tfil.date_received as [DATE RECEIVED]
+                    tfil.date_received as [DATE RECEIVED],
+                    tfil.due_date as [DUE DATE]
                     
                     FROM (((((tbl_file AS tfil 
                         INNER JOIN 
@@ -180,7 +182,8 @@ namespace FilingSystem2
                     tfilbox.box_name AS [FILE BOX / LOCATION], boxtagclr.tag_color AS [FILE BOX / LOCATION TAG COLOR], usr.last_name & ', '& usr.first_name as [FILED BY], tfil.date_filed as [DATE FILED],
                     tfol.folder_description AS [FOLDER DESCRIPTION],
                     tfilbox.box_description AS [FILE BOX / LOCATION DESCRIPTION],
-                    tfil.date_received as [DATE RECEIVED]
+                    tfil.date_received as [DATE RECEIVED],
+                    tfil.due_date as [DUE DATE]
                     
                     FROM (((((tbl_file AS tfil 
                         INNER JOIN 
@@ -254,9 +257,36 @@ namespace FilingSystem2
 
         }
 
+        private void SetFontAndColors()
+        {
+            this.dgDocumentsRecords.DefaultCellStyle.Font = new Font("Cambria", 9);
+            this.dgDocumentsRecords.DefaultCellStyle.ForeColor = Color.Black;
+            this.dgDocumentsRecords.DefaultCellStyle.BackColor = Color.White;
+            this.dgDocumentsRecords.DefaultCellStyle.SelectionForeColor = Color.White;
+            this.dgDocumentsRecords.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#0F1D42");
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            bool bHandled = false;
+            // switch case is the easy way, a hash or map would be better, 
+            // but more work to get set up.
+            switch (keyData)
+            {
+                case Keys.F5:
+                    loadDgDocumentsRecords();
+
+                    bHandled = true;
+                    break;
+                default: return base.ProcessCmdKey(ref msg, keyData);
+            }
+            return bHandled;
+        }
 
         private void dashboardForm_Load(object sender, EventArgs e)
         {
+            //this.dgDocumentsRecords.DefaultCellStyle.Font = new Font("Cambria", 9);
+            SetFontAndColors();
 
             var role = loginForm.LoginInfo.Role;
             var last_name = loginForm.LoginInfo.LastName;
@@ -309,7 +339,7 @@ namespace FilingSystem2
             var role = loginForm.LoginInfo.Role;
 
 
-            new addDocumentRecordForm(this).Show();
+            new addDocumentRecordForm(this).ShowDialog();
 
             //MessageBox.Show("Hi, "+last_name, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -378,24 +408,34 @@ namespace FilingSystem2
         {
             if (dgDocumentsRecords.Rows.Count > 0) {
                 var id = dgDocumentsRecords.CurrentRow.Cells[0].Value;
+                var created_by = dgDocumentsRecords.CurrentRow.Cells[9].Value;
+                var last_name = loginForm.LoginInfo.LastName.ToString();
+                var first_name = loginForm.LoginInfo.FirstName.ToString();
+                var full_name = last_name +", "+first_name;
 
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Document / Record?", "Delete Document / Record?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
-                {
+                if (created_by.ToString() == full_name) {
 
-                    OleDbCommand cmd_delete_document = new OleDbCommand(@"DELETE FROM tbl_file
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Document / Record?", "Delete Document / Record?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        OleDbCommand cmd_delete_document = new OleDbCommand(@"DELETE FROM tbl_file
                                         WHERE ID = @id", con);
 
-                    cmd_delete_document.Parameters.AddWithValue("@id", id);
-                    con.Open();
-                    cmd_delete_document.ExecuteNonQuery();
-                    con.Close();
+                        cmd_delete_document.Parameters.AddWithValue("@id", id);
+                        con.Open();
+                        cmd_delete_document.ExecuteNonQuery();
+                        con.Close();
 
-                    loadDgDocumentsRecords();
+                        loadDgDocumentsRecords();
 
-                    MessageBox.Show("Document / Record deleted succesfully!", "Document / Record Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        MessageBox.Show("Document / Record deleted succesfully!", "Document / Record Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("You can't delete this Document / Record because it is not created by you.", "Document / Record Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
             else
             {

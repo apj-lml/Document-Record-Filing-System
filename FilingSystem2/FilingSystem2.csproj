@@ -13,17 +13,18 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\MSI\Desktop\</PublishUrl>
-    <Install>false</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <PublishUrl>\\W1ND0W\Users\Public\Documents\Admin Unit Files %28Shared%29\drfs installer\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <ApplicationRevision>23</ApplicationRevision>
+    <UpdateUrl>\\W1ND0W\Users\Public\Documents\Admin Unit Files %28Shared%29\drfs installer\</UpdateUrl>
+    <ApplicationRevision>27</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -377,6 +378,9 @@
     <Content Include="Pad_icon-icons.com_54983.ico" />
     <None Include="Resources\tacking-login bg 1111.png" />
     <None Include="Resources\nia-pimo.png" />
+    <None Include="Resources\DRFS.png" />
+    <None Include="Resources\drfs2.png" />
+    <None Include="Resources\drfs3.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
