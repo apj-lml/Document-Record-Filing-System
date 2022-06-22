@@ -25,8 +25,8 @@ namespace FilingSystem2
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
 
-        private const int totalRecords = 43;
-        private const int pageSize = 10;
+        //private const int totalRecords = 43;
+        //private const int pageSize = 10;
 
         public dashboardForm()
         {

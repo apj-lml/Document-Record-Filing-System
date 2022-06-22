@@ -98,14 +98,14 @@ namespace FilingSystem2
             }
             else
             {
-                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE folder_name = @my_folder_name ", con);
+                OleDbCommand cmd2 = new OleDbCommand(@"SELECT * FROM tbl_folder WHERE (folder_name = @my_folder_name AND ID <> @id) ", con);
                 cmd2.Parameters.AddWithValue("@my_folder_name", tbFolderName.Text.ToUpper());
+                cmd2.Parameters.AddWithValue("@id", tbID.Text);
                 con.Open();
                 OleDbDataReader reader = cmd2.ExecuteReader();
 
                 if (reader.Read() == true)
                 {
-
                     MessageBox.Show("Folder name already exists! Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     con.Close();
 

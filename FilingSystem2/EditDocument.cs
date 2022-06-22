@@ -231,19 +231,19 @@ namespace FilingSystem2
             if (dtpDateReceived.Checked)
             {
                 cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value.ToString("MM/dd/yyyy"));
-
             }
             else
             {
-                cmd.Parameters.AddWithValue("@date_received", "");
+                cmd.Parameters.AddWithValue("@date_received", DBNull.Value);
             }
+
             if (dtpDueDate.Checked)
             {
                 cmd.Parameters.AddWithValue("@due_date", dtpDueDate.Value.ToString("MM/dd/yyyy"));
             }
             else
             {
-                cmd.Parameters.AddWithValue("@due_date", "");
+                cmd.Parameters.AddWithValue("@due_date", DBNull.Value);
             }
 
             cmd.Parameters.AddWithValue("@id", tbID.Text);
@@ -308,8 +308,8 @@ namespace FilingSystem2
 
         private void cbFolder_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GenerateCode();
-            tbDateFiled.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt");
+            //GenerateCode();
+            //tbDateFiled.Text = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt");
 
         }
 
