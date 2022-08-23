@@ -93,6 +93,16 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bg_for_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("bg-for-dashboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap dashboard1 {
             get {
                 object obj = ResourceManager.GetObject("dashboard1", resourceCulture);
@@ -237,6 +247,16 @@ namespace FilingSystem2.Properties {
             get {
                 object obj = ResourceManager.GetObject("mysettings", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap new_bg_for_login {
+            get {
+                object obj = ResourceManager.GetObject("new-bg-for-login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

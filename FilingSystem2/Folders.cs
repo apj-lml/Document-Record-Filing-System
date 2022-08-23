@@ -63,7 +63,7 @@ namespace FilingSystem2
         {
             string sql = null;
 
-            Console.WriteLine("filter val: " + filter_value);
+            Console.WriteLine("filter val: " + filter_by);
 
             if (filter_by == null)
             {
@@ -99,7 +99,7 @@ namespace FilingSystem2
                         ON tfol.folder_tag_color = clr.ID)
 
                         WHERE tfol.ID LIKE '%" + filter_by + "%' OR tfol.folder_code LIKE '%" + filter_by + "%' OR tfol.folder_name LIKE '%" + filter_by + "%' OR tfol.folder_description LIKE '%" + filter_by + "%' " +
-                        "OR tfilbox.box_name LIKE '%" + filter_by + "%' OR usr.last_name LIKE '%" + filter_by + "%' OR usr.first_name LIKE '%" + filter_by + "%' OR clr.color LIKE '%" + filter_by + "%' ";
+                        "OR tfilbox.box_name LIKE '%" + filter_by + "%' OR usr.last_name LIKE '%" + filter_by + "%' OR usr.first_name LIKE '%" + filter_by + "%' OR clr.tag_color LIKE '%" + filter_by + "%' ";
 
             }
             con.Open();
@@ -125,6 +125,31 @@ namespace FilingSystem2
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return new string(Enumerable.Repeat(chars, 3)
               .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void AdjustWidthComboBox_DropDown(object sender, EventArgs e)
+        {
+            var senderComboBox = (ComboBox)sender;
+            int width = senderComboBox.DropDownWidth;
+            Graphics g = senderComboBox.CreateGraphics();
+            Font font = senderComboBox.Font;
+
+            int vertScrollBarWidth = (senderComboBox.Items.Count > senderComboBox.MaxDropDownItems)
+                    ? SystemInformation.VerticalScrollBarWidth : 0;
+
+            var itemsList = senderComboBox.Items.Cast<object>().Select(item => item.ToString());
+
+            foreach (string s in itemsList)
+            {
+                int newWidth = (int)g.MeasureString(s, font).Width + vertScrollBarWidth;
+
+                if (width < newWidth)
+                {
+                    width = newWidth;
+                }
+            }
+
+            senderComboBox.DropDownWidth = width;
         }
         private void foldersForm_Load(object sender, EventArgs e)
         {
@@ -238,6 +263,7 @@ namespace FilingSystem2
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
+            //Console.WriteLine(tbSearch.Text);
             dgFolder.DataSource = MyFolders(tbSearch.Text);
 
         }
@@ -313,6 +339,11 @@ namespace FilingSystem2
         private void cbTagColor_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

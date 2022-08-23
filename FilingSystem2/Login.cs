@@ -29,7 +29,7 @@ namespace FilingSystem2
             con = myConnectionString.MyConnection();
         }
 
-            public static class LoginInfo
+        public static class LoginInfo
         {
             public static int UserID;
             public static string EmpID;
@@ -84,8 +84,6 @@ namespace FilingSystem2
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Minimized; 
-            //this.WindowState = FormWindowState.Normal;
             this.Focus(); this.Show();
         }
 

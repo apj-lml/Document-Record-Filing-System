@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbFolderCode = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel2CreateFolder = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.llColor = new System.Windows.Forms.LinkLabel();
             this.cbTagColor = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,79 +50,80 @@
             this.tsDeleteFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel3dgFolder = new System.Windows.Forms.Panel();
             this.tbl_userTableAdapter1 = new FilingSystem2.db_filingsystemDataSetForReportsTableAdapters.tbl_userTableAdapter();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.tbFolderCode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1Label = new System.Windows.Forms.Panel();
+            this.panel2CreateFolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFolder)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel3dgFolder.SuspendLayout();
+            this.panel1Label.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panel2CreateFolder
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(29)))), ((int)(((byte)(66)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.tbFolderCode);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(723, 81);
-            this.panel1.TabIndex = 0;
+            this.panel2CreateFolder.BackColor = System.Drawing.Color.White;
+            this.panel2CreateFolder.Controls.Add(this.label9);
+            this.panel2CreateFolder.Controls.Add(this.label8);
+            this.panel2CreateFolder.Controls.Add(this.label2);
+            this.panel2CreateFolder.Controls.Add(this.llColor);
+            this.panel2CreateFolder.Controls.Add(this.cbTagColor);
+            this.panel2CreateFolder.Controls.Add(this.label7);
+            this.panel2CreateFolder.Controls.Add(this.btnFileDocument);
+            this.panel2CreateFolder.Controls.Add(this.linkLabel2);
+            this.panel2CreateFolder.Controls.Add(this.label5);
+            this.panel2CreateFolder.Controls.Add(this.label4);
+            this.panel2CreateFolder.Controls.Add(this.cbFileBox);
+            this.panel2CreateFolder.Controls.Add(this.tbFolderDescription);
+            this.panel2CreateFolder.Controls.Add(this.tbFolderName);
+            this.panel2CreateFolder.Controls.Add(this.label3);
+            this.panel2CreateFolder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2CreateFolder.Location = new System.Drawing.Point(0, 78);
+            this.panel2CreateFolder.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2CreateFolder.Name = "panel2CreateFolder";
+            this.panel2CreateFolder.Size = new System.Drawing.Size(1031, 349);
+            this.panel2CreateFolder.TabIndex = 1;
             // 
-            // label1
+            // label9
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(257, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Create Folder";
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(121, 100);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 17);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "*";
             // 
-            // tbFolderCode
+            // label8
             // 
-            this.tbFolderCode.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tbFolderCode.Location = new System.Drawing.Point(489, 31);
-            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbFolderCode.MaxLength = 3;
-            this.tbFolderCode.Name = "tbFolderCode";
-            this.tbFolderCode.Size = new System.Drawing.Size(88, 29);
-            this.tbFolderCode.TabIndex = 1;
-            this.tbFolderCode.Visible = false;
-            this.tbFolderCode.TextChanged += new System.EventHandler(this.tbFolderCode_TextChanged);
-            this.tbFolderCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFolderCode_KeyPress);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(464, 17);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 17);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "*";
             // 
-            // panel2
+            // label2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.llColor);
-            this.panel2.Controls.Add(this.cbTagColor);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.btnFileDocument);
-            this.panel2.Controls.Add(this.linkLabel2);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.cbFileBox);
-            this.panel2.Controls.Add(this.tbFolderDescription);
-            this.panel2.Controls.Add(this.tbFolderName);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 81);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(723, 603);
-            this.panel2.TabIndex = 1;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(168, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "*";
             // 
             // llColor
             // 
@@ -167,7 +168,7 @@
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.Image = global::FilingSystem2.Properties.Resources.folder__2_;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(307, 289);
+            this.btnFileDocument.Location = new System.Drawing.Point(460, 299);
             this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -205,7 +206,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(18, 152);
+            this.label4.Location = new System.Drawing.Point(22, 171);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 21);
@@ -222,33 +223,34 @@
             this.cbFileBox.Size = new System.Drawing.Size(293, 27);
             this.cbFileBox.TabIndex = 3;
             this.cbFileBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFileBox_KeyPress);
+            this.cbFileBox.ParentChanged += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
             // 
             // tbFolderDescription
             // 
             this.tbFolderDescription.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbFolderDescription.Location = new System.Drawing.Point(22, 177);
+            this.tbFolderDescription.Location = new System.Drawing.Point(22, 194);
             this.tbFolderDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderDescription.MaxLength = 255;
             this.tbFolderDescription.Multiline = true;
             this.tbFolderDescription.Name = "tbFolderDescription";
-            this.tbFolderDescription.Size = new System.Drawing.Size(683, 98);
+            this.tbFolderDescription.Size = new System.Drawing.Size(985, 98);
             this.tbFolderDescription.TabIndex = 5;
             // 
             // tbFolderName
             // 
             this.tbFolderName.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbFolderName.Location = new System.Drawing.Point(22, 104);
+            this.tbFolderName.Location = new System.Drawing.Point(22, 126);
             this.tbFolderName.Margin = new System.Windows.Forms.Padding(2);
             this.tbFolderName.MaxLength = 1028;
             this.tbFolderName.Name = "tbFolderName";
-            this.tbFolderName.Size = new System.Drawing.Size(683, 26);
+            this.tbFolderName.Size = new System.Drawing.Size(985, 26);
             this.tbFolderName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(19, 81);
+            this.label3.Location = new System.Drawing.Point(18, 103);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 21);
@@ -263,13 +265,13 @@
             this.dgFolder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFolder.ContextMenuStrip = this.contextMenuStrip1;
             this.dgFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgFolder.Location = new System.Drawing.Point(0, 60);
+            this.dgFolder.Location = new System.Drawing.Point(0, 74);
             this.dgFolder.MultiSelect = false;
             this.dgFolder.Name = "dgFolder";
             this.dgFolder.ReadOnly = true;
             this.dgFolder.RowHeadersWidth = 51;
             this.dgFolder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgFolder.Size = new System.Drawing.Size(723, 200);
+            this.dgFolder.Size = new System.Drawing.Size(1031, 220);
             this.dgFolder.TabIndex = 15;
             this.dgFolder.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgFolder_MouseDoubleClick);
             // 
@@ -318,94 +320,90 @@
             this.tbSearch.TabIndex = 7;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // panel3
+            // panel3dgFolder
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel3.Controls.Add(this.dgFolder);
-            this.panel3.Controls.Add(this.tbSearch);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 424);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(723, 260);
-            this.panel3.TabIndex = 19;
+            this.panel3dgFolder.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel3dgFolder.Controls.Add(this.dgFolder);
+            this.panel3dgFolder.Controls.Add(this.tbSearch);
+            this.panel3dgFolder.Controls.Add(this.label6);
+            this.panel3dgFolder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3dgFolder.Location = new System.Drawing.Point(0, 427);
+            this.panel3dgFolder.Name = "panel3dgFolder";
+            this.panel3dgFolder.Size = new System.Drawing.Size(1031, 294);
+            this.panel3dgFolder.TabIndex = 19;
             // 
             // tbl_userTableAdapter1
             // 
             this.tbl_userTableAdapter1.ClearBeforeFill = true;
             // 
-            // label2
+            // tbFolderCode
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(168, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "*";
+            this.tbFolderCode.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tbFolderCode.Location = new System.Drawing.Point(537, 28);
+            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFolderCode.MaxLength = 3;
+            this.tbFolderCode.Name = "tbFolderCode";
+            this.tbFolderCode.Size = new System.Drawing.Size(88, 29);
+            this.tbFolderCode.TabIndex = 1;
+            this.tbFolderCode.Visible = false;
+            this.tbFolderCode.TextChanged += new System.EventHandler(this.tbFolderCode_TextChanged);
+            this.tbFolderCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFolderCode_KeyPress);
             // 
-            // label8
+            // label1
             // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(464, 17);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 17);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "*";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(406, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 39);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "CREATE FOLDER";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label9
+            // panel1Label
             // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(123, 80);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 17);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "*";
+            this.panel1Label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(29)))), ((int)(((byte)(66)))));
+            this.panel1Label.Controls.Add(this.label1);
+            this.panel1Label.Controls.Add(this.tbFolderCode);
+            this.panel1Label.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1Label.Location = new System.Drawing.Point(0, 0);
+            this.panel1Label.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1Label.Name = "panel1Label";
+            this.panel1Label.Size = new System.Drawing.Size(1031, 78);
+            this.panel1Label.TabIndex = 0;
             // 
             // foldersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 684);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1031, 752);
+            this.Controls.Add(this.panel3dgFolder);
+            this.Controls.Add(this.panel2CreateFolder);
+            this.Controls.Add(this.panel1Label);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "foldersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Folder";
             this.Load += new System.EventHandler(this.foldersForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel2CreateFolder.ResumeLayout(false);
+            this.panel2CreateFolder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFolder)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panel3dgFolder.ResumeLayout(false);
+            this.panel3dgFolder.PerformLayout();
+            this.panel1Label.ResumeLayout(false);
+            this.panel1Label.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2CreateFolder;
         private System.Windows.Forms.TextBox tbFolderName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbFolderCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbFolderDescription;
         private System.Windows.Forms.Label label4;
@@ -415,7 +413,7 @@
         private System.Windows.Forms.DataGridView dgFolder;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel3dgFolder;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsViewSelectedFolder;
         private System.Windows.Forms.ToolStripMenuItem tsDeleteFolder;
@@ -426,5 +424,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbFolderCode;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1Label;
     }
 }

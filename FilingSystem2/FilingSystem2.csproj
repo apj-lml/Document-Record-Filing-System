@@ -381,6 +381,8 @@
     <None Include="Resources\DRFS.png" />
     <None Include="Resources\drfs2.png" />
     <None Include="Resources\drfs3.png" />
+    <None Include="Resources\new-bg-for-login.png" />
+    <None Include="Resources\bg-for-dashboard1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

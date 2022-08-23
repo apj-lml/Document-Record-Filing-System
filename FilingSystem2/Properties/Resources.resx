@@ -127,6 +127,12 @@
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="new-bg-for-login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new-bg-for-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="75x75" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\75x75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo125x125" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo125x125.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,10 +214,10 @@
   <data name="tacking-login 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tacking-login 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="75x75" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\75x75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="drfs3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\drfs3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-for-dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-for-dashboard1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

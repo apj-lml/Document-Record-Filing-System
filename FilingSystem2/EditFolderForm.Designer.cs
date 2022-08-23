@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbFolderCode = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.llColor = new System.Windows.Forms.LinkLabel();
             this.cbTagColor = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.tbFolderDescription = new System.Windows.Forms.TextBox();
             this.tbFolderName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbFolderCode = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,18 @@
             this.label1.Size = new System.Drawing.Size(163, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "Edit Folder";
+            // 
+            // tbFolderCode
+            // 
+            this.tbFolderCode.Font = new System.Drawing.Font("Cambria", 12F);
+            this.tbFolderCode.Location = new System.Drawing.Point(408, 34);
+            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2);
+            this.tbFolderCode.MaxLength = 3;
+            this.tbFolderCode.Name = "tbFolderCode";
+            this.tbFolderCode.ReadOnly = true;
+            this.tbFolderCode.Size = new System.Drawing.Size(88, 26);
+            this.tbFolderCode.TabIndex = 1;
+            this.tbFolderCode.Visible = false;
             // 
             // panel2
             // 
@@ -204,6 +216,7 @@
             this.cbFileBox.Size = new System.Drawing.Size(268, 27);
             this.cbFileBox.TabIndex = 10;
             this.cbFileBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFileBox_KeyPress);
+            this.cbFileBox.ParentChanged += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
             // 
             // tbFolderDescription
             // 
@@ -236,18 +249,6 @@
             this.label3.Size = new System.Drawing.Size(108, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "Folder Name";
-            // 
-            // tbFolderCode
-            // 
-            this.tbFolderCode.Font = new System.Drawing.Font("Cambria", 12F);
-            this.tbFolderCode.Location = new System.Drawing.Point(408, 34);
-            this.tbFolderCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbFolderCode.MaxLength = 3;
-            this.tbFolderCode.Name = "tbFolderCode";
-            this.tbFolderCode.ReadOnly = true;
-            this.tbFolderCode.Size = new System.Drawing.Size(88, 26);
-            this.tbFolderCode.TabIndex = 1;
-            this.tbFolderCode.Visible = false;
             // 
             // EditFolderForm
             // 
