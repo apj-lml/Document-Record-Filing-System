@@ -133,36 +133,6 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap DRFS {
-            get {
-                object obj = ResourceManager.GetObject("DRFS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap drfs2 {
-            get {
-                object obj = ResourceManager.GetObject("drfs2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap drfs3 {
-            get {
-                object obj = ResourceManager.GetObject("drfs3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -213,6 +183,26 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap loginscreen {
+            get {
+                object obj = ResourceManager.GetObject("loginscreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap loginscreen3 {
+            get {
+                object obj = ResourceManager.GetObject("loginscreen3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap logo125x125 {
             get {
                 object obj = ResourceManager.GetObject("logo125x125", resourceCulture);
@@ -247,16 +237,6 @@ namespace FilingSystem2.Properties {
             get {
                 object obj = ResourceManager.GetObject("mysettings", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap new_bg_for_login {
-            get {
-                object obj = ResourceManager.GetObject("new-bg-for-login", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -313,9 +293,9 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tacking_login_2 {
+        public static System.Drawing.Bitmap splash_screen {
             get {
-                object obj = ResourceManager.GetObject("tacking-login 2", resourceCulture);
+                object obj = ResourceManager.GetObject("splash screen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +303,29 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tacking_login_3 {
+        public static System.Drawing.Bitmap splash_screen2 {
             get {
-                object obj = ResourceManager.GetObject("tacking-login 3", resourceCulture);
+                object obj = ResourceManager.GetObject("splash screen2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap splash_screen3 {
+            get {
+                object obj = ResourceManager.GetObject("splash screen3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap splash_screen4 {
+            get {
+                object obj = ResourceManager.GetObject("splash screen4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,16 +336,6 @@ namespace FilingSystem2.Properties {
         public static System.Drawing.Bitmap tacking_login_bg_111 {
             get {
                 object obj = ResourceManager.GetObject("tacking-login bg 111", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap tacking_login_bg_1111 {
-            get {
-                object obj = ResourceManager.GetObject("tacking-login bg 1111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

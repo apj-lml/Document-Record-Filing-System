@@ -47,7 +47,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 81);
+            this.panel1.Size = new System.Drawing.Size(664, 81);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -56,12 +56,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(58, 19);
+            this.label1.Location = new System.Drawing.Point(204, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 39);
+            this.label1.Size = new System.Drawing.Size(253, 39);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Generate Report";
+            this.label1.Text = "GENERATE REPORT";
             // 
             // panel2
             // 
@@ -72,7 +72,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 81);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(372, 193);
+            this.panel2.Size = new System.Drawing.Size(664, 193);
             this.panel2.TabIndex = 3;
             // 
             // checkBox1
@@ -95,7 +95,7 @@
             this.btnSaveChangesDocument.ForeColor = System.Drawing.Color.White;
             this.btnSaveChangesDocument.Image = global::FilingSystem2.Properties.Resources.report;
             this.btnSaveChangesDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChangesDocument.Location = new System.Drawing.Point(110, 123);
+            this.btnSaveChangesDocument.Location = new System.Drawing.Point(242, 125);
             this.btnSaveChangesDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChangesDocument.Name = "btnSaveChangesDocument";
             this.btnSaveChangesDocument.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -126,7 +126,7 @@
             "All"});
             this.cbFolder.Location = new System.Drawing.Point(28, 41);
             this.cbFolder.Name = "cbFolder";
-            this.cbFolder.Size = new System.Drawing.Size(319, 27);
+            this.cbFolder.Size = new System.Drawing.Size(607, 27);
             this.cbFolder.TabIndex = 38;
             this.cbFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFolder_KeyPress);
             // 
@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 274);
+            this.ClientSize = new System.Drawing.Size(664, 274);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ReportDashboard";

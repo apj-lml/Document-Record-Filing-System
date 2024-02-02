@@ -35,7 +35,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 407);
+            this.progressBar1.Location = new System.Drawing.Point(12, 410);
             this.progressBar1.MarqueeAnimationSpeed = 15;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(538, 23);
@@ -45,7 +45,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::FilingSystem2.Properties.Resources.bg_for_dashboard;
+            this.pictureBox1.Image = global::FilingSystem2.Properties.Resources.splash_screen4;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(562, 450);

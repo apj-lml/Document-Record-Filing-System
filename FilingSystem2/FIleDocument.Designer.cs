@@ -80,9 +80,9 @@
             this.label1.Location = new System.Drawing.Point(255, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(367, 39);
+            this.label1.Size = new System.Drawing.Size(380, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "File a Document / Record";
+            this.label1.Text = "FILE A DOCUMENT / RECORD";
             // 
             // panel2
             // 
@@ -260,7 +260,7 @@
             this.btnFileDocument.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnFileDocument.ForeColor = System.Drawing.Color.White;
             this.btnFileDocument.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFileDocument.Location = new System.Drawing.Point(327, 415);
+            this.btnFileDocument.Location = new System.Drawing.Point(308, 424);
             this.btnFileDocument.Margin = new System.Windows.Forms.Padding(2);
             this.btnFileDocument.Name = "btnFileDocument";
             this.btnFileDocument.Size = new System.Drawing.Size(243, 45);

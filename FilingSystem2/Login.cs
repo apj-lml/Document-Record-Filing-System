@@ -55,7 +55,6 @@ namespace FilingSystem2
 
             if (reader.Read() == true)
             {
-
                 LoginInfo.UserID = int.Parse(reader["ID"].ToString());
                 LoginInfo.EmpID = reader["emp_id"].ToString();
                 LoginInfo.Password = reader["password"].ToString();
@@ -101,9 +100,5 @@ namespace FilingSystem2
             }
         }
 
-        private void tbUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

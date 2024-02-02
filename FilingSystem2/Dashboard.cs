@@ -32,7 +32,7 @@ namespace FilingSystem2
         {
             Thread t = new Thread(new ThreadStart(StartSplash));
             t.Start();
-            Thread.Sleep(4000);
+            Thread.Sleep(5000);
             InitializeComponent();
             t.Abort();
 
@@ -228,18 +228,28 @@ namespace FilingSystem2
         }
 
         public void loadDgDocumentsRecords() {
-            dgDocumentsRecords.PageSize = 18;
+            dgDocumentsRecords.PageSize = 40;
             dgDocumentsRecords.SetPagedDataSource(MyFiles(), bindingNavigator1);
 
             if (dgDocumentsRecords.Columns.Contains("FOLDER DESCRIPTION") == true)
             {
                 dgDocumentsRecords.Columns["FOLDER DESCRIPTION"].Visible = false;
                 dgDocumentsRecords.Columns["FILE BOX / LOCATION DESCRIPTION"].Visible = false;
+                dgDocumentsRecords.Columns["FILE BOX / LOCATION TAG COLOR"].Visible = false;
+                dgDocumentsRecords.Columns["DATE RECEIVED"].Visible = false;
+                dgDocumentsRecords.Columns["DUE DATE"].Visible = false;
+                dgDocumentsRecords.Columns["FILED BY"].Visible = false;
+                dgDocumentsRecords.Columns["REMARKS"].Visible = false;
 
                 DataGridViewColumn column_id = dgDocumentsRecords.Columns[0];
                 DataGridViewColumn column_code = dgDocumentsRecords.Columns[1];
+                DataGridViewColumn column_subject = dgDocumentsRecords.Columns[2];
+                DataGridViewColumn column_particulars = dgDocumentsRecords.Columns[3];
+
                 column_id.Width = 30;
                 column_code.Width = 115;
+                column_subject.Width = 275;
+                column_particulars.Width = 200;
 
                 tsDeleteDocument.Enabled = true;
                 tsViewDocument.Enabled = true;
@@ -251,7 +261,6 @@ namespace FilingSystem2
                 tsViewDocument.Enabled = false;
             }
            
-
             dgDocumentsRecords.Refresh();
             dgDocumentsRecords.Update();
 
@@ -259,7 +268,7 @@ namespace FilingSystem2
 
         private void SetFontAndColors()
         {
-            this.dgDocumentsRecords.DefaultCellStyle.Font = new Font("Cambria", 9);
+            this.dgDocumentsRecords.DefaultCellStyle.Font = new Font("Cambria",  9);
             this.dgDocumentsRecords.DefaultCellStyle.ForeColor = Color.Black;
             this.dgDocumentsRecords.DefaultCellStyle.BackColor = Color.White;
             this.dgDocumentsRecords.DefaultCellStyle.SelectionForeColor = Color.White;
@@ -321,8 +330,8 @@ namespace FilingSystem2
             items.Add(new { Text = "File Box / Location", Value = "box_name" });
             items.Add(new { Text = "File Box / Location Tag Color", Value = "box_tag_color" });
             items.Add(new { Text = "Filed By", Value = "filed_by" });
-            items.Add(new { Text = "Date Filed", Value = "date_filed" });
-            items.Add(new { Text = "Date Received", Value = "date_received" });
+            //items.Add(new { Text = "Date Filed", Value = "date_filed" });
+            //items.Add(new { Text = "Date Received", Value = "date_received" });
 
 
             cbFilter.DataSource = items;
@@ -338,28 +347,17 @@ namespace FilingSystem2
             var unit = loginForm.LoginInfo.Unit;
             var role = loginForm.LoginInfo.Role;
 
-
             new addDocumentRecordForm(this).ShowDialog();
-
-            //MessageBox.Show("Hi, "+last_name, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             if(tbSearch.Text == "")
             {
                 dgDocumentsRecords.SetPagedDataSource(MyFiles(), bindingNavigator1);
-
             }
             else
             {
                 dgDocumentsRecords.DataSource = MyFiles(tbSearch.Text, cbFilter.SelectedValue.ToString());
-
             }
         }
 
@@ -463,6 +461,11 @@ namespace FilingSystem2
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             new addDocumentRecordForm(this).ShowDialog();
+        }
+
+        private void dgDocumentsRecords_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -14,9 +14,6 @@ namespace FilingSystem2
 {
     public partial class foldersForm : Form
     {
-
-        //OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"db_filingsystem.accdb"));
-
         MyConnectionString myConnectionString = new MyConnectionString();
         OleDbConnection con = new OleDbConnection();
 
@@ -24,7 +21,6 @@ namespace FilingSystem2
         OleDbDataAdapter da = new OleDbDataAdapter();
 
         FindControl fc = new FindControl();
-
 
         public foldersForm()
         {
@@ -81,7 +77,6 @@ namespace FilingSystem2
                         ON tfol.folder_tag_color = clr.ID)
                         ORDER BY tfol.ID DESC
                         ";
-
             }
             else
             {
@@ -100,7 +95,6 @@ namespace FilingSystem2
 
                         WHERE tfol.ID LIKE '%" + filter_by + "%' OR tfol.folder_code LIKE '%" + filter_by + "%' OR tfol.folder_name LIKE '%" + filter_by + "%' OR tfol.folder_description LIKE '%" + filter_by + "%' " +
                         "OR tfilbox.box_name LIKE '%" + filter_by + "%' OR usr.last_name LIKE '%" + filter_by + "%' OR usr.first_name LIKE '%" + filter_by + "%' OR clr.tag_color LIKE '%" + filter_by + "%' ";
-
             }
             con.Open();
             OleDbCommand cmd_select_folders = new OleDbCommand(sql, con);
@@ -112,7 +106,6 @@ namespace FilingSystem2
             con.Close();
             return dt;
         }
-
         public void loadFolders()
         {
             dgFolder.DataSource = MyFolders();
@@ -174,7 +167,6 @@ namespace FilingSystem2
 
         private void btnFileDocument_Click(object sender, EventArgs e)
         {
-
             if (tbFolderCode.Text == "" || tbFolderName.Text == "" || cbFileBox.Text == "")
             {
                 MessageBox.Show("Please fill out all fields", "Fill Out All Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -188,7 +180,6 @@ namespace FilingSystem2
 
                 if (reader.Read() == true)
                 {
-
                     MessageBox.Show("Folder name already exists. Please choose another.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     con.Close();
 
@@ -202,8 +193,6 @@ namespace FilingSystem2
                     //cmd.CommandType = CommandType.Text;
                     string sql = @"INSERT INTO tbl_folder(folder_code,folder_name, folder_description, file_box_id, folder_tag_color, created_by)
                                                     VALUES (@folder_code,@folder_name,@folder_description,@file_box_id,@folder_tag_color,@created_by)";
-                    
-
                     //cmd.Connection = con;
                     con.Open();
                     cmd = new OleDbCommand(sql, con);
@@ -226,10 +215,8 @@ namespace FilingSystem2
                     loadFolders();
                     clearFields();
                     MessageBox.Show("Record Inserted Successfully", "Success!");
-
                 }
             }
-
         }
 
         private void clearFields() {
@@ -257,7 +244,6 @@ namespace FilingSystem2
             if(dgFolder.SelectedRows.Count > 0)
             {
                 new EditFolderForm(this).ShowDialog();
-
             }
         }
 
@@ -265,11 +251,6 @@ namespace FilingSystem2
         {
             //Console.WriteLine(tbSearch.Text);
             dgFolder.DataSource = MyFolders(tbSearch.Text);
-
-        }
-
-        private void tbFolderCode_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -322,8 +303,6 @@ namespace FilingSystem2
 
                 }
             }
-            
-
         }
 
         private void llColor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -339,11 +318,6 @@ namespace FilingSystem2
         private void cbTagColor_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

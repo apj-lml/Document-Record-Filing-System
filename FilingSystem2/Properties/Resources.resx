@@ -118,23 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="add-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tacking-login bg 111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tacking-login bg 111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DRFS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DRFS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="users 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users 32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="new-bg-for-login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new-bg-for-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="75x75" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\75x75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mysettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\mysettings;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="logo125x125" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo125x125.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splash screen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash screen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="nia-pimo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nia-pimo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,8 +142,8 @@
   <data name="padlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\padlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bg-for-dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-for-dashboard3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="data-transfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\data-transfer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +157,8 @@
   <data name="transfer-folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\transfer-folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="users 32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\users 32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="archives" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\archives.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,29 +169,32 @@
   <data name="dashboard1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboard11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="archives" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\archives.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="splash screen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash screen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tacking-login 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tacking-login 21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loginscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loginscreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mysettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\mysettings;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tacking-login bg 111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tacking-login bg 111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loginscreen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loginscreen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plus-symbol-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus-symbol-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TrajanPro_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TrajanPro-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="drfs2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drfs2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="diskette-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,19 +205,16 @@
   <data name="plus-symbol-button (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus-symbol-button (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tacking-login bg 1111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tacking-login bg 1111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="user (22)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user (22).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tacking-login 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tacking-login 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="splash screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash screen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="drfs3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drfs3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="75x75" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\75x75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg-for-dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg-for-dashboard1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="splash screen4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splash screen4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

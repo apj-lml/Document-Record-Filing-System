@@ -22,7 +22,9 @@ namespace FilingSystem2
                 _pageSize = value;
             }
         }
-        public int _pageSize = 50;
+
+        public int _pageSize = 55;
+
         BindingSource bs = new BindingSource();
         BindingList<DataTable> tables = new BindingList<DataTable>();
         public void SetPagedDataSource(DataTable dataTable, BindingNavigator bnav)

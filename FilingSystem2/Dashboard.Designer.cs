@@ -46,6 +46,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsViewDocument = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@
             this.btnFileDocument = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.dgDocumentsRecords = new FilingSystem2.SuperGrid();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,13 +81,13 @@
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -269,7 +269,6 @@
             this.btnDashboard.Text = "  DASHBOARD";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel3
             // 
@@ -344,6 +343,25 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1166, 525);
             this.panel9.TabIndex = 4;
+            // 
+            // dgDocumentsRecords
+            // 
+            this.dgDocumentsRecords.AllowUserToAddRows = false;
+            this.dgDocumentsRecords.AllowUserToDeleteRows = false;
+            this.dgDocumentsRecords.AllowUserToResizeRows = false;
+            this.dgDocumentsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgDocumentsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
+            this.dgDocumentsRecords.MultiSelect = false;
+            this.dgDocumentsRecords.Name = "dgDocumentsRecords";
+            this.dgDocumentsRecords.PageSize = 50;
+            this.dgDocumentsRecords.ReadOnly = true;
+            this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgDocumentsRecords.Size = new System.Drawing.Size(1166, 525);
+            this.dgDocumentsRecords.TabIndex = 1;
+            this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
             // 
             // contextMenuStrip1
             // 
@@ -618,25 +636,6 @@
             this.tbSearch.TabIndex = 2;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // dgDocumentsRecords
-            // 
-            this.dgDocumentsRecords.AllowUserToAddRows = false;
-            this.dgDocumentsRecords.AllowUserToDeleteRows = false;
-            this.dgDocumentsRecords.AllowUserToResizeRows = false;
-            this.dgDocumentsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgDocumentsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDocumentsRecords.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgDocumentsRecords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgDocumentsRecords.Location = new System.Drawing.Point(0, 0);
-            this.dgDocumentsRecords.MultiSelect = false;
-            this.dgDocumentsRecords.Name = "dgDocumentsRecords";
-            this.dgDocumentsRecords.PageSize = 10;
-            this.dgDocumentsRecords.ReadOnly = true;
-            this.dgDocumentsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDocumentsRecords.Size = new System.Drawing.Size(1166, 525);
-            this.dgDocumentsRecords.TabIndex = 1;
-            this.dgDocumentsRecords.DoubleClick += new System.EventHandler(this.btnViewDocument_Click);
-            // 
             // dashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,6 +656,7 @@
             this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -666,7 +666,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDocumentsRecords)).EndInit();
             this.ResumeLayout(false);
 
         }

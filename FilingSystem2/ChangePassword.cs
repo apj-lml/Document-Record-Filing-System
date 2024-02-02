@@ -24,12 +24,7 @@ namespace FilingSystem2
         public ChangePassword()
         {
             InitializeComponent();
-            myConnectionString.MyConnection();
-        }
-
-        private void ChangePassword_Load(object sender, EventArgs e)
-        {
-
+            con = myConnectionString.MyConnection();
         }
 
         private void btnSaveChangesDocument_Click(object sender, EventArgs e)
@@ -49,7 +44,9 @@ namespace FilingSystem2
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
+
                     MessageBox.Show("Successfully changed password! ", "Password Changed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.Hide();
                 }
                 else

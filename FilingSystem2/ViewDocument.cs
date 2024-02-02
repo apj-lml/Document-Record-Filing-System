@@ -92,5 +92,9 @@ namespace FilingSystem2
             new EditDocument(_dashboardForm).ShowDialog();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

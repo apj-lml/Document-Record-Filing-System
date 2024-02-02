@@ -7,7 +7,7 @@
     <ProjectGuid>{6C48E9D0-EEC7-420D-B190-557D7121272B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FilingSystem2</RootNamespace>
-    <AssemblyName>DocumentRecordFilingSystem</AssemblyName>
+    <AssemblyName>DocumentFilingSystem</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -24,8 +24,10 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <UpdateUrl>\\W1ND0W\Users\Public\Documents\Admin Unit Files %28Shared%29\drfs installer\</UpdateUrl>
-    <ApplicationRevision>30</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ProductName>Document Filing System</ProductName>
+    <PublisherName>Aljohn Jacinto</PublisherName>
+    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -42,19 +44,20 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -327,9 +330,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tacking-login 3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\TrajanPro-Regular.ttf" />
     <None Include="Resources\user.png" />
   </ItemGroup>
@@ -368,7 +368,6 @@
     <None Include="Resources\plus-symbol-button.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tacking-login 21.png" />
     <None Include="Resources\tacking-login bg 111.png" />
     <None Include="Resources\transfer-folder.png" />
     <None Include="Resources\data-transfer.png" />
@@ -376,13 +375,21 @@
     <None Include="Resources\user %2822%29.png" />
     <Content Include="PAD_icon-icons.com_54953.ico" />
     <Content Include="Pad_icon-icons.com_54983.ico" />
-    <None Include="Resources\tacking-login bg 1111.png" />
     <None Include="Resources\nia-pimo.png" />
-    <None Include="Resources\DRFS.png" />
     <None Include="Resources\drfs2.png" />
     <None Include="Resources\drfs3.png" />
-    <None Include="Resources\new-bg-for-login.png" />
     <None Include="Resources\bg-for-dashboard1.png" />
+    <None Include="Resources\bg-for-dashboard2.png" />
+    <None Include="Resources\bg-for-dashboard3.png" />
+    <None Include="Resources\pink-fluid-dynamic-abstract-background.jpg" />
+    <None Include="Resources\splash screen.png" />
+    <None Include="Resources\loginscreen.png" />
+    <None Include="Resources\loginscreen1.png" />
+    <None Include="Resources\splash screen1.png" />
+    <None Include="Resources\loginscreen3.png" />
+    <None Include="Resources\splash screen2.png" />
+    <None Include="Resources\splash screen3.png" />
+    <None Include="Resources\splash screen4.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
