@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\W1ND0W\Users\Public\Documents\Admin Unit Files %28Shared%29\drfs installer\</PublishUrl>
+    <PublishUrl>\\W1ND0W\Cashiering Unit Files %28Shared%29\DITS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,10 +23,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <UpdateUrl>\\W1ND0W\Users\Public\Documents\Admin Unit Files %28Shared%29\drfs installer\</UpdateUrl>
     <ProductName>Document Filing System</ProductName>
     <PublisherName>Aljohn Jacinto</PublisherName>
-    <ApplicationRevision>39</ApplicationRevision>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>54</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -390,6 +391,9 @@
     <None Include="Resources\splash screen2.png" />
     <None Include="Resources\splash screen3.png" />
     <None Include="Resources\splash screen4.png" />
+    <None Include="Resources\loginscreen4.png" />
+    <None Include="Resources\splash screen5.png" />
+    <None Include="Resources\splash screen51.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

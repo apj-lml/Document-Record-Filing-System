@@ -203,6 +203,16 @@ namespace FilingSystem2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap loginscreen4 {
+            get {
+                object obj = ResourceManager.GetObject("loginscreen4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap logo125x125 {
             get {
                 object obj = ResourceManager.GetObject("logo125x125", resourceCulture);
@@ -326,6 +336,26 @@ namespace FilingSystem2.Properties {
         public static System.Drawing.Bitmap splash_screen4 {
             get {
                 object obj = ResourceManager.GetObject("splash screen4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap splash_screen5 {
+            get {
+                object obj = ResourceManager.GetObject("splash screen5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap splash_screen51 {
+            get {
+                object obj = ResourceManager.GetObject("splash screen51", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
